@@ -1,0 +1,9 @@
+.atm_postal-code {
+  input {
+    width: 95%;
+  }
+  @include breakpoint($smallScreen) {
+    @include col6;
+    padding-left: 0;
+  }
+}

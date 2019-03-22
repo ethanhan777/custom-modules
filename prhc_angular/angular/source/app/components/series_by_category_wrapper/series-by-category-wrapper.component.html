@@ -1,0 +1,9 @@
+<section
+class="container"
+*ngIf="categories.length">
+  <mlcl-category-slider
+  [isSeries]="true"
+  [category]="category"
+  [ignoreSeriesCode]="ignoreSeriesCode"
+  *ngFor="let category of categories"></mlcl-category-slider>
+</section>

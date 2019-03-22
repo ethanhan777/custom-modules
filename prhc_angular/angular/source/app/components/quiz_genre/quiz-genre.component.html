@@ -1,0 +1,40 @@
+<mlcl-hero-title
+class="cmpnt_paragraph-narrow mlcl_quiz-title"
+[title]="title"></mlcl-hero-title>
+
+<div  class="cmpnt_quiz-genre-grid">
+  <fieldset
+  class="mlcl_quiz-select mlcl_quiz-genre"
+  *ngFor="let option of updatedOptions.fiction">
+    <input
+    [attr.checked]="option.active"
+    type="{{type}}"
+    value="{{option.name}}"
+    name="{{option.name}}"
+    [disabled]="genres.genresCodes.length >= 5 && genres.genresCodes.indexOf(option.catId) < 0"
+    (click)="humanType(option.catId, option.segCode)">
+
+    <label>
+      <img src="{{option.icon}}" alt="{{option.name}} category">
+      {{option.name}}
+    </label>
+  </fieldset>
+</div>
+
+<div class="cmpnt_quiz-genre-grid">
+  <fieldset
+  class="mlcl_quiz-select mlcl_quiz-genre"
+  *ngFor="let option of updatedOptions.nonFiction">
+    <input
+    [attr.checked]="option.active"
+    type="{{type}}"
+    value="{{option.name}}"
+    name="{{option.name}}"
+    [disabled]="genres.genresCodes.length >= 5 && genres.genresCodes.indexOf(option.catId) < 0"
+    (click)="humanType(option.catId, option.segCode)">
+
+    <label>
+      <img src="{{option.icon}}" alt="{{option.name}} category">
+      {{option.name}}</label>
+  </fieldset>
+</div>

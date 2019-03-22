@@ -1,0 +1,10 @@
+// on tour flag
+.atm_on-tour {
+  font-family: $fontLight;
+  font-size: 1rem;
+  color: $white;
+  background: url('/themes/custom/penguin/images/on-tour.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 0 $smallSpace;
+}

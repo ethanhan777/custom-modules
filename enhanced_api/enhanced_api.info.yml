@@ -1,0 +1,6 @@
+name: PRH Enhanced API
+description: Views integration for PRH Enhanced API JSON data
+package: Penguin Custom
+
+type: module
+core: 8.x

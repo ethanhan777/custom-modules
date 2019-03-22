@@ -1,0 +1,7 @@
+@import 'form-input';
+
+input[type=file] {
+  padding: $extraSmallSpace 0;
+  border: none;
+  cursor: pointer;
+}

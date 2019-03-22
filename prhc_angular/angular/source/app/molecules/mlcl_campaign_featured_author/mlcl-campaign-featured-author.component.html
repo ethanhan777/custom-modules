@@ -1,0 +1,35 @@
+  <section class="container" *ngIf="author">
+    <div class="cmpnt_featured">
+      <h2
+      class="atm_featured-heading"
+      *ngIf="customHeading">{{customHeading}}</h2>
+
+      <mlcl-cover-small class="atm_featured-image"
+      [cover]="author.photo"
+      [width]="210"
+      [title]="author.display"
+      [seoFriendlyUrl]="author.seoFriendlyUrl"
+      (click)="onClick()"></mlcl-cover-small>
+
+      <div class="atm_grid-book-detail"
+      [ngClass]="customHeading ? '' : 'atm_grid-book-detail-wide'">
+        <h4>
+          <a
+          href="{{author.seoFriendlyUrl}}"
+          (click)="onClick()">{{author.display}}</a>
+        </h4>
+
+        <p
+        *ngIf="customDescription"
+        [innerHtml]="customDescription"></p>
+
+        <div class="mlcl_featured-buttons">
+          <atm-button
+          [label]="button.label"
+          [seoFriendlyUrl]="button.seoFriendlyUrl"
+          (clicked)="onClick($event)"
+          *ngFor="let button of buttons"></atm-button>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,36 @@
+.cmpnt_hero-guide-light,
+.cmpnt_hero-guide-dark {
+  display: flex;
+  flex-direction: column;
+  margin: -$mediumSpace 0 0 0;
+  max-width: 100%;
+
+  @include breakpoint($mediumScreen) {
+    margin: -$giantSpace 0 0 0;
+  }
+
+  .mlcl_hero-image {
+    margin: 0;
+    order: 2;
+
+    img {
+      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .mlcl_hero-content {
+    background: transparent;
+    padding-top: $giantSpace;
+  }
+}
+
+.cmpnt_hero-guide-light {
+  background-color: $extraLightGrey;
+}
+
+.cmpnt_hero-guide-dark {
+  background-color: $extraDarkGrey;
+  color: $extraLightGrey;
+}

@@ -1,0 +1,13 @@
+<mlcl-hero-title
+class="cmpnt_paragraph-narrow mlcl_quiz-title"
+[title]="title"
+[subtitle]="subtitle"></mlcl-hero-title>
+
+<!-- <mlcl-nl-context-form
+[noSignupButton]="true"
+(validFormFlag)="isFormValid($event)"></mlcl-nl-context-form> -->
+
+<nl-signup-by-context
+[contentType]="'book-finder'"
+[signupButtonFlag]="false"
+(stepAction)="step($event)"></nl-signup-by-context>

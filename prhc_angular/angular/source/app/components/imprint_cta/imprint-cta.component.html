@@ -1,0 +1,13 @@
+
+<section  *ngIf="campaignComponents.length">
+  <div
+  class="container cmpnt_campaign-section"
+  *ngFor="let component of campaignComponents">
+
+    <!-- cta -->
+    <mlcl-campaign-cta
+    [cta]="component"></mlcl-campaign-cta>
+
+    <!-- contest -->
+  </div>
+</section>

@@ -1,0 +1,23 @@
+.mlcl_indie-view-icons {
+  color: $darkGrey;
+  margin-bottom: 0;
+  cursor: pointer;
+
+  * {
+    border: 2px solid $extraDarkGrey;
+    margin: 0 $extraSmallSpace / 2;
+  }
+
+  .atm_indie-view-icon-active {
+    color: $white;
+    background-color: $extraDarkGrey;
+    border: 2px solid $extraDarkGrey;
+    box-shadow: none;
+
+    &:hover {
+      border: 2px solid $penguinOrange;
+      box-shadow: none;
+      cursor: auto;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<section *ngIf="isLoaded" class="container">
+  <mlcl-category-slider-article
+  [category]="category"
+  [nodeInfo]="nodeInfo"
+  *ngFor="let category of categories"></mlcl-category-slider-article>
+</section>

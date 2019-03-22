@@ -1,0 +1,9 @@
+<div class="mlcl_ea-details">
+  <p>{{content.label}}
+    <span class="atm_caption">{{content.date}}</span>
+  </p>
+</div>
+<div class="mlcl_ea-title">
+  <a *ngIf="type === 'event'" href="/events/{{content.eventId}}">{{content.location}}</a>
+  <h4 *ngIf="type === 'award'">{{content.description}}</h4>
+</div>

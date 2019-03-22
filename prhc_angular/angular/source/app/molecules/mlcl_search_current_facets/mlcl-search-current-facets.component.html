@@ -1,0 +1,18 @@
+<section>
+  <a
+  [attr.aria-label]="'Selected Filter'"
+  class="atm_tag atm_tag-active"
+  *ngFor="let key of currentFacets | ObjNgFor"
+  (click)="removeFacet(key)">
+    <span *ngIf="key ==='comingSoon'">Coming Soon x</span>
+    <span *ngIf="key === 'newRelease'">New Release x</span>
+    <span *ngIf="key !== 'comingSoon' && key != 'newRelease'">
+      <span *ngIf="currentFacets[key] === 'work' || currentFacets[key] === 'isbn'">
+        Book x
+      </span>
+      <span *ngIf="currentFacets[key] !== 'work' && currentFacets[key] !== 'isbn'">
+        {{currentFacets[key]}} x
+      </span>
+    </span>
+  </a>
+</section>

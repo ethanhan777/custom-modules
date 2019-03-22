@@ -1,0 +1,101 @@
+<section class="cmpnt_search-bar container">
+  <!-- heading text -->
+  <h2 *ngIf="recordCount == 0" class="cmpnt_paragraph-narrow">
+    <span *ngIf="!isLoaded">
+      Searching...
+    </span>
+    <span *ngIf="isLoaded">
+      Sorry, we couldn't find anything that matched {{searchTerm}}.
+    </span>
+    <!-- no result with suggestion -->
+    <span *ngIf="suggestionsCount"> Did you mean:
+      <span *ngFor="let key of suggestions | ObjNgFor; let first = first;">
+        <span *ngIf="!first">, </span>
+        <a
+        *ngFor="let suggestion of suggestions[key]; let last = last;"
+        (click)="suggestedSearch(key, suggestion)">{{suggestion}}
+        <span *ngIf="!last">, </span> </a>
+      </span>
+    </span>
+
+    <!-- no result without suggestion -->
+    <span *ngIf="suggestionsCount == 0"> Try again?</span>
+  </h2>
+
+  <!-- search bar -->
+  <mlcl-search-bar class="cmpnt_paragraph-narrow"
+  [isLoaded]="isLoaded"
+  (newSearchTerm)="search($event, true)"></mlcl-search-bar>
+
+  <!-- result count -->
+  <small class="cmpnt_paragraph-narrow">
+    {{recordCount}} results for <strong>{{searchTerm}}</strong>
+  </small>
+</section>
+
+<mlcl-loader *ngIf="!isLoaded" class="mlcl_loader"></mlcl-loader>
+
+<section
+*ngIf="isLoaded && recordCount > 0"
+class="container cmpnt_facets-results">
+  <!-- search facet filters -->
+  <div class="cmpnt_facet-nav">
+    <mlcl-search-facet-doctype
+    *ngIf="docTypes && recordCount"
+    [facet]="docTypes"
+    [params]="params"
+    (onFacet)="setFacet($event)"
+    (facetToRemove)="removeFacet($event)"></mlcl-search-facet-doctype>
+
+    <!--  Link to opennav -->
+    <div class="mlcl_filter-nav-link"
+    (click)="keepNavOpen($event)"
+    (click)="mainNavToggle()">
+      <i class="fa" [ngClass]="navOpen ? 'fa-close' : 'fa-bars'"></i>
+      <small><strong>{{navLabel}}</strong></small>
+    </div>
+
+    <!-- Accordion Filters -->
+    <nav
+    id="cmpnt_filter-nav"
+    class="cmpnt_filter-nav"
+    (click)="keepNavOpen($event)"
+    [ngClass]="navOpen ? 'mlcl_nav-items-open' : ''">
+      <mlcl-search-facet-date
+      *ngIf="dateFacets && dateFacets.length && recordCount"
+      [dateFacets]="dateFacets"
+      (onFacet)="setFacet($event, true)"></mlcl-search-facet-date>
+
+      <mlcl-search-facet
+      *ngFor="let facet of facets"
+      [facet]="facet"
+      [params]="params"
+      (onFacet)="setFacet($event, true)"></mlcl-search-facet>
+    </nav>
+  </div>
+
+  <!-- search results -->
+  <div class="cmpnt_search-results">
+    <mlcl-search-current-facets
+    [currentFacets]="currentFacets"
+    (facetToRemove)="removeFacet($event)"></mlcl-search-current-facets>
+
+    <div *ngIf="results.length > 0">
+      <mlcl-cover-list-item
+      [item]="result"
+      *ngFor="let result of results"></mlcl-cover-list-item>
+    </div>
+
+    <mlcl-pagination
+    *ngIf="recordCount > rows"
+    [rows]="rows"
+    [currentStart]="currentStart"
+    [resultCount]="recordCount"
+    (start)="getPaginatedData($event)"></mlcl-pagination>
+  </div>
+</section>
+
+<!-- Show new releases slider when there is no results or on 404 page -->
+<section *ngIf="isLoaded && recordCount == 0" class="container">
+  <new-release></new-release>
+</section>

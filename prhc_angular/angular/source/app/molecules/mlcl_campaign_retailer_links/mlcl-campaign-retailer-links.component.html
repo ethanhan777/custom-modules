@@ -1,0 +1,34 @@
+<section class="mlcl_cta-button">
+
+  <!-- indie retailer link -->
+  <a (click)="lightbox(true)">
+    <button>{{heading}}</button>
+  </a>
+
+</section>
+
+<section
+aria-label="Overlay with options to buy this book"
+tabindex="-1"
+(click)="lightbox(false)"
+*ngIf="lightboxOn"
+[ngClass]="lightboxOn ? 'cmpnt_lightbox' : 'cmpnt_lightbox-inactive'">
+
+  <div
+  class="mlcl_lb-inner"
+  (click)="keepLightboxOn($event)">
+
+    <button (click)="lightbox(false)" class="atm_close">
+      <span class="fa fa-times" aria-label="Close Lightbox"></span>
+    </button>
+
+    <!-- Shop Independent -->
+    <mlcl-buy-independent
+    *ngIf="lightboxOn"
+    [isbn]="isbn"></mlcl-buy-independent>
+
+  </div>
+
+</section>
+
+

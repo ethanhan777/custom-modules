@@ -1,0 +1,37 @@
+ol {
+  font-family: $bodyFont;
+  font-size: 1.25rem;
+  line-height: 1.625rem;
+  margin-left: $extraSmallSpace;
+  @include breakpoint ($mediumScreen) {
+    margin-left: $mediumSpace;
+  }
+  counter-reset: item;
+
+  li {
+    margin: $extraSmallSpace 0;
+    margin-left: 1em;
+    list-style-type: none;
+    counter-increment: item;
+
+    &::before {
+      position: absolute;
+      display: inline-block;
+      width: 1em;
+      font-family: $fontBold;
+      content: counter(item) ".";
+      margin-left: -1em;
+    }
+
+    strong,
+    b {
+      font-family: $fontMedium;
+      font-style: bold;
+    }
+
+    em,
+    i {
+      font-style: italic;
+    }
+  }
+}

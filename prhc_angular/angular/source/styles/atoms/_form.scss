@@ -1,0 +1,14 @@
+form {
+  font-family: FortLight, Arial, sans-serif;
+  font-size: 1rem;
+
+  .valid:focus,
+  .valid {
+    border-left: 4px solid $formValid;
+  }
+
+  .invalid:focus,
+  .invalid {
+    border-left: 4px solid $formInvalid;
+  }
+}

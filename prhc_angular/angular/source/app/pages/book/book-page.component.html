@@ -1,0 +1,38 @@
+<ng-container *ngIf="book">
+
+  <hero-two-col
+  [content]="book"></hero-two-col>
+
+  <format-selector
+  [activeIsbn]="book.isbn"
+  [formats]="book.otherFormats"
+  (selectedFormat)="changeFormat($event)"></format-selector>
+
+  <nl-signup-by-context></nl-signup-by-context>
+
+  <related-recipes></related-recipes>
+
+  <book-details
+  [book]="book"></book-details>
+
+  <about-author-accordion></about-author-accordion>
+
+  <related-content></related-content>
+
+  <event-list-by-book-accordion
+  *ngIf="book.contributors"
+  [contributors]="book.contributors"></event-list-by-book-accordion>
+
+  <award-list
+  *ngIf="book.awards"
+  [awards]="book.awards"></award-list>
+
+  <book-praise
+  *ngIf="book.praise"
+  [praise]="book.praise"></book-praise>
+
+  <more-in-series></more-in-series>
+
+  <more-in-category></more-in-category>
+
+</ng-container>

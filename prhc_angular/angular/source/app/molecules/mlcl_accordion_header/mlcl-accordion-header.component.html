@@ -1,0 +1,12 @@
+<button (click)="open()" class="mlcl_accordion-header">
+  <fa [name]="icon"></fa>
+  <span [innerHTML]="heading">
+    <!-- make atom for flag icons like <atm-ontour> -->
+    <atm-tag
+    [name]="headingTag.name"
+    [seoFriendlyUrl]="headingTag.seoFriendlyUrl"
+    *ngIf="headingTag"></atm-tag>
+
+    <atm-on-tour *ngIf="onTourFlag"></atm-on-tour>
+  </span>
+</button>

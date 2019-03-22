@@ -1,0 +1,49 @@
+<!-- Social Share -->
+<button
+[attr.aria-label]="'Share on ' + icon"
+*ngIf="!pinterestButton && !socialPage"
+class="atm_social-link"
+data-popup="true"
+(click)="buttonClicked()">
+  <fa [name]="icon"></fa>
+  <small *ngIf="label">{{label}}</small>
+</button>
+
+
+<button
+[attr.aria-label]="'Save to Pinterest'"
+*ngIf="pinterestButton && !socialPage"
+class="atm_social-link atm_social-link-pinterest">
+  <i
+  data-pin-do="buttonBookmark"
+  data-pin-custom="true"
+  data-pin-log="button_pinit_bookmarklet"
+  data-pin-href="https://www.pinterest.com/pin/create/button/"
+  class="fa fa-pinterest-p"></i>
+  <small *ngIf="label">{{label}}</small>
+</button>
+
+<!-- Social Page -->
+<a
+[attr.aria-label]="'Follow on ' + icon"
+*ngIf="!pinterestButton && socialPage"
+class="atm_social-link"
+href="{{seoFriendlyUrl}}"
+target="_blank"
+rel="noopener"
+(click)="buttonClicked()">
+  <fa [name]="icon"></fa>
+  <small *ngIf="label">{{label}}</small>
+</a>
+
+
+<a
+[attr.aria-label]="'Follow on ' + icon"
+*ngIf="pinterestButton && socialPage"
+href="{{seoFriendlyUrl}}"
+target="_blank"
+rel="noopener"
+class="atm_social-link atm_social-link-pinterest">
+  <i class="fa fa-pinterest-p"></i>
+  <small *ngIf="label">{{label}}</small>
+</a>

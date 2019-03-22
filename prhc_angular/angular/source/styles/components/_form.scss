@@ -1,0 +1,51 @@
+@import '../atoms/form-checkbox';
+@import '../atoms/form-color';
+@import '../atoms/form-email';
+@import '../atoms/form-fieldset';
+@import '../atoms/form-file';
+@import '../atoms/form-input';
+@import '../atoms/form-radio';
+@import '../atoms/form-select';
+@import '../atoms/form-slider';
+@import '../atoms/form-text-area';
+@import '../atoms/form-postal-code';
+@import '../atoms/form-required';
+
+.cmpnt_form {
+  background-color: $extraLightGrey;
+  padding: $smallSpace;
+  @include borderRadius;
+
+  .mlcl_form-2col {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    fieldset {
+      @include col12;
+      @include breakpoint($mediumScreen) {
+        @include col6;
+      }
+    }
+
+    select {
+      background-color: $white;
+    }
+  }
+
+  .mlcl_form-name {
+    @include col12;
+    @include breakpoint($mediumScreen) {
+      @include col6;
+    }
+  }
+
+  .atm_form-tel,
+  .atm_form-color {
+    @include col6;
+  }
+}
+
+.cmpnt_form-preferences {
+  margin-top: $giantSpace;
+}

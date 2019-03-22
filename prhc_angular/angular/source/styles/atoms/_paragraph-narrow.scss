@@ -1,0 +1,6 @@
+//styling for paragraphs for better line-length
+.cmpnt_paragraph-narrow {
+  display: block;
+  max-width: $largeWidth;
+  margin: 0 auto;
+}

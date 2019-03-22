@@ -1,0 +1,32 @@
+<section class="container" *ngIf="recipeConclusion && (recipeConclusion.conclusion || recipeConclusion.copyright)">
+
+  <div
+  [attr.aria-label]="'Accordion: ' + recipeConclusion.accordion.heading"
+  [attr.aria-expanded]="recipeConclusion.accordion.toggle"
+  class="container cmpnt_accordion"
+  [ngClass]="recipeConclusion.accordion.id ? 'accordion-section-' + recipeConclusion.accordion.id : ''">
+
+    <mlcl-accordion-header
+    [id]="recipeConclusion.accordion.id"
+    [heading]="recipeConclusion.accordion.heading"
+    [icon]="recipeConclusion.accordion.chevron"
+    (accordionOpen)="accordionOpen(recipeConclusion.accordion)"></mlcl-accordion-header>
+
+    <div
+    *ngIf="recipeConclusion.accordion.toggle"
+    class="cmpnt_accordion-items"
+    [ngClass]="recipeConclusion.accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+
+      <p
+      class="cmpnt_paragraph-narrow"
+      *ngIf="recipeConclusion.conclusion"
+      [innerHtml]="recipeConclusion.conclusion"></p>
+
+      <p
+      class="cmpnt_paragraph-narrow"
+      *ngIf="recipeConclusion.copyright"
+      [innerHtml]="recipeConclusion.copyright"></p>
+    </div>
+  </div>
+
+</section>

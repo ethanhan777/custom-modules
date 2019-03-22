@@ -1,0 +1,9 @@
+// Bigger images on recipe pages
+.cmpnt_hero-excerpted-from {
+  .mlcl_hero-img {
+    margin: $smallSpace auto;
+    @include breakpoint($mediumScreen) {
+      @include col6;
+    }
+  }
+}

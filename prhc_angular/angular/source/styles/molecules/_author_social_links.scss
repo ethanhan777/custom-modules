@@ -1,0 +1,14 @@
+@import '../atoms/anchors';
+@import '../atoms/social-label';
+
+/*
+written by acressall
+- styling for the social links in the connect component
+*/
+.mlcl_author_social_links {
+  border-bottom: 1px solid $mediumGrey;
+  margin: 0 $extraSmallSpace;
+  @include breakpoint ($mediumScreen) {
+    margin: 0 $mediumSpace;
+  }
+}

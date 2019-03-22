@@ -1,0 +1,53 @@
+<section
+aria-label="Overlay with options to buy this book"
+tabindex="-1"
+(click)="lightboxOff()"
+*ngIf="lightboxOn && title"
+[ngClass]="lightboxOn ? 'cmpnt_lightbox' : 'cmpnt_lightbox-inactive'">
+
+  <div class=" mlcl_lb-inner"
+  (click)="keepLightboxOn($event)">
+
+    <button (click)="lightboxOff()" class="atm_close">
+      <span class="fa fa-times" aria-label="Close Lightbox"></span>
+    </button>
+
+    <!-- On Screen One -->
+    <h4 *ngIf="!independent" class="mlcl_header atm_lightbox-header">
+      Buy <i>{{title.title}}</i>
+    </h4>
+
+    <!-- Part One -->
+    <section class="cmpnt_paragraph-narrow">
+
+      <mlcl-cover-list-item
+      *ngIf="!independent"
+      [item]="title"
+      [smallText]="title.parsedOnSale"
+      (clicked)="changeFormat($event)"></mlcl-cover-list-item>
+
+      <!-- Shop Independent -->
+      <mlcl-buy-independent
+      *ngIf="independent"
+      [isbn]="isbn"></mlcl-buy-independent>
+
+      <h2 *ngIf="!independent" class="mlcl_grid-header">Select A Retailer</h2>
+      <h2 *ngIf="independent" class="mlcl_grid-header">Order Online</h2>
+      <p *ngFor="let item of retailers.titleRetailers">
+        <a
+        *ngIf="item.seoFriendlyUrl && item.name !== 'Shop Independent'"
+        href="{{item.seoFriendlyUrl}}"
+        target="_blank"
+        rel="noopener"
+        (click)="shopIndependent(item.name)">{{item.name}}</a>
+        <!-- indie retailer link -->
+        <a
+        *ngIf="item.seoFriendlyUrl && item.name === 'Shop Independent' && !independent"
+        href="{{item.seoFriendlyUrl}}"
+        (click)="shopIndependent(item.name)">{{item.name}}</a>
+      </p>
+    </section>
+
+  </div>
+  <p class="atm_close-bottom"><button (click)="lightboxOff()">close</button></p>
+</section>

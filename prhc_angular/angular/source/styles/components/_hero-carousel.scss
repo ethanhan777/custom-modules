@@ -1,0 +1,38 @@
+.cmpnt_hero-carousel {
+  margin: $smallSpace;
+  @include breakpoint($mediumScreen) {
+    margin: $smallSpace $mediumSpace;
+  }
+  @include breakpoint($giantScreen) {
+    max-width: $giantWidth;
+    margin: $smallSpace auto;
+  }
+
+  .cmpnt_hero-article {
+    margin: 0;
+  }
+
+  .mlcl_carousel-arrows {
+    @include col11;
+    margin: 0 auto;
+    position: absolute;
+    bottom: $largeSpace;
+    left: 0;
+    right: 0;
+    z-index: $z-levelOne;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include breakpoint($mediumScreen) {
+      @include col10;
+    }
+  }
+
+  .mlcl_carousel-arrows-hidden {
+    display: none;
+  }
+
+  .cmpnt_hero-controls .mlcl_hero-image {
+    margin-bottom: 0;
+  }
+}

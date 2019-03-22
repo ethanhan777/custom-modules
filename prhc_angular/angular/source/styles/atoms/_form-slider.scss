@@ -1,0 +1,101 @@
+@import 'form-input';
+
+//Range Slider
+input[type=range] {
+  height: auto;
+  padding: $extraSmallSpace 0;
+  border: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: $extraDarkGrey;
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid $white;
+    border-radius: 100%;
+    margin-top: -$extraSmallSpace / 2;
+    cursor: pointer;
+    @include boxShadowNormal;
+    transition: all 0.25s ease;
+  }
+
+  &::-moz-range-thumb {
+    background-color: $extraDarkGrey;
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid $white;
+    border-radius: 100%;
+    margin-top: -$extraSmallSpace / 2;
+    cursor: pointer;
+    @include boxShadowNormal;
+    transition: all 0.25s ease;
+  }
+
+  &::-ms-thumb {
+    background-color: $extraDarkGrey;
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid $white;
+    border-radius: 100%;
+    margin-top: -$extraSmallSpace / 2;
+    cursor: pointer;
+    @include boxShadowNormal;
+    transition: all 0.25s ease;
+  }
+
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: $smallSpace;
+    background-color: $mediumGrey;
+    @include pillRadius;
+    transition: all 0.25s ease;
+  }
+
+  &::-moz-range-track {
+    width: 100%;
+    height: $smallSpace;
+    background-color: $mediumGrey;
+    @include pillRadius;
+    transition: all 0.25s ease;
+  }
+
+  &::-ms-track {
+    width: 100%;
+    height: $smallSpace;
+    background-color: $mediumGrey;
+    @include pillRadius;
+    transition: all 0.25s ease;
+  }
+}
+
+input[type=range]:focus {
+  &::-webkit-slider-thumb {
+    background-color: $white;
+    border: 1px solid $extraDarkGrey;
+    @include boxShadowHover;
+  }
+
+  &::-moz-range-thumb {
+    background-color: $white;
+    border: 1px solid $extraDarkGrey;
+    @include boxShadowHover;
+  }
+
+  &::-ms-thumb {
+    background-color: $white;
+    border: 1px solid $extraDarkGrey;
+    @include boxShadowHover;
+  }
+
+  &::-webkit-slider-runnable-track {
+    background-color: $darkGrey;
+  }
+
+  &::-moz-range-track {
+    background-color: $darkGrey;
+  }
+
+  &::-ms-track {
+    background-color: $darkGrey;
+  }
+}

@@ -1,0 +1,394 @@
+<section class="container">
+  <p class="mlcl_status"
+  *ngIf="webformMessage.length"
+  [innerHtml]="webformMessage"></p>
+
+  <form
+  class="cmpnt_paragraph-narrow cmpnt_form"
+  #f="ngForm"
+  *ngIf="webformMessage.length === 0"
+  (ngSubmit)="onSubmit(f)"
+  novalidate>
+
+    <!-- All the other elements -->
+    <ng-container *ngFor="let element of formElements">
+
+      <!-- Name fields -->
+      <ng-container *ngIf="formInFocus && element.label === 'First Name' || formInFocus && element.label === 'Last Name'">
+        <fieldset
+        class="{{element.class}} mlcl_form-name"
+        *ngIf="element.label === 'First Name'">
+          <small class="atm_small-medium">
+            <label>
+              {{element.label}}
+              <span
+              class="atm_form-required"
+              *ngIf="element.required">*</span>
+            </label>
+          </small>
+
+          <input
+          type="{{element.type}}"
+          name="{{element.name}}"
+          placeholder="{{element.placeholder}}"
+          required="{{element.required}}"
+          [ngClass]="element.required && element.value.length ? 'valid' : 'invalid'"
+          [(ngModel)]="element.value">
+        </fieldset>
+
+        <fieldset
+        class="{{element.class}} mlcl_form-name"
+        *ngIf="element.label === 'Last Name'">
+          <small class="atm_small-medium">
+            <label>
+              {{element.label}}
+              <span
+              class="atm_form-required"
+              *ngIf="element.required">*</span>
+            </label>
+          </small>
+
+          <input
+          type="{{element.type}}"
+          name="{{element.name}}"
+          placeholder="{{element.placeholder}}"
+          required="{{element.required}}"
+          [ngClass]="element.required && element.value.length ? 'valid' : 'invalid'"
+          [(ngModel)]="element.value">
+        </fieldset>
+      </ng-container>
+      <!-- Standard elements -->
+
+      <!-- Email -->
+      <fieldset
+      class="{{element.class}}"
+      *ngIf="element.type === 'email'">
+        <small class="atm_small-medium">
+          <label>
+            {{element.label}}
+            <span
+            class="atm_form-required"
+            *ngIf="element.required">*</span>
+          </label>
+        </small>
+
+        <input
+        name="{{element.name}}"
+        type="{{element.type}}"
+        pattern="[^ @]*@[^ @]*"
+        placeholder="{{element.placeholder}}"
+        autocomplete='email'
+        required="{{element.required}}"
+        (keyup)="isEmailValid()"
+        (focus)="emailInFocus()"
+        [ngClass]="isValidEmail ? 'valid' : 'invalid'"
+        [(ngModel)]="email">
+      </fieldset>
+
+      <!-- Address -->
+      <div
+      class="mlcl_form-2col"
+      *ngIf="element.label === 'Address' && formInFocus">
+        <ng-container *ngFor="let child of element.children">
+
+          <!-- Inputs -->
+            <fieldset
+            class="{{element.class}}"
+            *ngIf="child[1]['#type']==='textfield' && child[1]['#access']!=false">
+              <small class="atm_small-medium">
+                <label>
+                  {{child[1]['#title']}}
+                  <span
+                  class="atm_form-required"
+                  *ngIf="element.required && child[0] != 'address_2' || child[1]['#required'] && child[0] != 'address_2'">*</span>
+                </label>
+              </small>
+
+              <input
+              type="{{child[1]['#type']}}"
+              name="{{child[0]}}"
+              placeholder="{{element.placeholder}}"
+              required="{{element.required && child[0] != 'address_2'}}"
+              [ngClass]="(element.required &&
+              child[0] != 'address_2' &&
+              child.value.length) ||
+              child[0] == 'address_2' ||
+              !element.required ? 'valid' : 'invalid'"
+              [(ngModel)]="child.value">
+            </fieldset>
+
+            <!-- Select fields -->
+            <fieldset
+            class="{{element.class}}"
+            *ngIf="child[1]['#type']==='select' && child[1]['#access']!=false">
+              <small class="atm_small-medium">
+                <label>
+                  {{child[1]['#title']}}
+                  <span
+                  class="atm_form-required"
+                  *ngIf="element.required || child[1]['#required']">*</span>
+                </label>
+              </small>
+
+                <select
+                *ngIf="child[0] === 'state_province'"
+                name="{{child[0]}}"
+                required="{{element.required}}"
+                [ngClass]="element.required && provinceState.length || !element.required ? 'valid' : 'invalid'"
+                [(ngModel)]="provinceState">
+                  <option value="" selected disabled>---Choose One---</option>
+                  <option
+                  *ngFor="let option of provinceOptions"
+                  ngValue="{{option.name}}">{{option.name}}</option>
+                </select>
+                <select
+                  *ngIf="child[0] === 'country'"
+                  name="{{child[0]}}"
+                  required="{{element.required}}"
+                  [(ngModel)]="child.value"
+                  (ngModelChange)="loadProvinces($event)">
+                    <option
+                    *ngFor="let option of child.options"
+                    ngValue="{{option.country}}">{{option.name}}</option>
+                </select>
+
+                <i class="fa fa-angle-down mlcl_select-arrow" aria-hidden="true"></i>
+            </fieldset>
+        </ng-container>
+      </div>
+
+      <!-- Non-standard elements -->
+
+      <ng-container
+      *ngIf="
+        element.label !=='First Name' &&
+        element.label !=='Last Name' &&
+        element.label !=='Address' &&
+        element.type !=='email' &&
+        formInFocus">
+
+        <!-- inputs -->
+        <fieldset
+        class="{{element.class}}"
+        *ngIf="
+        element.input &&
+        !element.children &&
+        element.type !== 'checkbox' &&
+        element.type !== 'radio' &&
+        element.type !== 'checkboxes' &&
+        element.type !== 'radios'">
+          <small class="atm_small-medium">
+            <label>
+              {{element.label}}
+              <span
+              class="atm_form-required"
+              *ngIf="element.required">*</span>
+            </label>
+          </small>
+
+          <input
+          type="{{element.type}}"
+          name="{{element.name}}"
+          placeholder="{{element.placeholder}}"
+          required="{{element.required}}"
+          [ngClass]="element.required && element.value.length ? 'valid' : 'invalid'"
+          [(ngModel)]="element.value">
+        </fieldset>
+
+        <!-- checkboxes -->
+        <fieldset
+        class="{{element.class}}"
+        *ngIf="element.input && element.type == 'checkbox'">
+          <input
+          id="{{element.name}}"
+          type="{{element.type}}"
+          name="{{element.name}}"
+          required="{{element.required}}"
+          [ngClass]="element.required && element.valueBoolean ? 'valid' : 'invalid'"
+          (change)="checkboxChange($event, element)"
+          [(ngModel)]="element.valueBoolean">
+
+          <label for="{{element.name}}">
+            {{element.name === 'contest_rules' ? 'I agree' : element.label}}
+            <span
+            class="atm_form-required"
+            *ngIf="element.required">*</span>
+          </label>
+
+          <ng-container *ngIf="element.name === 'contest_rules'">
+            <label
+            *ngIf="element.desc['#markup']"
+            class="atm_checkbox">{{element.desc['#markup']}}</label>
+
+            <label
+            *ngIf="officialRule"
+            class="atm_checkbox">
+              See <a href="{{officialRule.url}}" target="_blank" rel="noopener">{{officialRule.title}}</a> for full details.
+            </label>
+          </ng-container>
+        </fieldset>
+
+        <!-- radio buttons -->
+        <fieldset
+        class="{{element.class}}"
+        *ngIf="element.input && element.type == 'radio'">
+          <input
+          id="{{element.name}}"
+          type="{{element.type}}"
+          name="{{element.name}}"
+          value="{{element.label}}"
+          required="{{element.required}}"
+          [ngClass]="element.required && element.value ? 'valid' : 'invalid'"
+          [(ngModel)]="element.value">
+
+          <label for="{{element.name}}">
+            {{element.label}}
+            <span
+            class="atm_form-required"
+            *ngIf="element.required">*</span>
+          </label>
+        </fieldset>
+
+        <!-- Checkbox & Radio Select -->
+        <fieldset
+        class="{{element.class}}"
+        *ngIf="element.type === 'checkboxes'">
+          <small class="atm_small-medium">
+            <label>
+              {{element.label}}
+              <span
+              class="atm_form-required"
+              *ngIf="element.required">*</span>
+            </label>
+          </small>
+
+          <fieldset *ngFor="let option of element.options">
+            <input
+            id="{{element.name}}-{{option[0]}}"
+            type="checkbox"
+            value="{{option[0]}}"
+            (change)="checkboxChange($event, element, option)">
+
+            <label for="{{element.name}}-{{option[0]}}">
+              {{checkboxSelected}} {{option[0]}}
+            </label>
+          </fieldset>
+        </fieldset>
+
+        <fieldset
+        class="{{element.class}}"
+        *ngIf="element.type=== 'radios'">
+          <small class="atm_small-medium">
+            <label>
+              {{element.label}} - {{element.value}}
+              <span
+              class="atm_form-required"
+              *ngIf="element.required">*</span>
+            </label>
+          </small>
+
+          <fieldset *ngFor="let option of element.options">
+            <input
+            type="radio"
+            name="{{element.name}}"
+            value="{{option[0]}}"
+            required="{{element.required}}"
+            [ngClass]="element.required && element.value.length ? 'valid' : 'invalid'"
+            [(ngModel)]="element.value">
+
+            <label *ngIf="element.type === 'radios'">
+              {{radioSelected}} {{option[0]}}
+            </label>
+          </fieldset>
+        </fieldset>
+
+        <!-- Select fields -->
+        <fieldset
+        class="{{element.class}}"
+        *ngIf="element.type ==='select'">
+          <small class="atm_small-medium">
+            <label>
+              {{element.label}}
+              <span
+              class="atm_form-required"
+              *ngIf="element.required">*</span>
+            </label>
+          </small>
+
+          <select
+          name="{{element.name}}"
+          required="{{element.required}}"
+          [ngClass]="element.required && element.value.length ? 'valid' : 'invalid'"
+          [(ngModel)]="element.value">
+            <option value="" selected disabled>---Choose One---</option>
+            <option
+            *ngFor="let option of element.options"
+            ngValue="{{option[0]}}">{{option[0]}}</option>
+          </select>
+          <i class="fa fa-angle-down mlcl_select-arrow" aria-hidden="true"></i>
+
+        </fieldset>
+
+        <!-- element with children -->
+        <ng-container *ngFor="let child of element.children">
+          <!-- text fields -->
+          <!-- <fieldset
+          class="{{element.class}}"
+          *ngIf="child[1]['#type']==='textfield'">
+            <small class="atm_small-medium">
+              {{child[1]['#title']}}
+              <span
+              class="atm_form-required"
+              *ngIf="element.required">*</span>
+            </small>
+
+            <input
+            type="{{child[1]['#type']}}"
+            name="{{child[1]['#title']}}"
+            placeholder="{{child[1]['#placeholder']}}"
+            required="{{element.required}}"
+            [ngClass]="element.required && element.value.length ? 'valid' : 'invalid'"
+            [(ngModel)]="child.value">
+          </fieldset> -->
+
+          <!-- select fields -->
+          <!-- <fieldset
+          class="{{element.class}}"
+          *ngIf="child[1]['#type']==='select'">
+            <small class="atm_small-medium">
+              {{child[1]['#title']}}
+              <span
+              class="atm_form-required"
+              *ngIf="element.required">*</span>
+            </small>
+
+            <select
+            name="{{child[1]['#title']}}"
+            required="{{element.required}}"
+            [ngClass]="element.required && element.value.length ? 'valid' : 'invalid'"
+            [(ngModel)]="child.value">
+              <option
+              *ngFor="let option of child.options"
+              ngValue="{{option[0]}}">{{option[0]}}</option>
+            </select>
+
+            <i class="fa fa-angle-down mlcl_select-arrow" aria-hidden="true"></i>
+          </fieldset> -->
+        </ng-container>
+      </ng-container>
+      <!-- End non-standard elements -->
+
+    </ng-container>
+
+    <mlcl-nl-legal
+    class="mlcl_global-signup-content"
+    *ngIf="formInFocus && webformConsent"
+    [required]="webformConsent.consentRequired"
+    (isAgreed)="isValidNlForm($event)"></mlcl-nl-legal>
+
+    <p class="mlcl_status mlcl_status-error" *ngIf="formValidationMessage.length">{{formValidationMessage}}</p>
+
+    <!-- <atm-button [label]="'Submit'"></atm-button> -->
+    <input type="submit" value="Submit">
+  </form>
+</section>

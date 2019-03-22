@@ -1,0 +1,41 @@
+<!-- <swiper aria-hidden=true></swiper> -->
+
+<div *ngIf="data.length" class="swiper-container" [swiper]="config">
+  <div
+  [ngClass]="heading ? '' : 'mlcl_slider-header-no-heading'"
+  class="mlcl_slider-header">
+    <h2 *ngIf="heading">
+      {{heading}}
+      <atm-tag
+      *ngIf="headingTag"
+      [name]="headingTag.name"
+      [seoFriendlyUrl]="headingTag.seoFriendlyUrl"></atm-tag>
+    </h2>
+    <p class="atm_slider-arrows">
+      <button class="slider-arrow-left fa"><fa [name]="'arrow-left'"></fa></button>
+      <button class="slider-arrow-right fa"><fa [name]="'arrow-right'"></fa></button>
+    </p>
+  </div>
+
+  <div
+  class="swiper-wrapper mlcl_slider-content"
+  *ngIf="data.length">
+    <mlcl-slider-item
+    class="swiper-slide mlcl_single-book mlcl_single-book-slide"
+    [ngClass]="content.active ? 'mlcl_format-active' : ''"
+    *ngFor="let content of data"
+    [type]="type"
+    [content]="content"
+    [saveButtonFlag]="saveButtonFlag"
+    (clicked)="onClick($event)"
+    (savedBook)="saveOnClick($event)"></mlcl-slider-item>
+
+    <div
+    *ngIf="viewAllFlag && viewAllUrl"
+    class="swiper-slide mlcl_single-book mlcl_single-book-slide">
+      <a
+      [attr.aria-label]="'View All in ' + headingTag.name"
+      href="{{viewAllUrl}}" class="mlcl_thumbnail-cover">View All</a>
+    </div>
+  </div>
+</div>

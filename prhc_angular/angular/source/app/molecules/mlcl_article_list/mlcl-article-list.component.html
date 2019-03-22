@@ -1,0 +1,34 @@
+<div class="mlcl_grid-header">
+  <h2 *ngIf="heading">{{heading}}</h2>
+</div>
+
+<div class="cmpnt_search-results" *ngIf="articles.length">
+  <!-- grid items -->
+  <ng-container *ngFor="let article of articles; let index = index">
+    <mlcl-cover-list-item
+    [item]="article"
+    *ngIf="index <= 1"></mlcl-cover-list-item>
+  </ng-container>
+
+  <nl-signup-by-context *ngIf="showSignUp" class="cmpnt_grid-signup"></nl-signup-by-context>
+
+  <ng-container *ngFor="let article of articles; let index = index">
+    <mlcl-cover-list-item
+    [item]="article"
+    *ngIf="index > 1"></mlcl-cover-list-item>
+  </ng-container>
+
+  <!-- loading icon -->
+  <mlcl-loader *ngIf="loading" class="mlcl_loader"></mlcl-loader>
+
+  <!-- load more -->
+  <div class="atm_load-more">
+    <button class="atm_alt-btn" *ngIf="loadMoreFlag" (click)="loadMoreArticles()">Load More</button>
+  </div>
+
+  <!-- not found message -->
+  <div class="atm_btn-center">
+    <p *ngIf="noResultMessage" [innerHtml]="noResultMessage"></p>
+  </div>
+
+</div>

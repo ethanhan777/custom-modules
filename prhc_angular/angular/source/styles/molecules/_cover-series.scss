@@ -1,0 +1,59 @@
+//sub-molecules to include
+@import 'cover-small';
+
+/*
+written by acressall
+
+includes:
+- styling for grid images when it is a series (can contain 1-3 images)
+ */
+.mlcl_series-cover {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+}
+
+//Stying for when there is 1 cover image in a slider item
+.mlcl_series-cover-1 img {
+  max-width: 80px !important;
+  @include breakpoint($largeScreen) {
+    max-width: 140px !important;
+  }
+}
+
+//Styling for when there are 2 cover images in a slider item
+.mlcl_series-cover-2 img {
+  max-width: 80px !important;
+  padding: $extraSmallSpace / 2 !important;
+  @include breakpoint($largeScreen) {
+    max-width: 110px !important;
+  }
+}
+
+// Styling for when there are 3 cover images in a slider item
+.mlcl_series-cover-0 img,
+.mlcl_series-cover-3 img {
+  max-width: 50px !important;
+  padding: $extraSmallSpace / 2 !important;
+  @include breakpoint($largeScreen) {
+    max-width: 70px !important;
+  }
+}
+
+// Use percentages when not in a slider
+.mlcl_list-item-cover {
+  .mlcl_series-cover-0 img,
+  .mlcl_series-cover-3 img {
+    max-width: 27% !important;
+    padding: $extraSmallSpace / 2 !important;
+  }
+
+  .mlcl_series-cover-1 img {
+    max-width: 50% !important;
+  }
+
+  .mlcl_series-cover-2 img {
+    max-width: 45% !important;
+    padding: $extraSmallSpace / 2 !important;
+  }
+}

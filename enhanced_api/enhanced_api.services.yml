@@ -1,0 +1,5 @@
+services:
+  enhanced_api.event_subscriber:
+    class: Drupal\enhanced_api\EventSubscriber\EnhancedApiSubscriber
+    tags:
+      - {name: event_subscriber}

@@ -1,0 +1,22 @@
+<div #ouibounce id="ouibounce-modal" class="cmpnt_pop-up-exit" *ngIf="popup">
+  <div class="mlcl_popup-details">
+
+    <small>{{popup.attributes.field_pre_heading}}</small>
+
+    <h2>{{popup.attributes.field_heading}}</h2>
+
+    <p *ngIf="popup.attributes.field_subtitle">
+      {{popup.attributes.field_subtitle}}
+    </p>
+
+    <a
+    *ngIf="popup.attributes.field_link"
+    href="{{popup.attributes.field_link.uri}}"
+    target="_blank"
+    rel="noopener"
+    (click)="onClick(popup.attributes.title)">
+      <button>{{popup.attributes.field_link.title}}</button>
+    </a>
+
+  </div>
+</div>

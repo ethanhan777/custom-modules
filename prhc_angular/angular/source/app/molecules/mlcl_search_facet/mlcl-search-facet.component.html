@@ -1,0 +1,32 @@
+<section
+[attr.aria-label]="'Accordion: ' + accordion.heading"
+[attr.aria-expanded]="accordion.toggle"
+class="cmpnt_accordion"
+[ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''">
+  <mlcl-accordion-header
+  [id]="accordion.id"
+  [heading]="accordion.heading"
+  [icon]="accordion.chevron"
+  (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+  <!--  Accordion Content -->
+  <div
+  *ngIf="accordion.toggle"
+  [ngClass]="accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+    <div *ngFor="let key of facet.values | ObjNgFor; let index = index;">
+      <a
+      class="atm_tag"
+      *ngIf="index < 16 && !showAllFlag"
+      (click)="filter(facet.name, key)">{{key}} ({{facet.values[key]}})</a>
+      <a
+      class="atm_tag"
+      *ngIf="showAllFlag"
+      (click)="filter(facet.name, key)">{{key}} ({{facet.values[key]}})</a>
+    </div>
+    <small class="atm_show-all">
+      <a
+      *ngIf="valueCount > 16 && !showAllFlag"
+      (click)="showAllFlag=true">Show All</a>
+    </small>
+  </div>
+</section>

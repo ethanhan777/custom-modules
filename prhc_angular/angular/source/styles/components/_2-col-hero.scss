@@ -1,0 +1,51 @@
+@import '../atoms/keep-reading-link';
+// molecules to include
+@import '../molecules/header';
+@import '../molecules/hero-img';
+
+// positioning in 2 columns hero component
+.mlcl_2col-hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: $smallSpace;
+  @include breakpoint($largeScreen) {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: $mediumSpace;
+  }
+
+  .mlcl_hero-img {
+    @include breakpoint ($largeScreen) {
+      margin: 0 $smallSpace 0 0;
+    }
+
+    .mlcl_hero-cover-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: $extraSmallSpace;
+    }
+  }
+
+  .mlcl_hero-desc {
+    display: block;
+    @include breakpoint ($largeScreen) {
+      @include col8;
+    }
+  }
+}
+
+//No cover image styling
+.cmpnt_book-hero.no-image {
+  .mlcl_2col-hero-wrapper {
+    @include breakpoint($largeScreen) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .mlcl_hero-img {
+    display: none;
+  }
+}

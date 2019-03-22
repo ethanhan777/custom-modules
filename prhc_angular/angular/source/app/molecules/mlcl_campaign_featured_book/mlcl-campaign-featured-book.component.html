@@ -1,0 +1,9 @@
+<mlcl-featured-book
+*ngIf="title"
+[title]="title"
+[staffPick]="staffPick"
+[customHeading]="customHeading"
+[customDescription]="customDescription"
+[skipTruncateString]="true"
+[isSaveButton]="isSaveButton"
+(savedBook)="saveOnClick($event)"></mlcl-featured-book>

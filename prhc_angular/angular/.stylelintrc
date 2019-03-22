@@ -1,0 +1,13 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "at-rule-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "no-descending-specificity": null,
+    "selector-type-no-unknown": [true, { ignoreTypes: ["-ms-track", "-moz-range-track", "-ms-thumb", "-moz-range-thumb"] }],
+  }
+}

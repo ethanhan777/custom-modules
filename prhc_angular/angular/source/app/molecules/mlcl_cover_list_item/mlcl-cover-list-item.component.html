@@ -1,0 +1,58 @@
+<section class="mlcl_cover-list-item">
+  <mlcl-cover-small class="mlcl_list-item-cover"
+  *ngIf="item.docType != 'series'"
+  [cover]="item.cover"
+  [title]="item.title"
+  [seoFriendlyUrl]="item.seoFriendlyUrl"></mlcl-cover-small>
+
+  <mlcl-cover-series class="mlcl_list-item-cover"
+  *ngIf="item.docType === 'series'"
+  [seriesCode]="item.code"
+  [seriesName]="item.title"
+  [seriesUrl]="item.seoFriendlyUrl"></mlcl-cover-series>
+
+  <!-- <mlcl-cover-series class="mlcl_list-item-cover"
+  *ngIf="item.docType == 'series'"
+  [content]="item"></mlcl-cover-series> -->
+
+  <div class="atm_grid-book-detail">
+    <small *ngIf="item.label">{{item.label}}</small>
+
+    <small *ngIf="item.articleCategories && item.articleCategories.length">
+      <a href="{{item.articleCategories[0].path}}">{{item.articleCategories[0].name}}</a>
+    </small>
+
+    <h4>
+      <a href="{{item.seoFriendlyUrl}}">{{item.title}}</a>
+      <span class="atm_on-tour" *ngIf="item.onTour">On Tour</span>
+    </h4>
+
+    <h6 *ngIf="item.subtitle" [innerHtml]="item.subtitle"></h6>
+
+    <h6 *ngIf="item.eventDate">
+      {{item.eventDate | date:'fullDate'}}
+      <span *ngIf="item.eventTime"> - {{item.eventTime}}</span>
+    </h6>
+
+    <h6 *ngIf="item.seriesCount && item.seriesCount > 0">
+      {{item.seriesCount}} Book<span *ngIf="item.seriesCount > 1">s</span> in Series
+    </h6>
+
+    <small *ngIf="smallText">{{smallText}}</small>
+
+    <mlcl-tag-item
+    *ngIf="item.articleTags && item.articleTags.length"
+    [tags]="item.articleTags"></mlcl-tag-item>
+
+    <hr *ngIf="item.formats || item.articleBody">
+
+    <small *ngIf="item.articleBody" [innerHTML]="item.articleBody"></small>
+
+    <mlcl-tag-item
+    *ngIf="item.formats"
+    [label]="item.formatsLabel"
+    (clicked)="isClicked($event)"
+    [tags]="item.formats"></mlcl-tag-item>
+  </div>
+
+</section>

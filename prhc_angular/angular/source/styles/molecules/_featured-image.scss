@@ -1,0 +1,41 @@
+// molecules to include
+@import '../molecules/cover-small';
+@import '../atoms/seal';
+
+/*
+written by acressall
+
+includes:
+- featured image for featured book component
+*/
+.atm_featured-image {
+  display: block;
+  @include col8;
+  width: auto;
+  height: 100%;
+  position: relative;
+  @include breakpoint ($mediumScreen) {
+    @include col3;
+    padding: 0;
+  }
+
+  a {
+    background-color: transparent;
+    box-shadow: initial;
+    -webkit-box-shadow: initial;
+    -moz-box-shadow: initial;
+
+    &:hover {
+      animation: none;
+    }
+  }
+
+  img:not(.atm_seal) {
+    @include borderRadius;
+    padding: 0;
+    max-height: 250px !important;
+    @include breakpoint($largeScreen) {
+      max-height: max-content !important;
+    }
+  }
+}

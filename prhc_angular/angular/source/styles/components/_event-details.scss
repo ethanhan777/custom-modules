@@ -1,0 +1,15 @@
+// atoms to include
+@import '../atoms/h2';
+@import '../atoms/wysiwyg';
+@import '../atoms/buttons';
+@import '../atoms/button-external';
+
+/*
+written by acressall
+
+includes:
+- event details that are below the header on event pages
+*/
+.mlcl_event-details {
+  text-align: center;
+}

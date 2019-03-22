@@ -1,0 +1,32 @@
+@import 'animation-zoom-up';
+
+.atm_preference {
+  input[type=checkbox] + label::before {
+    // border: 1px solid $white;
+    font-family: 'FontAwesome', Times, serif;
+    content: '\f08a';
+    border: none;
+    transition: all 0.5s ease;
+  }
+
+  input[type=checkbox]:checked + label::before {
+    font-family: 'FontAwesome', Times, serif;
+    content: '\f004';
+    border: none;
+    transition: all 0.5s ease;
+  }
+
+  @include breakpoint($largeScreen) {
+    &:hover {
+      label {
+        cursor: pointer;
+      }
+
+      input[type=checkbox] + label::before {
+        color: $penguinOrange;
+        border-radius: 100px;
+        @include boxShadowHover;
+      }
+    }
+  }
+}

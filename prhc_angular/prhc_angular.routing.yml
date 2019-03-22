@@ -1,0 +1,7 @@
+prhc_angular.settings:
+  path: '/admin/config/services/prhc-angular'
+  defaults:
+    _title: 'PRHC Angular Settings'
+    _form: '\Drupal\prhc_angular\Form\PrhcAngularSettingsForm'
+  requirements:
+    _permission: 'access administration pages'

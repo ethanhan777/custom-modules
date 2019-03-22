@@ -1,0 +1,8 @@
+<section class="container" *ngIf="isLoaded">
+  <div class="cmpnt_grid-layout">
+        <!-- grid items -->
+      <mlcl-category-item class="mlcl_grid-item"
+      *ngFor="let item of data"
+      [content]="item"></mlcl-category-item>
+  </div>
+</section>

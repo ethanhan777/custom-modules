@@ -1,0 +1,12 @@
+// atoms to include
+@import 'anchors';
+
+.atm_slider-arrows {
+  display: flex;
+
+  a {
+    &:first-child {
+      margin-right: $extraSmallSpace;
+    }
+  }
+}

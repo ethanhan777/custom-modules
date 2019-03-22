@@ -1,0 +1,41 @@
+//select box
+select {
+  background-color: $extraLightGrey;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: FortLight, Arial, sans-serif;
+  font-size: 1rem;
+  color: $extraDarkGrey;
+  width: 100%;
+  height: 2.35em;
+  padding: 0 $mediumSpace 0 $extraSmallSpace;
+  margin-right: $largeSpace;
+  border: 2px solid $mediumGrey;
+  @include borderRadius;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    border: 2px solid $extraDarkGrey;
+    outline: none;
+  }
+}
+
+select[multiple] {
+  height: auto;
+}
+
+select option:checked {
+  background-color: $extraDarkGrey !important;
+  color: $white;
+}
+
+.mlcl_select-arrow {
+  width: 100%;
+  text-align: right;
+  display: block !important;
+  margin-top: -1.75em;
+  margin-left: -0.5em;
+}

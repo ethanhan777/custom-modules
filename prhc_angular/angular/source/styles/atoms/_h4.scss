@@ -1,0 +1,15 @@
+h4 {
+  font-family: FortExtraBold, Arial, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.375rem;
+  margin: 0;
+
+  a {
+    font-family: FortExtraBold, Arial, sans-serif;
+  }
+}
+
+h4.atm_heading-with-icon {
+  display: flex;
+  justify-content: space-between;
+}

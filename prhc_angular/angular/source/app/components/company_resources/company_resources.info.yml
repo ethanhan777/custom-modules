@@ -1,0 +1,8 @@
+name: Company Resources Component
+description: 'Penguin Random House Worldwide and Partner Resources Accordions'
+selector: company-resources
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

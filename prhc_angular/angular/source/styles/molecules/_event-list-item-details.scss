@@ -1,0 +1,13 @@
+@import '../atoms/paragraphs';
+@import '../atoms/caption';
+
+.mlcl_ea-details {
+  @include col12;
+  display: block;
+  @include breakpoint($smallScreen) {
+    @include col4;
+  }
+  @include breakpoint($mediumScreen) {
+    @include col3;
+  }
+}

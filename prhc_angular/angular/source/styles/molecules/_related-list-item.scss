@@ -1,0 +1,30 @@
+//atoms to include
+@import '../atoms/anchors';
+@import '../atoms/small';
+@import '../atoms/wysiwyg';
+
+/*
+written by acressall
+
+includes:
+- styling for any item within an item/related list component (articles, websites)
+*/
+//Related articles, collections, etc
+.mlcl_related-item {
+  padding-top: $smallSpace;
+  border-top: 1px solid $lightGrey;
+
+  a {
+    text-decoration: none;
+  }
+
+  small a {
+    font-family: $fontLight;
+  }
+}
+// No border on the very first item
+.cmpnt_related-group:first-child {
+  .mlcl_related-item {
+    border-top: none;
+  }
+}

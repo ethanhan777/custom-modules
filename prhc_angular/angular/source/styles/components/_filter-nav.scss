@@ -1,0 +1,29 @@
+// molecules to include
+@import '../molecules/filter-nav-link';
+
+.cmpnt_filter-nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  max-width: 250px;
+  background-color: $white;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: $z-skyscraper;
+  padding: $smallSpace;
+  margin-left: -100%;
+  overflow-y: scroll;
+  @include breakpoint($largeScreen) {
+    display: flex;
+    position: relative;
+    max-width: none;
+    margin-left: 0;
+    z-index: $z-ground;
+    overflow: auto;
+  }
+}
+
+.cmpnt_filter-nav-visible {
+  margin-left: 0;
+}

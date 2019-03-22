@@ -1,0 +1,97 @@
+<section
+class="cmpnt_hero-article"
+*ngIf="article"
+[ngClass]="article.campaignType==='Guide' ? 'cmpnt_hero-guide-' + guideTheme : ''">
+  <!-- Hero Image -->
+  <div class="mlcl_hero-image"
+  *ngIf="article.imageUrl && article.type !== 'recipe' || article.video">
+    <!-- Wrap in a link if part of the carousel -->
+    <a
+    href="{{article.link}}"
+    *ngIf="article.imageUrl && article.link && !article.video">
+      <img [src]="article.imageUrl" alt="{{article.imageAlt}}" (click)="onClick(article.title)">
+    </a>
+
+    <!-- Wrap in a link if a guide and has button -->
+    <a
+    href="{{article.cta.url}}"
+    *ngIf="article.campaignType==='Guide' && article.cta.url">
+      <img [src]="article.imageUrl" alt="{{article.imageAlt}}" (click)="onClick(article.title)">
+    </a>
+
+    <!-- If a guide without a button -->
+  <img
+  *ngIf="article.campaignType==='Guide' && !article.cta.url"
+  [src]="article.imageUrl"
+  alt="{{article.imageAlt}}">
+
+    <!-- Normal image without a link -->
+    <img
+    [src]="article.imageUrl"
+    alt="{{article.imageAlt}}"
+    *ngIf="article.imageUrl && !article.link && !article.video && article.campaignType!=='Guide'">
+
+    <!-- If a video instead of an image -->
+    <atm-video-item
+    *ngIf="article.video && !article.imageUrl"
+    [videoUrl]="article.video"></atm-video-item>
+  </div>
+
+  <div *ngIf="article.title" class="mlcl_hero-content">
+    <h4
+    attr-aria-label="pre-title"
+    *ngIf="article.preHeading">{{article.preHeading}}</h4>
+    <h1 *ngIf="article.title && !article.link">{{article.title}}</h1>
+    <h1 class="page-title">
+        <a *ngIf="article.link && article.title" href="{{article.link}}">
+        {{article.title}}</a>
+    </h1>
+
+    <h2
+    class="cmpnt_paragraph-narrow"
+    *ngIf="article.subtitle && !article.link" [innerHTML]="article.subtitle"></h2>
+    <h2>
+        <a class="cmpnt_paragraph-narrow" *ngIf="article.link && article.subtitle" href="{{article.link}}">
+            {{article.subtitle}}
+        </a>
+    </h2>
+
+    <p
+    class="cmpnt_paragraph-narrow"
+    [innerHTML]="article.introText"
+    *ngIf="article.introText && article.type !=='recipe'"></p>
+
+    <!-- Author byline -->
+    <div *ngIf="article.authorName && article.type == 'article'">
+      <small>by
+        <atm-tag
+        [seoFriendlyUrl]="article.authorUrl"
+        [name]="article.authorName"></atm-tag>
+      </small>
+    </div>
+
+    <!-- Publish Date -->
+    <div>
+      <small *ngIf="article.published && article.type == 'article'">{{article.published | date:'fullDate'}}</small>
+    </div>
+
+    <!-- Social
+    Do not display on carousels on homepage -->
+    <mlcl-social *ngIf="pageType && article.campaignType !=='Guide'"></mlcl-social>
+
+    <!-- CTA button for guide page -->
+    <atm-button
+    *ngIf="article.campaignType==='Guide' && article.cta.url"
+    [label]="article.cta.title"
+    [seoFriendlyUrl]="article.cta.url"></atm-button>
+
+    <!-- Different hero image positioning for recipes -->
+    <mlcl-cover
+    class="mlcl_hero-img"
+    *ngIf="article.imageUrl && article.type == 'recipe'"
+    [coverImage]="article.imageUrl"
+    [caption]="article.coverCaption"
+    [title]="article.title"></mlcl-cover>
+  </div>
+
+</section>

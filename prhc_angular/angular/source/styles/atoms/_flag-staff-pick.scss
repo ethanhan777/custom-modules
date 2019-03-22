@@ -1,0 +1,15 @@
+.atm_staff-pick {
+  align-self: center;
+  font-family: $fontMedium;
+  font-size: 1rem;
+  color: $white;
+  background-color: $extraDarkGrey;
+  display: flex;
+  margin-bottom: $extraSmallSpace;
+  padding: $extraSmallSpace / 2 $extraSmallSpace;
+  @include borderRadius;
+
+  @include breakpoint ($mediumScreen) {
+    align-self: baseline;
+  }
+}

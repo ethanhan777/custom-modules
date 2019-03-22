@@ -1,0 +1,23 @@
+<article class="saved-books-page container">
+
+  <mlcl-hero-title
+  class="mlcl_header"
+  [title]="'Saved Books'"
+  [subtitle]="savedSubtitle"
+  ></mlcl-hero-title>
+
+  <section class="cmpnt_saved-books-list" *ngIf="groups.length">
+    <mlcl-saved-book-list
+    [group]="group"
+    (removeIsbn)="removeBook($event)"
+    *ngFor="let group of groups"></mlcl-saved-book-list>
+  </section>
+
+  <p class="atm_fine-print atm_caption" *ngIf="groups.length !== 0">Your saved books will display here until you clear your browser cache</p>
+
+  <mlcl-reco-cta
+  [heading]="'Want to find more books?'"
+  [paragraph]="'Get a personalized recommendation'"
+  [url]="'/book-finder'"></mlcl-reco-cta>
+
+</article>

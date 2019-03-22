@@ -1,0 +1,9 @@
+<section
+[attr.aria-role]="'navigation'"
+class="mlcl_pagination-alphabet">
+  <mlcl-nav-slider
+  [type]="type"
+  [data]="data"
+  [active]="activePage"
+  (buttonClicked)="newPage($event)"></mlcl-nav-slider>
+</section>

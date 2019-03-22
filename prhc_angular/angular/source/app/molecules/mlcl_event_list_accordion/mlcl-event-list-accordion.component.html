@@ -1,0 +1,50 @@
+<section
+[attr.aria-label]="'Accordion: ' + accordion.heading"
+  [attr.aria-expanded]="accordion.toggle"
+class="container cmpnt_accordion"
+[ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''">
+  <!-- Accordion header -->
+  <mlcl-accordion-header
+  *ngIf="accordion"
+  [id]="accordion.id"
+  [heading]="accordion.heading"
+  [icon]="accordion.chevron"
+  (accordionOpen)="accordionOpen()"></mlcl-accordion-header>
+
+  <!-- Accordion content -->
+  <div
+  *ngIf="accordion.toggle"
+  class="cmpnt_paragraph-narrow cmpnt_accordion-items"
+  [ngClass]="accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+
+    <div class="cmpnt_event" *ngIf="events.length">
+      <mlcl-event-list-item
+      class="mlcl_award-event"
+      [type]="'event'"
+      [content]="event"
+      *ngFor="let event of events"></mlcl-event-list-item>
+    </div>
+
+    <!-- loading icon -->
+    <mlcl-loader *ngIf="loading" class="mlcl_loader"></mlcl-loader>
+
+    <!-- view all link -->
+    <div class="atm_load-more">
+      <atm-button
+      *ngIf="viewAllFlag"
+      [label]="'View All Events'"
+      [classes]="'atm_alt-btn'"
+      (clicked)="redirect()"></atm-button>
+
+      <atm-button
+      *ngIf="loadMoreFlag"
+      [label]="'Load More'"
+      [classes]="'atm_alt-btn'"
+      (clicked)="redirect()"></atm-button>
+    </div>
+
+    <!-- no result message -->
+    <p *ngIf="!loading && events.length <= 0">No events at this time</p>
+  </div>
+
+</section>

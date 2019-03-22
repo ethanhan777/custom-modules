@@ -1,0 +1,36 @@
+<ng-container *ngFor="let author of authors">
+  <section *ngIf="isLoaded && author.spotlight">
+    <div
+    [attr.aria-label]="'Accordion: ' + author.accordion.heading"
+    [attr.aria-expanded]="author.accordion.toggle"
+    class="container cmpnt_accordion"
+    [ngClass]="author.accordion.id ? 'accordion-section-' + author.accordion.id : ''">
+
+      <mlcl-accordion-header
+      [id]="author.accordion.id"
+      [heading]="author.accordion.heading"
+      [icon]="author.accordion.chevron"
+      (accordionOpen)="accordionOpen(author.accordion)"></mlcl-accordion-header>
+
+      <!--  Accordion Content -->
+      <div
+      class="cmpnt_accordion-items"
+      [ngClass]="author.accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+
+        <mlcl-about-author
+        [author]="author"
+        (hasAuthorPhoto)="hasAuthorPhoto($event, author)"></mlcl-about-author>
+
+        <!-- more by author -->
+        <mlcl-slider
+        *ngIf="authorWorks && authorWorks.length"
+        [heading]="setMoreByAuthorHeading(author).heading"
+        [headingTag]="setMoreByAuthorHeading(author).headingTag"
+        [viewAllFlag]="viewAllWorks"
+        [viewAllUrl]="author.seoFriendlyUrl"
+        [data]="authorWorks"></mlcl-slider>
+
+      </div>
+    </div>
+  </section>
+</ng-container>

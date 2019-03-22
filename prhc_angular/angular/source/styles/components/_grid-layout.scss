@@ -1,0 +1,30 @@
+// molecules to include
+@import '../molecules/grid-header';
+@import '../molecules/grid-item';
+@import '../molecules/category-item';
+
+/*
+written by acressall
+
+includes:
+- styling for a grid of books, authors, imprints, etc
+*/
+.cmpnt_grid-layout {
+  margin-bottom: $mediumSpace;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // height for covers within a grid
+  .mlcl_thumbnail-cover {
+    height: 7em;
+    @include breakpoint($smallScreen) {
+      height: 11em;
+    }
+    @include breakpoint($mediumScreen) {
+      height: 7em;
+    }
+    @include breakpoint ($largeScreen) {
+      height: 11em;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+.page-user-profile {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $largeSpace;
+
+  .visually-hidden {
+    display: none;
+  }
+
+  .js-pager__items {
+    display: flex;
+    justify-content: center;
+
+    a {
+      background-color: $extraLightGrey;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: $extraSmallSpace;
+      @include borderRadius;
+    }
+  }
+
+  header {
+    margin-bottom: $smallSpace;
+    text-align: center;
+  }
+
+  .add-content {
+    text-align: center;
+    margin-bottom: $largeSpace;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: $smallSpace;
+    margin-bottom: $mediumSpace;
+    background-color: $extraLightGrey;
+    @include borderRadius;
+
+    .form-item-title {
+      @include col12;
+      margin-bottom: $extraSmallSpace;
+    }
+
+    select {
+      border: 2px solid $darkGrey;
+    }
+
+    * {
+      margin-right: $extraSmallSpace;
+    }
+  }
+
+  .views-row {
+    display: flex;
+    flex-direction: row;
+    padding: $smallSpace 0;
+
+    .views-col {
+      display: flex;
+      flex-direction: column;
+      @include col3;
+    }
+  }
+
+  .views-field-field-meta-image {
+    background-color: $extraLightGrey;
+    padding: $extraSmallSpace;
+    @include borderRadius;
+    @include boxShadowNormal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $extraSmallSpace;
+    overflow: hidden;
+    height: 7em;
+    @include breakpoint($smallScreen) {
+      height: 11em;
+    }
+    @include breakpoint($mediumScreen) {
+      height: 7em;
+    }
+    @include breakpoint ($largeScreen) {
+      height: 11em;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // .views-field {
+  //   @include col3;
+  // }
+
+  .views-field-title {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  li::before {
+    display: none;
+  }
+
+  .dropbutton {
+    display: flex;
+
+    li {
+      &:first-child {
+        margin-left: 0;
+      }
+
+      a {
+        font-size: 1rem;
+      }
+    }
+  }
+}

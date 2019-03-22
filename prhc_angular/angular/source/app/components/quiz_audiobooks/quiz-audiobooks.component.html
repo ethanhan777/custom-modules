@@ -1,0 +1,22 @@
+<mlcl-hero-title
+class="cmpnt_paragraph-narrow mlcl_quiz-title"
+[title]="title"
+[subtitle]="subtitle"></mlcl-hero-title>
+
+<div  class="cmpnt_quiz-genre-grid quiz-options">
+  <fieldset
+  class="mlcl_quiz-select mlcl_quiz-genre"
+  *ngFor="let option of options">
+    <input
+    [attr.checked]="option.active"
+    type="{{type}}"
+    value="{{option.name}}"
+    name="audio"
+    (click)="humanType(option.name)">
+
+    <label>
+      <img src="{{option.icon}}" alt="{{option.name}} category">
+      {{option.name}}
+    </label>
+  </fieldset>
+</div>

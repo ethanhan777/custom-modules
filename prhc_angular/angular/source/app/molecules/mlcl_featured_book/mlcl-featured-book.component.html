@@ -1,0 +1,78 @@
+<section class="container" *ngIf="title">
+  <div class="cmpnt_featured"
+  [ngClass]="staffPick ? 'cmpnt_staff-pick' : ''">
+
+    <div class="atm_featured-heading" *ngIf="isSaveButton">
+      <h2 *ngIf="customHeading">{{customHeading}}</h2>
+
+      <atm-save-button
+      class="atm_save-button"
+      [profile]="profile"
+      [data]="title"
+      [index]="index"
+      (savedBook)="saveOnClick($event)"></atm-save-button>
+    </div>
+
+    <h2
+    class="atm_featured-heading"
+    *ngIf="!isSaveButton && customHeading">{{customHeading}}</h2>
+
+    <mlcl-cover-small
+    class="atm_featured-image"
+    [cover]="title.cover"
+    [width]="210"
+    [title]="title.title"
+    [seoFriendlyUrl]="title.seoFriendlyUrl"
+    [sealFlag]="sealFlag"
+    (click)="onClick()"></mlcl-cover-small>
+
+    <div
+    class="atm_grid-book-detail"
+    [ngClass]="{
+      'atm_grid-book-detail-wide': !customHeading && !isSaveButton,
+      'atm_grid-book-detail-with-seal': sealFlag
+    }">
+      <span class="atm_staff-pick" *ngIf="staffPick">Staff Pick</span>
+
+      <h4>
+        <a
+        href="{{title.seoFriendlyUrl}}"
+        (click)="onClick()">{{title.title}}</a>
+        <small class="atm_author" *ngIf="title.author">by {{title.author}}</small>
+      </h4>
+
+      <p *ngIf="title.dateLabel">{{title.dateLabel}} {{title.onsale | onSaleDate}}</p>
+
+      <p
+      *ngIf="customDescription"
+      [innerHtml]="customDescription"></p>
+
+      <div class="mlcl_featured-buttons">
+        <atm-buy-button
+        [onSaleDate]="title.onsale"
+        (clickedBuy)="lightboxEvent($event)">
+        </atm-buy-button>
+
+        <atm-button
+        [label]="button.label"
+        [seoFriendlyUrl]="button.seoFriendlyUrl"
+        (clicked)="buttonOnClick($event)"
+        *ngFor="let button of buttons"></atm-button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- where to buy lightbox -->
+<mlcl-buy-workflow
+*ngIf="title.isbn && lightboxOn"
+[isbn]="title.isbn"
+(closed)="lightboxOff($event)"></mlcl-buy-workflow>
+
+<!-- soundcloud player for audio excerpt -->
+<atm-audio-item
+class="container atm_soundcloud-embed"
+*ngIf="audioUrl && audioClipOn"
+[audioUrl]="audioUrl">
+</atm-audio-item>

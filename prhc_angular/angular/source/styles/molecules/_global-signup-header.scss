@@ -1,0 +1,27 @@
+.mlcl_global-signup-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: $extraSmallSpace $smallSpace;
+  @include breakpoint($mediumScreen) {
+    text-align: center;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .mlcl_social {
+    align-items: center;
+    margin: 0;
+  }
+}
+
+.mlcl_nl-context-confirm {
+  text-align: center;
+
+  p {
+    margin-bottom: $extraSmallSpace;
+  }
+}

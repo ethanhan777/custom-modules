@@ -1,0 +1,21 @@
+<ng-container *ngIf="pageType === 'default'">
+
+  <hero></hero>
+
+  <coming-soon></coming-soon>
+
+  <new-release></new-release>
+
+  <nl-signup-by-context></nl-signup-by-context>
+
+  <category-book-list></category-book-list>
+
+</ng-container>
+
+<ng-container *ngIf="pageType === 'excerpts' || pageType === 'book-club-resources'">
+
+  <hero></hero>
+
+  <book-grid></book-grid>
+
+</ng-container>

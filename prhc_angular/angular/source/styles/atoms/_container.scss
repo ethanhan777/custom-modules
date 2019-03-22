@@ -1,0 +1,16 @@
+//Container
+//This class is to ensure there is margin whenever containers are included. If there is no container, the element will be full width
+.container {
+  margin: 0 1.125rem;
+  @include breakpoint($mediumScreen) {
+    margin: 0 5rem;
+  }
+  @include breakpoint($giantScreen) {
+    margin: 0 auto;
+    max-width: $extraLargeWidth;
+  }
+}
+// overriding extra margin when there is a container nested inside a container
+.container .container {
+  margin: auto;
+}

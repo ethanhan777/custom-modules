@@ -1,0 +1,17 @@
+// atoms
+@import '../atoms/button-load-more';
+// to be included in component as molecules
+@import '../molecules/event-list-tem';
+
+/*
+written by acressall
+
+includes:
+- removing the border from the last event in an event list
+*/
+.cmpnt_event,
+.cmpnt_award {
+  &:last-child {
+    border-bottom: none;
+  }
+}

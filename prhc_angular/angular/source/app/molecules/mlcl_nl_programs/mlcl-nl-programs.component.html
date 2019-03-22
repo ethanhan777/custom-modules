@@ -1,0 +1,59 @@
+<ng-container *ngIf="prefs">
+  <ng-container *ngFor="let list of prefLists">
+    <div
+    [attr.aria-label]="'Accordion: ' + list.title"
+    [attr.aria-expanded]="list.toggle"
+    class="container cmpnt_accordion"
+    [ngClass]="list.id ? 'accordion-section-' + list.id : ''"
+    *ngIf="list.categorizedPrefs.length">
+
+      <mlcl-accordion-header
+      [id]="list.id"
+      [heading]="list.title"
+      [icon]="list.chevron"
+      (accordionOpen)="accordionOpen(list)"></mlcl-accordion-header>
+
+      <div
+      *ngIf="list.toggle"
+      class="cmpnt_accordion-items cmpnt_pref-list"
+      [ngClass]="list.toggle?'atm_accordion-open':'atm_accordion-close'">
+
+        <ng-container *ngFor="let pref of list.categorizedPrefs">
+          <ng-container *ngIf="pref.id === 21051 && pref.SubscriberPrefValues">
+            <ng-container *ngFor="let subPerf of pref.SubscriberPrefValues">
+              <fieldset class="atm_preference" *ngIf="subPerf.PreferenceKey !== 0">
+                <input
+                id="{{subPerf.PreferenceKey}}"
+                type="checkbox"
+                [(ngModel)]="prefStatus[pref.id][subPerf.PreferenceKey]"
+                (ngModelChange)="onPrefChange($event, pref.id, subPerf.PreferenceKey)">
+
+                <label
+                for="{{subPerf.PreferenceKey}}"
+                class="atm_small-medium"
+                [ngClass]="prefStatus[pref.id][subPerf.PreferenceKey] ? 'active' : ''">{{subPerf.PreferenceText}}</label>
+              </fieldset>
+            </ng-container>
+          </ng-container>
+
+          <ng-container *ngIf="pref.id !== 21051">
+            <fieldset class="atm_preference">
+              <input
+              id="{{pref.id}}"
+              type="checkbox"
+              [(ngModel)]="prefStatus[pref.id]"
+              (ngModelChange)="onPrefChange($event, pref.id)">
+
+              <label
+              for="{{pref.id}}"
+              class="atm_small-medium"
+              [ngClass]="prefStatus[pref.id] ? 'active' : ''">{{pref.name}}</label>
+            </fieldset>
+          </ng-container>
+        </ng-container>
+
+      </div>
+
+    </div>
+  </ng-container>
+</ng-container>

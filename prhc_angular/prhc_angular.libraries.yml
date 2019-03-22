@@ -1,0 +1,16 @@
+prhc_angular.prod:
+  css:
+    component:
+      angular/dist/styles.bundle.css: { minified: true, preprocess: false }
+  js:
+    angular/dist/inline.bundle.js: { minified: true, preprocess: false }
+    angular/dist/polyfills.bundle.js: { minified: true, preprocess: false }
+    angular/dist/main.bundle.js: { minified: true, preprocess: false }
+
+prhc_angular.dev:
+  js:
+    angular/dist/inline.bundle.js: { preprocess: false }
+    angular/dist/polyfills.bundle.js: { preprocess: false }
+    angular/dist/styles.bundle.js: { preprocess: false }
+    angular/dist/vendor.bundle.js: { preprocess: false }
+    angular/dist/main.bundle.js: { preprocess: false }

@@ -1,0 +1,37 @@
+<ng-container *ngIf="coverImage && coverLink">
+  <a [attr.aria-label]="title" href="{{coverLink}}">
+    <img src="{{coverImage}}" alt="{{title}}">
+  </a>
+</ng-container>
+<ng-container *ngIf="coverImage && !coverLink">
+  <img src="{{coverImage}}" alt="{{title}}">
+</ng-container>
+
+<div class="mlcl_hero-cover-links">
+  <span class="atm_caption" *ngIf="photoCreditFlag">Photo by {{photoCredit}}</span>
+
+  <span class="atm_caption" *ngIf="caption">
+    <ng-container *ngIf="!caption['url']">
+      {{caption['text']}}
+    </ng-container>
+    <ng-container *ngIf="caption['url']">
+      <a href="{{caption['url']}}" target="_blank" rel="noopener">{{caption['text']}}</a>
+    </ng-container>
+  </span>
+
+  <small>
+    <a
+    *ngIf="content && content.isbn"
+    (click)="sendTealium('goodreads')"
+    href="{{goodreadsUrl}}"
+    target="_blank" rel="noopener">Add to Goodreads</a>
+  </small>
+
+  <small>
+    <a
+    *ngIf="lookInside"
+    (click)="openLookInside($event)"
+    href="{{lookInside.seoFriendlyUrl}}"
+    target="_blank" rel="noopener">{{lookInside.label}}</a>
+  </small>
+</div>

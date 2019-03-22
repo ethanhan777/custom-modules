@@ -1,0 +1,23 @@
+.mlcl_reco-cta {
+  background-color: $extraLightGrey;
+  @include borderRadius;
+  @include boxShadowNormal;
+  margin-bottom: $mediumSpace;
+  margin-top: $mediumSpace;
+  padding: $smallSpace;
+  text-align: center;
+  text-decoration: none;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    @include boxShadowHover;
+  }
+
+  &:focus {
+    border: 2px solid $extraDarkGrey;
+    outline: none;
+  }
+}

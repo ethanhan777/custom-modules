@@ -1,0 +1,12 @@
+@import 'animation-arrow-pulse';
+
+.atm_keep-reading-flag {
+  background-color: $white;
+  border-radius: 100px;
+  border: 1px solid $mediumGrey;
+  position: absolute;
+  padding: 0 $extraSmallSpace / 2;
+  margin-top: -$smallSpace;
+  @include boxShadowNormal;
+  @include animationArrowPulse;
+}

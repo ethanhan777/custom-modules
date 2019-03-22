@@ -1,0 +1,21 @@
+<section class="container mlcl_header" *ngIf="pageTitle">
+  <!-- categories hierarchy breadcrumb -->
+  <div class="mlcl_breadcrumb-wrapper">
+    <mlcl-breadcrumb
+    *ngIf="breadcrumbItems && breadcrumbItems.length"
+    [breadcrumbItems]="breadcrumbItems"></mlcl-breadcrumb>
+  </div>
+
+  <mlcl-hero-title
+  [title]="pageTitle"
+  [subtitle]="pageSubtitle"
+  [contributors]="contributors"></mlcl-hero-title>
+
+  <!-- description -->
+  <div class="mlcl_hero-details" *ngIf="description">
+    <p [innerHTML]="description"></p>
+  </div>
+
+  <mlcl-social
+  [tealiumData]="bookData"></mlcl-social>
+</section>

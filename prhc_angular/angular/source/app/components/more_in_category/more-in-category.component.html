@@ -1,0 +1,8 @@
+<section
+class="cmpnt_more-in-category container"
+*ngIf="isLoaded">
+  <mlcl-category-slider
+  [category]="category"
+  [ignoreWorkId]="ignoreWorkId"
+  *ngFor="let category of categories"></mlcl-category-slider>
+</section>

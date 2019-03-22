@@ -1,0 +1,26 @@
+.mlcl_subscriber-profile-form {
+  width: 100%;
+  @include breakpoint($smallScreen) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  fieldset {
+    @include breakpoint ($smallScreen) {
+      @include col6;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  input {
+    width: 95%;
+  }
+}

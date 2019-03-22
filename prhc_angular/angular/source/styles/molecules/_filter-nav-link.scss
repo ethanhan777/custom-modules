@@ -1,0 +1,13 @@
+// atoms to include
+@import '../atoms/small';
+
+.mlcl_filter-nav-link {
+  margin: $smallSpace 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+  @include breakpoint($largeScreen) {
+    display: none;
+  }
+}

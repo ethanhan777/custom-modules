@@ -1,0 +1,12 @@
+<section
+id="{{categoryId}}"
+class="cmpnt_campaign-heading">
+
+  <h3 class="atm_alt-h3" *ngIf="categoryTitle">{{categoryTitle}}</h3>
+  <h4 *ngIf="categorySubheading">{{categorySubheading}}</h4>
+  <p
+  class="cmpnt_paragraph-narrow"
+  *ngIf="categoryIntro"
+  [innerHtml]="categoryIntro"></p>
+
+</section>

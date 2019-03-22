@@ -1,0 +1,42 @@
+//atoms to include
+@import '../atoms/h4';
+
+/*
+written by acressall
+
+includes:
+- mixins for video aspect ratio
+- individual video atom
+*/
+// Video mixins
+@mixin videoWrapper {
+  position: relative;
+
+  &::before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: (9 / 16) * 100%;
+  }
+}
+
+@mixin videoInside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+//individual videos
+.atm_video {
+  margin-bottom: $extraSmallSpace;
+  @include videoWrapper;
+
+  iframe {
+    @include videoInside;
+    @include borderRadius;
+  }
+}

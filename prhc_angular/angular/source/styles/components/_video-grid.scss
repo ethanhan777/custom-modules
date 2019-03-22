@@ -1,0 +1,31 @@
+@import '../molecules/video';
+
+/*
+written by acressall
+
+incldues:
+- video grid
+*/
+//Video Grid
+.cmpnt_related-video-grid {
+  padding-top: $extraSmallSpace;
+  margin-top: $extraSmallSpace;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  @include breakpoint($smallScreen) {
+    flex-direction: row;
+  }
+}
+
+.cmpnt_related-video-grid div:nth-child(even) {
+  margin-right: 0;
+}
+
+.mlcl_related-video {
+  @include col12;
+  margin-bottom: $mediumSpace;
+  @include breakpoint($mediumScreen) {
+    @include col6;
+  }
+}

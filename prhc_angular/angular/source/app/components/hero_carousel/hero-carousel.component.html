@@ -1,0 +1,22 @@
+<section class="cmpnt_hero-carousel swiper-container" [swiper]="config">
+
+  <div class="swiper-wrapper">
+    <hero-article class="cmpnt_hero-article swiper-slide"
+    [ngClass]="controls ? 'cmpnt_hero-controls' : ''"
+    [attr.data-counter]="heroCounter"
+    [article]="hero"
+    (isLoaded)="isLoaded($event)"
+    (mouseenter)="onHover(true)"
+    (mouseleave)="onHover(false)"
+    (clicked)="onClick($event)"
+     *ngFor="let hero of heroes"></hero-article>
+  </div>
+
+  <div class="mlcl_carousel-arrows" [ngClass]="multipleHeroes ? '' : 'mlcl_carousel-arrows-hidden'">
+    <a class="slider-arrow-left"><fa [name]="'arrow-left'"></fa></a>
+    <a class="slider-arrow-right"><fa [name]="'arrow-right'"></fa></a>
+  </div>
+    <!-- <swiper aria-hidden=true></swiper> -->
+</section>
+
+<hr class="atm_hr-thick container">

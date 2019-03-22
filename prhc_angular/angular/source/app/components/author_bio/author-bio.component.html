@@ -1,0 +1,20 @@
+<section
+id="cmpnt_author-bio"
+class="container cmpnt_accordion"
+[ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''"
+*ngIf="spotlight">
+
+  <mlcl-accordion-header
+  [id]="accordion.id"
+  [heading]="accordion.heading"
+  [icon]="accordion.chevron"
+  (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+  <!-- Accordion Content -->
+  <div
+  id="cmpnt_author-bio-accordion-content"
+  class="cmpnt_praise cmpnt_paragraph-narrow cmpnt_accordion-items"
+  [ngClass]="accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+    <atm-content-paragraph id="keep-reading" [paragraph]="spotlight"></atm-content-paragraph>
+  </div>
+</section>

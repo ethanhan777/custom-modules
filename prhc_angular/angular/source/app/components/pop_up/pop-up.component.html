@@ -1,0 +1,57 @@
+<section
+aria-label="A pop up"
+*ngIf="isLoaded && lightbox"
+tabindex="-1"
+(click)="lightboxOff()"
+[ngClass]="lightbox ? 'cmpnt_lightbox cmpnt_pop-up' : 'cmpnt_lightbox-inactive'">
+
+  <div class="container mlcl_lb-inner"
+  (click)="keepLightboxOn($event)">
+    <button (click)="lightboxOff()" class="atm_close">
+      <span class="fa fa-times" aria-label="Close the pop up"></span>
+    </button>
+
+    <div class="mlcl_lightbox-content">
+      <div class="mlcl_popup-details">
+        <h2>{{popup.attributes.field_heading}}</h2>
+        <p *ngIf="popup.attributes.field_subtitle">{{popup.attributes.field_subtitle}}</p>
+        <a
+        *ngIf="popup.attributes.field_link"
+        href="{{popup.attributes.field_link.uri}}"
+        target="_blank"
+        rel="noopener"
+        (click)="onClick(popup.attributes.title)">
+          <button>{{popup.attributes.field_link.title}}</button>
+        </a>
+
+        <nl-signup-by-context
+        *ngIf="popup.attributes.field_acquisition_type"
+        [acquisitoinCode]="popup.attributes.field_acquisition_type"
+        [prefCode]="popup.attributes.field_newsletter_prefs"></nl-signup-by-context>
+      </div>
+
+      <div class="mlcl_popup-image">
+        <a
+        *ngIf="popup.attributes.field_link && popup.attributes.image"
+        href="{{popup.attributes.field_link.uri}}"
+        target="_blank"
+        rel="noopener"
+        (click)="onClick(popup.attributes.title)">
+          <img src="{{popup.attributes.image}}" alt="{{popup.attributes.imageAlt}}">
+        </a>
+
+        <img
+        *ngIf="!popup.attributes.field_link && popup.attributes.image"
+        src="{{popup.attributes.image}}"
+        alt="{{popup.attributes.imageAlt}}">
+
+        <atm-video-item
+        class="atm_video-item"
+        *ngIf="popup.attributes.field_video"
+        [videoUrl]="popup.attributes.field_video"></atm-video-item>
+      </div>
+
+    </div>
+
+  </div>
+</section>

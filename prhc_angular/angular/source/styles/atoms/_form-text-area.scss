@@ -1,0 +1,17 @@
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: FortLight, Arial, sans-serif;
+  font-size: 1rem;
+  color: $extraDarkGrey;
+  height: auto;
+  width: 100%;
+  padding: 0 $extraSmallSpace;
+  border: 2px solid $mediumGrey;
+  @include borderRadius;
+
+  &:focus {
+    border: 2px solid $extraDarkGrey;
+    outline: none;
+  }
+}

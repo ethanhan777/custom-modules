@@ -1,0 +1,10 @@
+prhc_angular.admin_settings:
+  title: 'PRHC Angular Settings'
+  description: 'Configure PRHC Angular'
+  route_name: prhc_angular.settings
+  parent: 'system.admin_config_services'
+prhc_angular.admin_settings_link:
+  title: 'PRHC Angular Settings'
+  description: 'Configure PRHC Angular'
+  route_name: prhc_angular.settings
+  menu_name: services

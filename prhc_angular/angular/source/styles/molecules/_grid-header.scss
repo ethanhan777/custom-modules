@@ -1,0 +1,21 @@
+//atoms to include
+@import '../atoms/h2';
+@import '../atoms/tags';
+@import '../atoms/form-select';
+
+.mlcl_grid-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $mediumSpace;
+  @include breakpoint ($mediumScreen) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: $giantSpace;
+    margin-bottom: $extraSmallSpace;
+  }
+
+  div {
+    margin-right: $smallSpace;
+  }
+}

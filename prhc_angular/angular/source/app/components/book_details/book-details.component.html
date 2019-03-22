@@ -1,0 +1,45 @@
+<section
+[attr.aria-label]="'Accordion: ' + accordion.heading"
+[attr.aria-expanded]="accordion.toggle"
+id="cmpnt_book-details"
+class="container cmpnt_accordion"
+[ngClass] = "accordion.id ? 'accordion-section-' + accordion.id : ''"
+*ngIf="isLoaded">
+
+  <!-- Accordion header -->
+  <mlcl-accordion-header
+  [id]="accordion.id"
+  [heading]="accordion.heading"
+  [icon]="accordion.chevron"
+  (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+  <!-- Accordion Content -->
+  <div
+  *ngIf="accordion.toggle"
+  id="cmpnt_book-details-accordion-content"
+  [ngClass]="accordion.toggle?'atm_accordion-open':'atm_accordion-close'"
+  class="cmpnt_book-detail cmpnt_paragraph-narrow cmpnt_accordion-items">
+    <p>On Sale: {{book.onSaleDate.date | onSaleDate}}</p>
+    <p *ngIf="book.totalPages > 0">Pages: {{book.totalPages}}</p>
+    <p *ngIf="book.audioLength">
+      Length: {{audioLengthHours}} hours
+      <span *ngIf="audioLengthMinutes > 0">{{audioLengthMinutes}} minutes</span>
+    </p>
+    <p *ngIf="ageRange">Age Range: {{ageRange}}</p>
+    <p>ISBN: {{book.isbn}}</p>
+
+    <!-- publishers -->
+    <mlcl-tag-item
+    *ngIf="publishers && publishers.length"
+    [label]="'Publisher'"
+    [tags]="publishers"></mlcl-tag-item>
+
+    <!-- categories -->
+    <mlcl-tag-item
+    *ngIf="categories && categories.length"
+    [label]="'Categories'"
+    [tags]="categories"></mlcl-tag-item>
+
+  </div>
+</section>
+

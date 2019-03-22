@@ -1,0 +1,6 @@
+<mlcl-slider
+class="container"
+*ngIf="curatedPickItems.length"
+[heading]="'Curated Picks'"
+[data]="curatedPickItems"
+(clicked)="sendTealiumData($event)"></mlcl-slider>

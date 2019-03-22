@@ -1,0 +1,21 @@
+// atoms to include
+@import '../atoms/anchors';
+@import '../atoms/tags';
+
+.mlcl_breadcrumb-wrapper * {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+
+  .atm_tag {
+    margin-left: $extraSmallSpace;
+  }
+}
+
+.mlcl_breadcrumb {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

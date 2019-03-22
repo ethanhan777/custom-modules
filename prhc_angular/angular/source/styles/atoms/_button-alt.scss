@@ -1,0 +1,21 @@
+@import 'buttons';
+
+button.atm_alt-btn {
+  color: $white;
+  background-color: $extraDarkGrey;
+  border: 2px solid $white;
+
+  &:hover,
+  &:focus {
+    @include boxShadowHover;
+    border: 2px solid $penguinOrange;
+  }
+
+  &:disabled {
+    color: $darkGrey;
+    background-color: $extraLightGrey;
+    border: 2px solid $mediumGrey;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}

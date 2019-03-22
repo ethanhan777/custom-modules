@@ -1,0 +1,73 @@
+<ng-container *ngIf="pageType === 'authors'">
+
+  <hero></hero>
+
+  <authors-new-release></authors-new-release>
+
+  <nl-signup-by-context></nl-signup-by-context>
+
+  <authors-on-tour></authors-on-tour>
+
+  <event-list></event-list>
+
+  <authors-grid></authors-grid>
+
+</ng-container>
+
+<ng-container *ngIf="pageType === 'books'">
+
+  <hero></hero>
+
+  <category-grid></category-grid>
+
+</ng-container>
+
+<ng-container *ngIf="pageType === 'new-releases'">
+
+  <hero></hero>
+
+  <new-last-week></new-last-week>
+
+  <nl-signup-by-context></nl-signup-by-context>
+
+  <new-last-month></new-last-month>
+
+</ng-container>
+
+<ng-container *ngIf="pageType === 'coming-soon'">
+
+  <hero></hero>
+
+  <coming-soon-next-week></coming-soon-next-week>
+
+  <nl-signup-by-context></nl-signup-by-context>
+
+  <book-grid></book-grid>
+
+</ng-container>
+
+<ng-container *ngIf="pageType === 'excerpts' || pageType === 'book-club-resources'">
+
+  <hero></hero>
+
+  <coming-soon></coming-soon>
+
+  <new-release-excerpt></new-release-excerpt>
+
+  <nl-signup-by-context></nl-signup-by-context>
+
+  <category-grid></category-grid>
+
+</ng-container>
+
+<ng-container *ngIf="pageType === 'events'">
+
+  <hero></hero>
+
+  <authors-on-tour></authors-on-tour>
+
+  <nl-signup-by-location></nl-signup-by-location>
+
+  <event-list-all-location></event-list-all-location>
+
+</ng-container>

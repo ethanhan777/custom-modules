@@ -1,0 +1,15 @@
+@import '../atoms/wysiwyg';
+@import '../atoms/buttons';
+
+/*
+written by acressall
+
+includes:
+- styling for an author bio in the about-author component
+ */
+.mlcl_author-details {
+  @include breakpoint ($largeScreen) {
+    @include col8;
+    margin: 0;
+  }
+}

@@ -1,0 +1,48 @@
+// tags
+.mlcl_tag-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+
+  label {
+    margin-right: $extraSmallSpace;
+  }
+}
+
+.atm_tag {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  background-color: $extraLightGrey;
+  padding: $extraSmallSpace / 2;
+  @include borderRadius;
+  margin: 0 $extraSmallSpace $extraSmallSpace 0;
+  display: inline-flex;
+  transition: all 0.5s ease-in-out;
+
+  &:active,
+  &.active,
+  &:focus {
+    color: $extraLightGrey;
+    background-color: $extraDarkGrey;
+    border: none;
+    outline: none;
+  }
+  @include breakpoint($largeScreen) {
+    &:hover {
+      color: $extraLightGrey;
+      background-color: $extraDarkGrey;
+    }
+  }
+}
+
+.atm_tag-active {
+  color: $extraLightGrey;
+  background-color: $extraDarkGrey;
+}
+
+h2 .atm_tag {
+  margin-left: $extraSmallSpace;
+}

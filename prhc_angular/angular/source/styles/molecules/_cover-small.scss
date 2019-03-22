@@ -1,0 +1,36 @@
+@import '../atoms/animation-zoom-up';
+@import '../molecules/grid-no-image';
+
+/*
+written by acressall
+
+includes:
+- styling for images within sliders, grids, and lists
+- styling for the format selector cover
+- styling for the grid cover
+- styling for the list cover
+*/
+.mlcl_thumbnail-cover {
+  background-color: $extraLightGrey;
+  @include borderRadius;
+  @include boxShadowNormal;
+  margin: 0 auto $extraSmallSpace auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 90%;
+    max-height: 90%;
+    padding: $extraSmallSpace;
+  }
+
+  &:hover {
+    @include breakpoint($largeScreen) {
+      @include animationZoomUp;
+    }
+  }
+}
+

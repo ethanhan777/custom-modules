@@ -1,0 +1,11 @@
+<section class="container">
+  <h2>Find Events</h2>
+
+  <mlcl-event-list-accordion
+  *ngFor="let province of provinces"
+  [location]="province"
+  [events]="events[province]['events']"
+  [viewAllFlag]="events[province]['viewAllFlag']"
+  [loading]="events[province]['loading']"
+  (loadEventFlag)="loadEvents($event)"></mlcl-event-list-accordion>
+</section>

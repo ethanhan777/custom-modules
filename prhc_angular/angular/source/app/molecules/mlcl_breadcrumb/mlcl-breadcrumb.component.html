@@ -1,0 +1,8 @@
+<div *ngFor="let breadcrumbItem of breadcrumbItems; let isLast = last">
+  <atm-tag
+  [name]="breadcrumbItem.name"
+  [seoFriendlyUrl]="breadcrumbItem.seoFriendlyUrl"></atm-tag>
+  <fa
+  *ngIf="!isLast"
+  [name]="'angle-right'"></fa>
+</div>

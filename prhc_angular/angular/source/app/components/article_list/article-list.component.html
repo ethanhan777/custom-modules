@@ -1,0 +1,16 @@
+<section class="container">
+  <mlcl-loader *ngIf="!isLoaded" class="mlcl_loader"></mlcl-loader>
+
+  <mlcl-article-list
+  *ngIf="isLoaded && !noContent"
+  [articles]="articles"
+  [loading]="loading"
+  [loadMoreFlag]="loadMoreFlag"
+  (loadMore)="loadMore()"></mlcl-article-list>
+</section>
+
+<!-- no content -->
+<section *ngIf="isLoaded && noContent" class="container">
+  <p class="cmpnt_paragraph-narrow">
+  Sorry, there is nothing available at this time. Please check back soon!</p>
+</section>

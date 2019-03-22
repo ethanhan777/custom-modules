@@ -1,0 +1,89 @@
+p,
+ul,
+ol {
+  font-family: $bodyFont;
+  font-size: 1.25rem;
+  line-height: 1.825rem;
+  margin: 0 0 $smallSpace 0;
+
+  strong,
+  b {
+    font-family: $fontMedium;
+    font-style: bold;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  label {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+}
+
+// Links
+a {
+  font-family: FortMedium, Arial, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.625rem;
+  text-decoration: underline;
+  color: $extraDarkGrey;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+// Lists
+ul,
+ol {
+  padding: 0;
+  margin-left: $extraSmallSpace;
+  @include breakpoint ($mediumScreen) {
+    margin-left: $mediumSpace;
+  }
+}
+
+li {
+  margin: $extraSmallSpace 0;
+}
+
+// Unordered Lists
+ul {
+  li {
+    margin-left: 1em;
+    list-style-type: none;
+
+    &::before {
+      position: absolute;
+      font-family: $fontBold;
+      content: "•";
+      margin-left: -1em;
+    }
+  }
+}
+// Ordered Lists
+ol {
+  counter-reset: item;
+
+  li {
+    margin-left: 1em;
+    list-style-type: none;
+    counter-increment: item;
+
+    &::before {
+      position: absolute;
+      display: inline-block;
+      width: 1em;
+      font-family: $fontBold;
+      content: counter(item) ".";
+      margin-left: -1em;
+    }
+  }
+}
+
+// change the indicator to a bullet on nested list
+ol > li > ul > li::before {
+  content: "•";
+}

@@ -1,0 +1,27 @@
+//atoms to include
+@import '../atoms/h4';
+@import '../atoms/small';
+// molecules to include
+@import 'cover-small';
+@import 'cover-series';
+
+/*
+written by acressall
+
+notes:
+!importants are used everywhere to override the defaults of the slider plugin.
+Once used in one place, it needs to be used everywhere
+
+includes:
+- styling for single books within a slider or grid
+- styling for book within format selector slider
+*/
+// single book in a slider
+.mlcl_single-book {
+  display: block;
+  width: 180px !important;
+  // padding: 0 $smallSpace;
+  @include breakpoint($largeScreen) {
+    width: 250px !important;
+  }
+}

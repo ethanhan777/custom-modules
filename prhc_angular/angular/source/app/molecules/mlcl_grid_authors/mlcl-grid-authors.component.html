@@ -1,0 +1,39 @@
+<section class="container">
+  <div class="mlcl_grid-header">
+    <h2 *ngIf="heading">{{heading}}</h2>
+
+    <!-- sorting -->
+    <div *ngIf="sortFlag">
+      <select
+      class="mlcl_sort"
+      [(ngModel)]="selectedOption"
+      (ngModelChange)="sort($event)">
+        <option
+        *ngFor="let option of sortOptions"
+        [ngValue]="option">{{option.desc}}</option>
+      </select>
+      <span class="fa fa-angle-down mlcl_select-arrow" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <div class="cmpnt_grid-layout">
+    <!-- grid items -->
+    <mlcl-slider-item class="mlcl_grid-item"
+    *ngFor="let item of data"
+    [content]="item"></mlcl-slider-item>
+
+    <!-- not found message -->
+    <!-- <div class="atm_btn-center">
+      <p *ngIf="noResultMessage"[innerHtml]="noResultMessage"></p>
+    </div> -->
+
+    <!-- loading icon -->
+    <mlcl-loader *ngIf="loading" class="mlcl_loader"></mlcl-loader>
+
+    <!-- load more -->
+    <div class="atm_load-more" *ngIf="data && data.length && loadMoreFlag">
+      <button class="atm_alt-btn" (click)="loadMoreAuthors()">Load More</button>
+    </div>
+
+  </div>
+</section>

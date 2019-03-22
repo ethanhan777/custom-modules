@@ -1,0 +1,70 @@
+  <section *ngIf="results && results.length">
+
+    <mlcl-hero-title
+    class="cmpnt_paragraph-narrow mlcl_quiz-title"
+    [title]="'Results'"
+    [subtitle]="'Based on your answers, we recommend the following books'"></mlcl-hero-title>
+
+    <!-- result list -->
+    <mlcl-featured-book
+    class="cmpnt_book-list-item"
+    [title]="title"
+    [index]="index"
+    [segmentScores]="segment"
+    [customHeading]="title.customHeading"
+    [customDescription]="title.aboutTheBook"
+    [profile]="profile"
+    [isSaveButton]="true"
+    [staffPick]="title.staffPick"
+    (savedBook)="saveOnClick($event)"
+    *ngFor="let title of results; let index = index"></mlcl-featured-book>
+
+    <!-- load more -->
+    <div class="atm_load-more">
+      <atm-button
+      [label]="'Start Over'"
+      [seoFriendlyUrl]="'/book-finder'"
+      (click)="sendTealiumData(
+        'link',
+        {
+          'module_type': 'Recommendation Results Actions',
+          'module_variation': 'Start Over'
+        }
+      )"></atm-button>
+
+      <atm-button
+      *ngIf="loadMoreFlag"
+      [label]="'Load More'"
+      [classes]="'atm_alt-btn'"
+      (clicked)="loadMoreResults()"></atm-button>
+    </div>
+
+    <connect-with-author
+    [author]="shareData"
+    [contentType]="'book-finder'"></connect-with-author>
+
+    <mlcl-reco-curated-picks
+    [recomendationMappingTerms]="recomendationMappingTerms"></mlcl-reco-curated-picks>
+
+    <saved-books
+    [status]="savedBookDisplayFlag"
+    (click)="sendTealiumData(
+        'link',
+        {
+          'module_type': 'Recommendation Results Actions',
+          'module_variation': 'View Saved Books'
+        }
+      )"></saved-books>
+  </section>
+
+  <!-- error message -->
+  <section *ngIf="errorFlag">
+    <!-- TODO: BETTER COPY NEEDED FOR ERROR MESSAGE -->
+    <p>Something went wrong. please try again.</p>
+
+    <div class="atm_load-more">
+      <atm-button
+      [label]="'Start Over'"
+      [seoFriendlyUrl]="'/book-finder'"></atm-button>
+    </div>
+  </section>

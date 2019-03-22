@@ -1,0 +1,61 @@
+/*
+written by acressall
+
+includes:
+- styling for the connect block on author and imprint pages
+*/
+//atoms to include
+@import '../atoms/h4';
+@import '../atoms/anchors';
+//molecules to include
+@import '../molecules/social';
+
+.cmpnt_connect {
+  h4 {
+    text-align: center;
+  }
+
+  .cmpnt_context-sign-up {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+// styling of the links within the connect component
+.mlcl_author_social_links {
+  .mlcl_social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    * a {
+      display: flex;
+      align-items: center;
+      padding-left: 0;
+    }
+
+    .atm_social-label {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .atm_social-link small {
+      display: none;
+      @include breakpoint($mediumScreen) {
+        display: initial;
+      }
+    }
+  }
+}
+
+// styling for on recommendation results page
+.quiz-page .cmpnt_connect {
+  background-color: $lightGrey;
+  border: 1px solid $mediumGrey;
+  @include borderRadius;
+
+  .cmpnt_context-sign-up {
+    background-color: $lightGrey;
+  }
+}

@@ -1,0 +1,99 @@
+.cmpnt_footer {
+  padding: $smallSpace $extraSmallSpace 0 $extraSmallSpace;
+  border-top: 1px solid $mediumGrey;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  @include breakpoint($smallScreen) {
+    justify-content: space-between;
+  }
+  @include breakpoint($mediumScreen) {
+    padding: $mediumSpace $mediumSpace $extraSmallSpace $mediumSpace;
+  }
+  @include breakpoint($largeScreen) {
+    justify-content: space-around;
+  }
+}
+
+.mlcl_footer-connect,
+.mlcl_footer-links,
+.mlcl_footer-branding {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  @include col12;
+
+  h4 {
+    margin-bottom: $extraSmallSpace;
+    text-align: center;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    padding-bottom: $extraSmallSpace;
+  }
+
+  @include breakpoint($smallScreen) {
+    text-align: left;
+  }
+
+  @include breakpoint($mediumScreen) {
+    width: auto;
+    padding: 0;
+    margin: 0 $extraSmallSpace;
+  }
+  @include breakpoint($largeScreen) {
+    width: auto;
+    margin: 0 $smallSpace;
+  }
+}
+
+.mlcl_footer-links {
+  @include col6;
+  @include breakpoint($smallScreen) {
+    @include col4;
+  }
+  @include breakpoint($mediumScreen) {
+    width: auto;
+    padding: 0;
+  }
+  @include breakpoint($largeScreen) {
+    width: auto;
+  }
+}
+
+.mlcl_footer-branding {
+  @include col12;
+  padding-top: $smallSpace;
+  border-top: 1px solid $lightGrey;
+  margin-top: $smallSpace;
+
+  a {
+    margin-right: $smallSpace;
+  }
+
+  img {
+    width: 100%;
+    max-width: 160px;
+  }
+
+  p {
+    display: flex;
+    flex-direction: column;
+  }
+  @include breakpoint($smallScreen) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  @include breakpoint($giantScreen) {
+    width: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 0;
+    margin-top: 0;
+    border: none;
+  }
+}

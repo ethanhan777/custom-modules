@@ -1,0 +1,42 @@
+/*
+written by acressall
+
+includes:
+- accordion styles
+- accordion-items
+- accordion-open
+- accordion-close
+*/
+//atoms to include
+@import '../atoms/animation-fade-in-out';
+//molecules to include
+@import '../molecules/accordion-header';
+
+.cmpnt_accordion {
+  padding-top: $extraSmallSpace;
+  padding-bottom: $extraSmallSpace;
+  border-bottom: 2px solid $extraLightGrey;
+  @include breakpoint($smallScreen) {
+    padding-top: $smallSpace;
+    padding-bottom: $smallSpace;
+  }
+}
+//spacing and borders for everything inside an accordion
+.cmpnt_accordion-items {
+  padding: $extraSmallSpace $extraSmallSpace 0 $extraSmallSpace;
+  @include breakpoint($mediumScreen) {
+    padding: $mediumSpace $mediumSpace 0 $mediumSpace;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+//open and close animations
+.atm_accordion-open {
+  @include animationFadeIn;
+}
+
+.atm_accordion-close {
+  @include animationFadeOut;
+}

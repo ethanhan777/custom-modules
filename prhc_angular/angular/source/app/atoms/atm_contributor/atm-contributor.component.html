@@ -1,0 +1,17 @@
+<small>{{byRoleName}}&nbsp;</small>
+
+<ng-container
+*ngFor="let contributor of contributors;
+let index = index;
+let first = first;
+let last = last">
+  <span *ngIf="!first && !last">
+    ,
+  </span>
+  <span *ngIf="!first && index == contributors.length - 1">
+    and
+  </span>
+  <a
+  href="{{contributor?.seoFriendlyUrl}}"
+  class="atm_tag">{{contributor?.display}}</a>
+</ng-container>

@@ -1,0 +1,42 @@
+/*
+written by acressall
+
+includes:
+- styles for book reference on excerpt and reading guide pages
+- styles for book reference on recipe pages
+*/
+
+@import '../atoms/buttons';
+@import '../molecules/cover-small';
+@import '../molecules/grid-book-detail';
+
+.cmpnt_book-reference {
+  max-width: $largeWidth;
+  margin: $smallSpace auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .mlcl_grid-cover-wrapper {
+    @include col7;
+    margin: 0 auto;
+  }
+  @include breakpoint($mediumScreen) {
+    flex-direction: row;
+    align-items: initial;
+
+    .mlcl_grid-cover-wrapper {
+      @include col3;
+      margin: 0;
+    }
+  }
+}
+
+// within the book details accordion on recipe pages
+.cmpnt_book-details {
+  .cmpnt_book-reference {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+}

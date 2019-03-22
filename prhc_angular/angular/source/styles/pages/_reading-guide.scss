@@ -1,0 +1,22 @@
+.reading-guide-page {
+
+  @media print {
+    .mlcl_main-nav-top button,
+    .mlcl_nav-items,
+    .mlcl_social,
+    .atm_grid-book-detail,
+    .mlcl_print,
+    .mlcl_tag-wrapper,
+    .cmpnt_accordion,
+    .cmpnt_context-sign-up,
+    .cmpnt_more-in-series,
+    .cmpnt_more-in-category,
+    footer {
+      display: none !important;
+    }
+
+    .mlcl_main-nav-top {
+      justify-content: center;
+    }
+  }
+}

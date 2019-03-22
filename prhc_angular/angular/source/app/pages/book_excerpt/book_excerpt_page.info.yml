@@ -1,0 +1,8 @@
+name: Book Excerpt/ Reading Guide Component
+description: 'Book Excerpt/ Reading Guide PageComponent'
+selector: book-excerpt-page
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

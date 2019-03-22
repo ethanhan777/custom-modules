@@ -1,0 +1,35 @@
+<section class="container" *ngIf="recipeIntro">
+  <div class="cmpnt_paragraph-narrow">
+    <p>
+      <ng-container *ngIf="recipeIntro.yieldFrom || recipeIntro.yieldTo">
+        <strong>
+          <span>Yield:</span>
+          <span *ngIf="recipeIntro.yieldFrom">{{recipeIntro.yieldFrom}}</span>
+          <span *ngIf="recipeIntro.yieldTo"> - {{recipeIntro.yieldTo}} </span>
+          <span *ngIf="recipeIntro.yieldUnit">{{recipeIntro.yieldUnit}}</span>
+        </strong>
+      </ng-container><br>
+      <ng-container *ngIf="recipeIntro.prepTime"><strong>Prep Time: {{recipeIntro.prepTime}}</strong></ng-container><br>
+      <ng-container *ngIf="recipeIntro.cookTime"><strong>Cook Time: {{recipeIntro.cookTime}}</strong></ng-container>
+    </p>
+
+    <!-- categories -->
+    <mlcl-tag-item
+    [label]="'Recipe Categories'"
+    [tags]="recipeIntro.categories"
+    *ngIf="recipeIntro.categories && recipeIntro.categories.length"></mlcl-tag-item>
+  </div>
+
+  <h4
+  class="cmpnt_paragraph-narrow"
+  *ngIf="recipeIntro.subheading">{{recipeIntro.subheading}}</h4>
+
+  <p
+  class="cmpnt_paragraph-narrow"
+  *ngIf="recipeIntro.intro"
+  [innerHtml]="recipeIntro.intro"></p>
+</section>
+
+<featured-book
+*ngIf="recipeIntro && recipeIntro.relatedBook"
+[isbn]="recipeIntro.relatedBook"></featured-book>

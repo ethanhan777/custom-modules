@@ -1,0 +1,48 @@
+/*
+written by acressall
+
+includes:
+- predictive suggestions wrapper
+- a tags within it and hover states
+- margin on small tags
+*/
+
+.cmpnt_predictive-suggestions {
+  max-width: 80%;
+  position: absolute;
+  background-color: $white;
+  @include borderRadius;
+  @include boxShadowHover;
+  margin-top: $extraSmallSpace;
+  z-index: $z-skyscraper;
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    text-decoration: none;
+    padding: $extraSmallSpace $smallSpace;
+    border-bottom: 1px solid $mediumGrey;
+    margin: 0;
+    transition: all 0.25s ease;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $extraLightGrey;
+      -webkit-background-color: $extraLightGrey;
+      border-bottom: 1px solid $extraDarkGrey;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: $extraLightGrey;
+      -webkit-background-color: $extraLightGrey;
+      border-bottom: 1px solid $extraDarkGrey;
+    }
+
+    small {
+      font-family: $fontMedium;
+      margin: 0 $extraSmallSpace 0 0;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<!-- slider -->
+<section
+class="container"
+*ngIf="isLoaded && type==='slider'">
+  <mlcl-slider
+  [heading]="heading"
+  [data]="sliderItems"
+  [saveButtonFlag]="isSaveButton"
+  (clicked)="onClick($event)"
+  (savedBook)="saveOnClick($event)"></mlcl-slider>
+</section>
+
+<!-- grid -->
+<section
+class="container"
+*ngIf="isLoaded && type==='grid'">
+  <h2 class="mlcl_grid-header" *ngIf="heading">{{heading}}</h2>
+
+  <div class="cmpnt_grid-layout">
+    <mlcl-slider-item
+    class="mlcl_grid-item"
+    *ngFor="let item of sliderItems"
+    [type]="'book'"
+    [content]="item"
+    [saveButtonFlag]="isSaveButton"
+    (savedBook)="saveOnClick($event)"></mlcl-slider-item>
+  </div>
+</section>

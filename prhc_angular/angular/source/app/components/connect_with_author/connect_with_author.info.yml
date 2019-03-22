@@ -1,0 +1,8 @@
+name: Connect with author Component
+description: 'Connect with author Component'
+selector: connect-with-author
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

@@ -1,0 +1,8 @@
+name: Recipe Book Details Component
+description: 'Book details and related recipes for recipe node'
+selector: recipe-book-details
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

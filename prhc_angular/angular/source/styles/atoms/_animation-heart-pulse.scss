@@ -1,0 +1,10 @@
+//Heart pulsing for like icon on book pages
+@mixin animationHeartPulse {
+  animation: pulse 3s ease infinite;
+}
+@keyframes pulse {
+  50% {
+    border: 2px solid $extraDarkGrey;
+    @include boxShadowHover;
+  }
+}

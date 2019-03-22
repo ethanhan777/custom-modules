@@ -1,0 +1,29 @@
+// atoms to include
+@import '../atoms/h2';
+
+/*
+written by acressall
+
+includes:
+- positioning of heading in featured book component
+*/
+.atm_featured-heading {
+  @include col12;
+  text-align: center;
+  margin: $extraSmallSpace 0;
+  @include breakpoint ($mediumScreen) {
+    @include col3;
+    text-align: right;
+  }
+
+  h2::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.atm_featured-heading-staff-pick {
+  margin-top: $extraSmallSpace;
+  @include breakpoint ($mediumScreen) {
+    margin-top: $mediumSpace;
+  }
+}

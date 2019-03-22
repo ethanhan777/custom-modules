@@ -1,0 +1,11 @@
+<div class="cmpnt_paragraph-narrow mlcl_nl-context-confirm">
+  <h4>You've Been Signed Up!</h4>
+
+  <div *ngIf="prefNames.length">
+    <p>Your preferences now include:</p>
+    <small class="atm_small-medium" *ngFor="let pref of prefList">{{pref}}</small>
+    <p>Tell us what else you're interested in.</p>
+  </div>
+
+  <a href="/newsletter?mcg={{mcguid}}"><button>Update preferences</button></a>
+</div>

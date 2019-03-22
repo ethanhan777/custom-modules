@@ -1,0 +1,61 @@
+//atoms to include
+@import '../atoms/anchors';
+
+/*
+written by acressall
+
+includes:
+- global hero image and expand icon
+- hero image on recipes
+*/
+
+//hero image wrapper. inludes cover and caption for authors/recipes, and expand icon for books
+.mlcl_hero-img {
+  background-color: $extraLightGrey;
+  @include borderRadius;
+  @include boxShadowNormal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include col7;
+  height: 100%;
+  padding: $smallSpace;
+  margin: 0 auto $smallSpace auto;
+  @include breakpoint($smallScreen) {
+    @include col5;
+    padding: $smallSpace;
+    margin: 0 auto $mediumSpace auto;
+
+    a {
+      cursor: pointer;
+    }
+  }
+  @include breakpoint($largeScreen) {
+    @include col4;
+    padding: $smallSpace !important;
+  }
+
+  img {
+    align-self: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .atm_icn-expand {
+    width: 100%;
+    text-align: right;
+    padding-top: $extraSmallSpace;
+  }
+
+  &:hover {
+    @include breakpoint($largeScreen) {
+      @include animationZoomUp;
+    }
+  }
+}
+
+.mlcl_hero-cover-links {
+  margin-top: $extraSmallSpace;
+}
+

@@ -1,0 +1,25 @@
+.quiz-page {
+  background-color: $extraLightGrey;
+  background-size: 100%;
+  background-repeat: repeat-y;
+  min-height: 50vh;
+  margin-top: -$mediumSpace;
+  margin-bottom: -$mediumSpace;
+  padding-top: $mediumSpace;
+  padding-bottom: $mediumSpace;
+
+  .mlcl_quiz-title,
+  .atm_caption,
+  .mlcl-quiz-buttons {
+    text-align: center;
+  }
+
+  @include breakpoint($mediumScreen) {
+    margin-top: -$giantSpace;
+    padding-top: $giantSpace;
+  }
+
+  .mlcl_slider-content .mlcl_thumbnail-cover {
+    background-color: $white;
+  }
+}

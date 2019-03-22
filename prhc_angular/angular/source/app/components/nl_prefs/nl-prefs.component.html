@@ -1,0 +1,51 @@
+<section class="mlcl_header">
+  <h1>{{pageTitle}}</h1>
+  <h2 *ngIf="pageSubtitle" [innerHTML]="pageSubtitle"></h2>
+</section>
+
+<div class="container cmpnt_form-preferences" *ngIf="!loading && !message">
+  <!-- user profile form -->
+  <mlcl-nl-subscriber
+  class="cmpnt_paragraph-narrow cmpnt_nl-profile"
+  [mcguid]="mcguid"
+  [subscriber]="subscriber"
+  (userProfile)="upateUserProfile($event)"></mlcl-nl-subscriber>
+
+  <!-- user preferences form -->
+  <h2>Your Preferences</h2>
+
+  <mlcl-nl-programs
+  class="cmpnt_nl-programs"
+  *ngIf="programs.length"
+  [mcguid]="mcguid"
+  [prefStatus]="prefStatus"
+  [prefs]="programs"
+  (userPrefs)="updateUserPreferences($event)"></mlcl-nl-programs>
+
+  <fieldset class="cmpnt_paragraph-narrow">
+    <mlcl-nl-legal *ngIf="mcguid.length == 0" (isAgreed)="isValidForm($event)"></mlcl-nl-legal>
+    <button tpye="submit" (click)="signup()" [disabled]="!isValidForm()">Submit</button>
+  </fieldset>
+</div>
+
+<!-- loading icon -->
+<mlcl-loader
+*ngIf="loading"
+class="mlcl_loader"></mlcl-loader>
+
+<!-- <div class="container mlcl_header" *ngIf="message">
+  <p>{{message}}</p>
+
+  <a
+  (click)="onClick()"
+  *ngIf="mcguid.length">Take me back to preference page</a>
+
+  <h2>Stay in the loop about new releases and exclusive news</h2>
+  <mlcl-social-footer></mlcl-social-footer>
+</div> -->
+
+<mlcl-nl-confirm-message
+*ngIf="message"
+[linkFlag]="mcguid.length > 0"
+[message]="message"
+(clicked)="onClick()"></mlcl-nl-confirm-message>

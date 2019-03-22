@@ -1,0 +1,29 @@
+<section
+[attr.aria-label]="'Accordion: ' + accordion.heading"
+[attr.aria-expanded]="accordion.toggle"
+class="cmpnt_accordion"
+[ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''"
+*ngIf="renderFlag">
+  <mlcl-accordion-header
+  [id]="accordion.id"
+  [heading]="accordion.heading"
+  [icon]="accordion.chevron"
+  (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+  <!--  Accordion Content -->
+  <div
+  *ngIf="accordion.toggle"
+  [ngClass]="accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+    <div *ngIf="values.comingSoon">
+      <a class="atm_tag" (click)="filter('comingSoon', 'true')">
+        Coming Soon ({{values.comingSoon}})
+      </a>
+    </div>
+
+    <div *ngIf="values.newRelease">
+      <a class="atm_tag" (click)="filter('newRelease', 'true')">
+        New Release ({{values.newRelease}})
+      </a>
+    </div>
+  </div>
+</section>

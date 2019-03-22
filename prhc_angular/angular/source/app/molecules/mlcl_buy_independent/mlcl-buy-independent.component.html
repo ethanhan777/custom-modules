@@ -1,0 +1,89 @@
+<section class="cmpnt_paragraph-narrow">
+
+  <h4 class="mlcl_header atm_lightbox-header">
+    Find an Independent Bookstore Near You
+  </h4>
+
+  <!-- Search -->
+  <section class="mlcl_indie-search">
+    <p>Enter your address, postal code, city, or province to find an independent bookstore in your area</p>
+    <form class="mlcl_buy-independent-form" id="indieForm">
+      <input
+      id="indieSearch"
+      type="text"
+      name="Postal Code or City"
+      placeholder="Postal Code, Address, City, or Province"
+      [(ngModel)]="indieSearchTerm"
+      autofocus>
+      <input type="submit" value="Search" (click)="search()">
+    </form>
+    <small *ngIf="message.length" [innerHTML]="message"></small>
+  </section>
+
+  <mlcl-loader *ngIf="loading" class="mlcl_loader"></mlcl-loader>
+
+  <!-- Results -->
+  <section *ngIf="retailersList.length || retailersMap.length">
+    <div class="mlcl_grid-header">
+      <h2>{{resultMessage}}</h2>
+
+      <small class="mlcl_indie-view-icons mlcl_social">
+        <i (click)="indieDisplay('list')"
+        [ngClass]="indieListOn ? 'atm_indie-view-icon-active' : '' "
+        class="fa fa-list-ul atm_close"></i>
+
+        <i (click)="indieDisplay('map')"
+        [ngClass]="indieMapOn ? 'atm_indie-view-icon-active' : '' "
+        class="fa fa-map atm_close"></i>
+      </small>
+    </div>
+
+    <!-- List -->
+    <div
+    *ngIf="indieListOn"
+    class="mlcl_buy-independent-results cmpnt_paragraph-narrow">
+      <mlcl-list-item
+      *ngFor="let item of retailersList"
+      [category]="item.label"
+      [externalFlag]="item.externalFlag"
+      [title]="item.title"
+      [seoFriendlyUrl]="item.label.path"
+      [urlTarget]="'_blank'"
+      [body]="item.body"></mlcl-list-item>
+
+      <!-- load more -->
+      <div class="atm_load-more" *ngIf="loadMoreFlag">
+        <button class="atm_alt-btn" (click)="loadMoreRetailers()">Load More</button>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div
+    class="mlcl_buy-independent-results cmpnt_paragraph-narrow"
+    *ngIf="indieMapOn">
+      <agm-map
+      [latitude]="myLocation.lat"
+      [longitude]="myLocation.lng"
+      [zoom]="mapZoom"
+      style="height: 350px;">
+        <agm-marker
+        [latitude]="retailer.coordinates.lat"
+        [longitude]="retailer.coordinates.lon"
+        [markerClickable]="true"
+        [title]="retailer.title"
+        *ngFor="let retailer of retailersMap">
+          <agm-info-window [maxWidth]="280">
+            <mlcl-list-item
+            [category]="retailer.label"
+            [externalFlag]="retailer.externalFlag"
+            [title]="retailer.title"
+            [seoFriendlyUrl]="retailer.label.path"
+            [urlTarget]="'_blank'"
+            [body]="retailer.body"></mlcl-list-item>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+  </section>
+
+</section>

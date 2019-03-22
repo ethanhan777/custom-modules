@@ -1,0 +1,55 @@
+<ng-container *ngFor="let book of bookContent">
+<section *ngIf="isLoaded">
+  <div
+  [attr.aria-label]="'Accordion: ' + book.accordion.heading"
+  [attr.aria-expanded]="book.accordion.toggle"
+  class="container cmpnt_accordion"
+  [ngClass]="book.accordion.id ? 'accordion-section-' + book.accordion.id : ''"
+  *ngIf="book">
+
+    <mlcl-accordion-header
+    [id]="book.accordion.id"
+    [heading]="book.accordion.heading"
+    [icon]="book.accordion.chevron"
+    (accordionOpen)="accordionOpen(book.accordion)"></mlcl-accordion-header>
+
+    <!--  Accordion Content -->
+    <div
+    *ngIf="book.accordion.toggle"
+    class="cmpnt_accordion-items"
+    [ngClass]="book.accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+
+      <div class="mlcl_2col-hero-wrapper">
+        <!-- cover image -->
+        <mlcl-cover
+        class="mlcl_hero-img"
+        *ngIf="book.hasCover"
+        [coverImage]="book.image"
+        [title]="book.title"
+        [isbn] ="book.isbn"
+        [work]="book.work"
+        [photoCredit]="book.photoCredit"></mlcl-cover>
+
+        <!-- Description -->
+        <mlcl-hero-desc
+        class="mlcl_hero-desc"
+        [desc]="book.desc"
+        [type]="'books'"
+        [onSaleDate]="book.onSaleDate"
+        [relatedLinks]="book.links"
+        [keepReadingFlag]="false"
+        [accordionId]="book.accordion.id"
+        [content]="book"
+        (clickedBuy)="lightboxEvent($event)"
+        *ngIf="book.desc"></mlcl-hero-desc>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<mlcl-buy-workflow
+*ngIf="lightboxOn"
+(closed)="lightboxOff($event)"
+[isbn]="book.isbn"></mlcl-buy-workflow>
+</ng-container>

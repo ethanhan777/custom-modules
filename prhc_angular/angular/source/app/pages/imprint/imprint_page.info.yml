@@ -1,0 +1,8 @@
+name: Imprint Page Component
+description: 'Imprint Page Component'
+selector: imprint-page
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

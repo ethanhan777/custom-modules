@@ -1,0 +1,82 @@
+// atoms to include
+@import '../atoms/nav-slider-item';
+
+/*
+written by acressall
+
+includes:
+- pagination
+- page count underneath pagination
+*/
+.mlcl_pagination {
+  display: flex;
+  flex-direction: row;
+
+  .atm_pagination-numbers {
+    background-color: $extraLightGrey;
+    @include borderRadius;
+  }
+
+  .atm_left-arrow {
+    margin-right: $extraSmallSpace;
+  }
+
+  .atm_right-arrow {
+    margin-left: $extraSmallSpace;
+  }
+
+  .atm_left-arrow a,
+  .atm_right-arrow a,
+  .atm_pagination-numbers a {
+    padding: $extraSmallSpace $smallSpace;
+    margin: 0;
+  }
+}
+
+.atm_page-count {
+  text-align: center;
+  margin-top: $extraSmallSpace;
+}
+
+.mlcl_pagination-alphabet {
+  width: 100%;
+  background-color: $extraLightGrey;
+  @include borderRadius;
+
+  .mlcl_slider-content {
+    margin-bottom: 0;
+  }
+}
+
+.nav-swiper-container {
+  margin: 0 auto;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+  align-items: center;
+
+  .slider-arrow-right {
+    background-color: $extraLightGrey;
+    position: absolute;
+    right: 0;
+    left: auto;
+    z-index: 10;
+    cursor: pointer;
+    padding-right: $extraSmallSpace;
+  }
+
+  .slider-arrow-right.swiper-button-disabled {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+  }
+}
+
+.atm_pagination-numbers.atm_nav-slider-item {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+}

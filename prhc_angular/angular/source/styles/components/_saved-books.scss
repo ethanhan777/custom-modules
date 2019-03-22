@@ -1,0 +1,57 @@
+.cmpnt_saved-books {
+  background-color: $extraLightGrey;
+  @include borderRadius;
+  @include boxShadowNormal;
+  margin: $smallSpace auto;
+  padding: $smallSpace;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+
+  &:hover {
+    @include breakpoint($largeScreen) {
+      @include animationZoomUp;
+    }
+  }
+}
+
+.mlcl_saveed-book-covers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    @include borderRadius;
+    max-height: 7.813em;
+    padding: $extraSmallSpace;
+  }
+}
+
+.quiz-page .cmpnt_saved-books {
+  background-color: $white;
+  box-shadow: none;
+  border: 1px solid $mediumGrey;
+}
+
+// saved books page
+.cmpnt_saved-books-list {
+  margin-top: $largeSpace;
+}
+
+.mlcl-saved-books-items {
+  border-bottom: 2px solid $extraLightGrey;
+  margin-bottom: $mediumSpace;
+  padding-bottom: $smallSpace;
+
+  .atm_grid-book-detail {
+    text-align: center;
+
+    @include breakpoint($smallScreen) {
+      text-align: left;
+    }
+  }
+}

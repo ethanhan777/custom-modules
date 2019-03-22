@@ -1,0 +1,214 @@
+@import '../atoms/inline-image';
+
+.cmpnt_main-nav {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $mediumSpace;
+
+  @include breakpoint($mediumScreen) {
+    margin-bottom: $giantSpace;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.mlcl_main-nav-top {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: $smallSpace;
+  border-bottom: 1px solid $mediumGrey;
+
+  .atm_prhc-logo,
+  .atm_prhc-logo-open {
+    display: block;
+    @include col7;
+
+    img {
+      width: 100%;
+    }
+    @include breakpoint ($smallScreen) {
+      @include col5;
+    }
+    @include breakpoint ($mediumScreen) {
+      @include col4;
+    }
+    @include breakpoint ($largeScreen) {
+      @include col3;
+    }
+    @include breakpoint ($giantScreen) {
+      @include col2;
+    }
+  }
+
+  .atm_prhc-logo-open {
+    opacity: 0;
+    @include breakpoint ($mediumScreen) {
+      opacity: 1;
+    }
+  }
+
+  .fa {
+    font-size: 2.25em;
+    width: 1em;
+
+    &:focus {
+      border: none;
+      padding: 0;
+      color: $penguinOrange;
+    }
+  }
+
+  .mlcl_nav-search-bar {
+    display: none;
+  }
+
+  .mlcl_nav-search-bar-open {
+    display: initial;
+    position: absolute;
+    right: 3em;
+    left: 3em;
+    margin-right: $smallSpace;
+    transition: all 0.25s ease-in-out;
+
+    i {
+      display: none;
+    }
+    @include breakpoint($mediumScreen) {
+      left: auto;
+      @include col3;
+    }
+  }
+  @include breakpoint ($mediumScreen) {
+    padding: $smallSpace $mediumSpace;
+  }
+}
+
+.mlcl_nav-items {
+  order: 2;
+  width: 250px; // so the close icon is always visible on mobile
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: $extraLightGrey;
+  border-right: 1px solid $mediumGrey;
+  z-index: $z-levelTwo;
+  margin-left: -100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  .mlcl_main-nav-primary,
+  .mlcl_main-nav-secondary {
+    display: flex;
+    flex-direction: column;
+    padding: $smallSpace;
+  }
+
+  .mlcl_main-nav-primary {
+    background-color: $white;
+
+    a {
+      font-size: 1.25rem;
+      margin-bottom: $smallSpace;
+      @include breakpoint($mediumScreen) {
+        font-size: 1rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .mlcl_main-nav-secondary {
+    width: 224px;
+    background-color: $extraLightGrey;
+
+    a {
+      margin-bottom: $smallSpace;
+    }
+  }
+  @include breakpoint($mediumScreen) {
+    overflow-y: auto;
+    overflow-x: auto;
+    width: auto;
+    min-width: 250px;
+    margin-left: 0%;
+    position: relative;
+
+    .mlcl_main-nav-primary {
+      border: none;
+      flex-direction: row;
+      justify-content: center;
+      padding: 0;
+      border-bottom: 1px solid $mediumGrey;
+
+      & * {
+        padding: $extraSmallSpace;
+        margin-bottom: 0;
+      }
+
+      .mlcl_nav-search-bar {
+        display: none;
+      }
+    }
+
+    .mlcl_main-nav-secondary {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      border-right: 1px solid $mediumGrey;
+      z-index: $z-skyscraper;
+      margin-left: -100%;
+      transition: all 0.25s ease;
+    }
+  }
+}
+
+.mlcl_nav-items-open {
+  margin-left: -250px;
+  transition: all 0.25s ease-in-out;
+
+  .mlcl_main-nav-secondary {
+    margin-left: -250px;
+  }
+}
+
+body.nav-open {
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.cmpnt_campaign-nav {
+  border-top: 1px solid $mediumGrey;
+  border-bottom: 1px solid $mediumGrey;
+  margin-bottom: $mediumSpace;
+
+  .mlcl_slider-content {
+    width: 100%;
+    margin-bottom: 0;
+
+    .swiper-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .mlcl_nav-overflow .swiper-wrapper {
+    justify-content: flex-start;
+  }
+
+  a {
+    padding: $extraSmallSpace;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+
+  .nav-swiper-container .slider-arrow-right {
+    background-color: $white;
+  }
+}

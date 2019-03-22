@@ -1,0 +1,13 @@
+<ng-container *ngIf="isNumbered">
+  <section class="container" *ngFor="let author of authors">
+    <h3>About {{author.display}}</h3>
+    <div class="cmpnt_about-author">
+      <mlcl-about-author
+      [author]="author"></mlcl-about-author>
+
+      <mlcl-series-by-author
+      [heading]="author.display"
+      [authorId]="author.authorId"></mlcl-series-by-author>
+    </div>
+  </section>
+</ng-container>

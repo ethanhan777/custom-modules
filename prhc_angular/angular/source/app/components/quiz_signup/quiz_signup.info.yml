@@ -1,0 +1,8 @@
+name: Quiz Signup Component
+description: 'Optional newsletter signup in quiz'
+selector: quiz-signup
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

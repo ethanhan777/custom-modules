@@ -1,0 +1,48 @@
+@import '../molecules/indie-view-icon';
+
+.mlcl_indie-search {
+  padding-bottom: $mediumSpace;
+  border-bottom: 2px solid $extraLightGrey;
+  margin: 0 auto $mediumSpace auto;
+  @include animationFadeIn;
+}
+
+.mlcl_buy-independent-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  input[type=text] {
+    @include col12;
+  }
+
+  input[type=submit] {
+    margin-left: $smallSpace;
+  }
+
+  @include breakpoint($smallScreen) {
+    flex-direction: row;
+
+    input[type=text] {
+      @include col10;
+    }
+  }
+}
+
+.mlcl_buy-independent-results {
+  margin-bottom: $mediumSpace;
+  border-bottom: 2px solid $extraLightGrey;
+  @include animationFadeIn;
+
+  a {
+    text-decoration: none;
+  }
+
+  iframe {
+    width: 100%;
+    height: 500px;
+    margin-bottom: $smallSpace;
+    @include borderRadius;
+  }
+}

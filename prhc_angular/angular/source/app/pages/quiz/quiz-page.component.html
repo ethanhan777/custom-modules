@@ -1,0 +1,153 @@
+<article
+(keydown)="enterForward($event)"
+class="quiz-page">
+
+  <section class="container" *ngIf="!loading && !showResultFlag">
+
+    <p
+    *ngIf="quizPosition < 8 && quizPositionStatement"
+    class="atm_caption cmpnt_paragraph-narrow">{{quizPositionStatement}}</p>
+
+    <!-- <form> -->
+      <!-- profile -->
+      <ng-container *ngIf="quizPosition===0">
+        <quiz-who
+        class="cmpnt_quiz-question"
+        (selectedPerson)="answer($event)"></quiz-who>
+
+        <quiz-relationship
+        class="cmpnt_quiz-question"
+        *ngIf="result.who"
+        [person]="result.who.value"
+        (selectedRelationship)="answer($event)"></quiz-relationship>
+
+        <quiz-age
+        class="cmpnt_quiz-question"
+        *ngIf="result.who && result.who.value === 'Child'"
+        [person]="result.who.value"
+        (selectedAge)="answer($event)"></quiz-age>
+      </ng-container>
+
+      <!-- Adult and YA questions -->
+      <ng-container
+      *ngIf="
+      result.who && result.who.value === 'Adult' ||
+      result.who && result.who.value === 'Teenager' ||
+      result.who && result.who.value === 'Child' && result.age && result.age.value === '13-17'
+      ">
+        <quiz-fic
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===1"
+        [prevAnswer]="result.fiction"
+        [person]="result.relationship"
+        (selectedFiction)="answer($event)"></quiz-fic>
+
+        <quiz-genre
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===2"
+        [person]="result.relationship"
+        [prevAnswer]="result.genres"
+        [ageBracket]="result.who.value"
+        (selectedGenres)="answer($event)"></quiz-genre>
+
+        <quiz-audiobooks
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===3"
+        [prevAnswer]="result.audio"
+        [person]="result.relationship"
+        (selectedItem)="answer($event)"></quiz-audiobooks>
+
+        <quiz-book-club
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===4"
+        [prevAnswer]="result.club"
+        [person]="result.relationship"
+        (selectedItem)="answer($event)"></quiz-book-club>
+
+        <quiz-author
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===5"
+        [prevAnswer]="result.allByAuthor"
+        [person]="result.relationship"
+        (selectedItem)="answer($event)"></quiz-author>
+
+        <quiz-quantity
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===6"
+        [prevAnswer]="result.quantity"
+        [person]="result.relationship"
+        (selectedItem)="answer($event)"></quiz-quantity>
+
+        <quiz-signup
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===7"
+        (stepAction)="quizStep($event)"></quiz-signup>
+      </ng-container>
+
+      <!-- Child questions -->
+      <ng-container
+      *ngIf="
+      result.who && result.who.value === 'Child' &&
+      result.age && result.age.value !== '13-17'
+      ">
+        <quiz-genre-child
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===1"
+        [prevAnswer]="result.kidCategories"
+        [person]="result.relationship"
+        (selectedGenres)="answer($event)"></quiz-genre-child>
+
+        <quiz-learn-fun
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===2"
+        [prevAnswer]="result.learning"
+        [person]="result.relationship"
+        (selectedItem)="answer($event)"></quiz-learn-fun>
+
+        <quiz-characters
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===3"
+        [prevAnswer]="result.characters"
+        [person]="result.relationship"
+        (selectedItem)="answer($event)"></quiz-characters>
+
+        <quiz-signup
+        class="cmpnt_quiz-question"
+        *ngIf="quizPosition===4"
+        (stepAction)="quizStep($event)"></quiz-signup>
+      </ng-container>
+    <!-- </form> -->
+
+    <p *ngIf="errorMessage && errorMessage.length">{{errorMessage}}</p>
+
+    <!-- Submit buttons -->
+    <div class="mlcl-quiz-buttons"
+    *ngIf="
+    !(quizPosition === 7) &&
+    !(quizPosition === 4 && result.who && result.who.value === 'Child')
+    ">
+      <atm-button
+      *ngIf="quizPosition !== 0"
+      [label]="'Go Back'"
+      (clicked)="quizStep('back')"></atm-button>
+
+      <atm-button
+      [ngClass]="formIsValid ? '' : 'disabled'"
+      [isDisabled]="!formIsValid"
+      [label]="stepForwardLabel"
+      [classes]="'atm_alt-btn'"
+      (clicked)="quizStep('forward')"></atm-button>
+    </div>
+  </section>
+
+  <mlcl-loader *ngIf="loading" class="mlcl_loader"></mlcl-loader>
+
+  <section class="container" *ngIf="showResultFlag">
+
+    <quiz-result
+    [allInputs]="result"
+    (resultIsLoaded)="resultIsLoaded($event)"></quiz-result>
+
+  </section>
+
+</article>

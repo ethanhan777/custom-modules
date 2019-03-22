@@ -1,0 +1,28 @@
+<section class="mlcl_pagination nav-swiper-container" (overflow)="changeSlider($event)" #navWrapper>
+  <swiper [config]="config" class="mlcl_slider-content" id="nav-slider-content">
+    <ng-container *ngIf="type ==='events' || type ==='authors'">
+      <atm-tag
+      class="atm_nav-slider-item atm_pagination-numbers"
+      *ngFor="let item of data"
+      [name]="item.name"
+      [seoFriendlyUrl]="item.seoFriendlyUrl"
+      [active]="item.active"
+      (clicked)="isClicked($event)"></atm-tag>
+    </ng-container>
+
+    <!-- format for imprints and campaigsn -->
+    <ng-container *ngIf="type !=='events' && type !=='authors'">
+      <small
+      class="atm_nav-slider-item atm_small-medium"
+      *ngFor="let item of data">
+        <a
+        href="{{item.seoFriendlyUrl}}"
+        (click)="isClicked(item.name)">{{item.name}}</a>
+      </small>
+    </ng-container>
+  </swiper>
+
+  <a class="slider-arrow-right">
+    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+  </a>
+</section>

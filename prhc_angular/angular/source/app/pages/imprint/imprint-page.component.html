@@ -1,0 +1,39 @@
+<ng-container *ngIf="this.pageType === 'default'">
+
+  <hero-article></hero-article>
+
+  <campaign-nav></campaign-nav>
+
+  <about-imprint></about-imprint>
+
+  <connect-with-author></connect-with-author>
+
+  <imprint-cta></imprint-cta>
+
+  <imprint-content></imprint-content>
+
+</ng-container>
+
+<ng-container *ngIf="this.pageType === 'about'">
+
+  <hero></hero>
+
+  <article-body></article-body>
+
+</ng-container>
+
+<ng-container *ngIf="this.pageType === 'books'">
+
+  <hero></hero>
+
+  <book-grid></book-grid>
+
+</ng-container>
+
+<ng-container *ngIf="this.pageType === 'authors'">
+
+  <hero></hero>
+
+  <authors-grid></authors-grid>
+
+</ng-container>

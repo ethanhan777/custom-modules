@@ -1,0 +1,13 @@
+<a
+[attr.aria-label]="seriesName"
+href="{{seriesUrl}}"
+class="mlcl_thumbnail-cover mlcl_series-cover mlcl_series-cover-{{imageCount}}"
+[ngClass]="gridImageFallback ? 'mlcl_grid-no-image' : ''">
+  <span *ngIf="!covers.length" aria-hidden="true" [ngStyle]="{'background-image': 'url(' + fallbackImage + ')'}"></span>
+  <ng-container *ngIf="covers.length">
+    <img
+    src="{{cover}}?width={{coverWidth}}"
+    alt="{{seriesName}}"
+    *ngFor="let cover of covers">
+  </ng-container>
+</a>

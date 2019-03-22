@@ -1,0 +1,25 @@
+<fieldset class="mlcl_nl-legal">
+  <input
+  aria-label="Consent to receive newsletters from Penguin Random House Canada"
+  type="checkbox"
+  [(ngModel)]="legalCheckbox"
+  (ngModelChange)="legalCheckboxChange()">
+
+  <label class="atm_checkbox">
+    Yes, I would like to receive newsletters from Penguin Random House Canada with promotions and the latest on books and authors.
+    You may unsubscribe at any time. Please visit our <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> or contact us at
+    320 Front Street West, Suite 1400, Toronto, ON M5V3B6 or 1-888-523-9292
+    <span
+    class="atm_form-required"
+    *ngIf="required">*</span>
+  </label>
+
+  <!-- extra checkbox to detect spam entries -->
+  <input
+  aria-hidden="true"
+  visibility="hidden"
+  name="spam"
+  type="checkbox"
+  [(ngModel)]="spamCheckbox"
+  (ngModelChange)="spamCheckboxChange()">
+</fieldset>

@@ -1,0 +1,48 @@
+/*
+written by acressall
+
+includes:
+- styling of social label links, particularly for within the connect component
+ */
+.atm_social-label a {
+  font-family: $fontMedium;
+  text-decoration: none;
+  padding: $extraSmallSpace;
+}
+
+a.atm_social-link {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border: none;
+    padding: none;
+    box-shadow: none;
+
+    i {
+      border: 2px solid $extraDarkGrey;
+      @include boxShadowHover;
+    }
+  }
+}
+
+button.atm_social-link {
+  font-size: 1.25rem;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border: none;
+    padding: none;
+    box-shadow: none;
+
+    i {
+      border: 2px solid $extraDarkGrey;
+      @include boxShadowHover;
+    }
+  }
+}

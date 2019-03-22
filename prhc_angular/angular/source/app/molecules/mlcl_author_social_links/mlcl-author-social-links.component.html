@@ -1,0 +1,15 @@
+<section *ngIf="socialLinks.length" class="mlcl_author_social_links">
+  <h4>{{label}}</h4>
+
+  <div class="mlcl_social">
+    <small class="atm_social-label atm_small-medium">
+      <atm-social-label
+      [icon]="link.icon"
+      [label]="link.label"
+      [share]="link.share"
+      [seoFriendlyUrl]="link.seoFriendlyUrl"
+      (click)="onClick(link.icon)"
+      *ngFor="let link of socialLinks"></atm-social-label>
+    </small>
+  </div>
+</section>

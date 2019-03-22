@@ -1,0 +1,18 @@
+//included atoms
+@import '../atoms/h4';
+@import '../atoms/anchors';
+
+.mlcl_ea-title {
+  @include col12;
+  margin-bottom: $smallSpace;
+  @include breakpoint($smallScreen) {
+    @include col8;
+  }
+  @include breakpoint($mediumScreen) {
+    @include col9;
+  }
+
+  a {
+    text-decoration-color: $white;
+  }
+}

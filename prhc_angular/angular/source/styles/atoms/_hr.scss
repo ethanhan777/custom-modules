@@ -1,0 +1,28 @@
+//HR
+hr {
+  height: 1px;
+  background-color: $mediumGrey;
+  border: none;
+}
+
+hr.atm_hr-dark {
+  width: 100%;
+  height: 2px;
+  // background-color: $darkGrey;
+}
+
+hr.atm_hr-thick {
+  height: 2px;
+  background-color: $extraLightGrey;
+  border: none;
+}
+
+hr.atm_dotted-line {
+  @include col2;
+  background-color: transparent;
+  border: none;
+  border-top: 10px dotted $extraDarkGrey;
+  @include breakpoint($smallScreen) {
+    @include col1;
+  }
+}

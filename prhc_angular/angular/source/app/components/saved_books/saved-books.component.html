@@ -1,0 +1,22 @@
+<section class="container" *ngIf="displayFlag">
+  <a class="cmpnt_saved-books" href="/saved-books">
+    <h4>View Your Shopping List </h4>
+
+    <small *ngIf="numberOfBooks > 0">
+      {{numberOfBooks}} Book<span *ngIf="numberOfBooks > 1">s</span> Saved
+    </small>
+
+    <p>
+      You saved books for
+      <span *ngFor="let profile of profiles; let index = index; let last = last;"> {{profile}}<ng-container *ngIf="!last && profiles.length > 2">,</ng-container><ng-container *ngIf="!last && index === profiles.length - 2"> and</ng-container></span>
+    </p>
+
+    <div class="mlcl_saveed-book-covers">
+      <img
+      class="mlcl_saveed-book-cover"
+      src="{{book.cover}}"
+      alt="{{book.title}}"
+      *ngFor="let book of books">
+    </div>
+  </a>
+</section>

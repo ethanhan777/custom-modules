@@ -1,0 +1,8 @@
+name: Hero Article Landing Component
+description: 'Heading include title and share (for Drupal content landing pages)'
+selector: hero-article-landing
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

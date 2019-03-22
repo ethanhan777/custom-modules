@@ -1,0 +1,30 @@
+@import '../atoms/caption';
+@import '../atoms/anchors';
+
+/*
+written by acressall
+
+includes:
+- styling for the author photo in the about-author component
+- styles for the photo caption
+ */
+.mlcl_author-img {
+  margin: 0 auto;
+  margin-bottom: $extraSmallSpace;
+  display: flex;
+  flex-direction: column;
+  @include col7;
+  @include breakpoint ($largeScreen) {
+    @include col4;
+    margin: 0;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: $extraSmallSpace;
+  }
+
+  caption {
+    text-align: left;
+  }
+}

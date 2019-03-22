@@ -1,0 +1,33 @@
+// molecules to include
+@import 'slider';
+
+/*
+written by acressall
+
+includes:
+- styling for active format
+*/
+.cmpnt_format-selector {
+  // grid cover within the format selector slider
+  .mlcl_thumbnail-cover {
+    height: 115px !important;
+    @include breakpoint($largeScreen) {
+      height: 180px !important;
+    }
+  }
+
+  .mlcl_format-active .mlcl_thumbnail-cover {
+    border: 2px solid $penguinOrange;
+
+    a {
+      background-color: $white;
+    }
+  }
+  // single book inside a format selector slider
+  .mlcl_single-book {
+    width: 115px !important;
+    @include breakpoint($largeScreen) {
+      width: 180px !important;
+    }
+  }
+}

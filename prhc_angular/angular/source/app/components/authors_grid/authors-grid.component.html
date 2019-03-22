@@ -1,0 +1,27 @@
+<section class="container cmpnt_authors-grid">
+  <!-- Only show the heading on the All Authors landing page -->
+  <h2
+  *ngIf="currentContentInfo.type != 'imprints'"
+  class="mlcl_grid-header">All Authors</h2>
+
+  <!-- alphabet pagination -->
+  <mlcl-pagination-alphabet
+  class="atm_btn-center"
+  [type]="'authors'"
+  [activePage]="authorLastInitial"
+  [scrollPoint]="scrollPoint"
+  (start)="updatePagination($event)"></mlcl-pagination-alphabet>
+
+  <!-- authors grid -->
+  <mlcl-grid-authors
+  [data]="data"
+  [loadMoreFlag]="loadMoreFlag"
+  [loading]="loading"
+  [sortFlag]="false"
+  (loadMore)="loadMore()"></mlcl-grid-authors>
+
+  <p
+  *ngIf="noResults"
+  class="cmpnt_paragraph-narrow">No authors with the last name beginning with {{authorLastInitial}}</p>
+
+</section>

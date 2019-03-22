@@ -1,0 +1,53 @@
+@import '~breakpoint-sass';
+@import '../atoms/base';
+
+@import '../atoms/h4';
+
+.mlcl_cta-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.625em auto;
+  // styling for when there are 3 or more CTAs
+  .mlcl_cta-item {
+    display: block;
+    width: 100%;
+    margin-bottom: $smallSpace;
+    @include breakpoint ($smallScreen) {
+      @include col6;
+    }
+    @include breakpoint ($mediumScreen) {
+      @include col4;
+    }
+  }
+  // styling for when there are under 3 CTAs
+  .mlcl_cta-item-large {
+    @include breakpoint ($smallScreen) {
+      @include col6;
+    }
+    @include breakpoint ($mediumScreen) {
+      @include col6;
+    }
+  }
+
+  .mlcl_cta-item-image {
+    @include aspectWrapper(16, 9); //16x9 so video can go here too
+    display: block;
+    background-color: $extraLightGrey;
+    margin-bottom: $extraSmallSpace;
+    @include boxShadowNormal;
+    transition: all 0.25s ease-in-out;
+
+    img {
+      @include borderRadius;
+    }
+
+    &:hover {
+      @include animationZoomUp;
+    }
+
+    * {
+      @include aspectInner;
+    }
+  }
+}

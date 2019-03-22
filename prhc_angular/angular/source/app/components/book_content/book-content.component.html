@@ -1,0 +1,41 @@
+<section *ngIf="isLoaded" class="container">
+  <div [ngClass]="currentContentInfo.bookContent == 'excerpt' ? 'mlcl_excerpt' : 'mlcl_reading-guide'">
+    <div
+    *ngIf="currentContentInfo.bookContent == 'excerpt'">
+      <p [innerHTML]="title.excerpt"></p>
+      <hr class="atm_dotted-line">
+      <p
+      *ngIf="title.textExcerptCopyright"
+      [innerHTML]="title.textExcerptCopyright"></p>
+    </div>
+
+    <div
+    *ngIf="currentContentInfo.bookContent == 'reading-guide'">
+      <div class="mlcl_print">
+        <atm-button
+        [label]="'Print'"
+        [icon]="'print'"
+        [iconInFront]="true"
+        (click)="printPage()"></atm-button>
+      </div>
+
+      <p
+      *ngFor="let readingGuide of title.readingGuides"
+      [innerHTML]="readingGuide"></p>
+
+      <hr class="atm_dotted-line">
+    </div>
+
+      <!-- publishers -->
+      <mlcl-tag-item
+      *ngIf="title.publishers"
+      [label]="'Publisher'"
+      [tags]="title.publishers"></mlcl-tag-item>
+
+      <!-- categories -->
+      <mlcl-tag-item
+      *ngIf="categories.length"
+      [label]="'Categories'"
+      [tags]="categories"></mlcl-tag-item>
+    </div>
+  </section>

@@ -1,0 +1,20 @@
+.cmpnt_location-sign-up {
+  .mlcl_location-signup-inputs {
+    margin-bottom: $extraSmallSpace;
+    @include breakpoint($smallScreen) {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: none;
+
+      input[type=text] {
+        @include col4;
+        margin: 0 $gutter;
+      }
+
+      input[type=email] {
+        @include col8;
+        margin: 0 $gutter;
+      }
+    }
+  }
+}

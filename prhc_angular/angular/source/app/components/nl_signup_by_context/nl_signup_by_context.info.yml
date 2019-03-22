@@ -1,0 +1,8 @@
+name: Newsletter Signup by context Form Component
+description: 'Newsletter Signup by context Form Component'
+selector: nl-signup-by-context
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

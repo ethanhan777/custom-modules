@@ -1,0 +1,47 @@
+.cmpnt_hero-article {
+  display: block;
+  text-align: center;
+  margin: $smallSpace;
+  @include breakpoint($mediumScreen) {
+    margin: $smallSpace $mediumSpace;
+  }
+  @include breakpoint($giantScreen) {
+    max-width: $giantWidth;
+    margin: $smallSpace auto;
+  }
+
+  .mlcl_hero-image {
+    position: relative;
+    width: 100%;
+    margin-bottom: -$largeSpace;
+    // z-index: $z-basement;
+
+    @include breakpoint($mediumScreen) {
+      margin-bottom: -$largeSpace * 2;
+    }
+
+    img {
+      width: 100%;
+      @include borderRadius;
+    }
+  }
+
+  .mlcl_hero-content {
+    background-color: $white;
+    @include col10;
+    padding: $extraSmallSpace;
+    @include borderRadius;
+    margin: 0 auto;
+    z-index: $z-levelOne;
+    position: relative;
+
+    a {
+      text-decoration: none;
+      z-index: $z-levelTwo;
+    }
+
+    @include breakpoint($mediumScreen) {
+      padding: $mediumSpace $smallSpace;
+    }
+  }
+}

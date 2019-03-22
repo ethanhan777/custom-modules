@@ -1,0 +1,59 @@
+<section
+[attr.aria-label]="'Accordion: ' + accordion.heading"
+  [attr.aria-expanded]="accordion.toggle"
+class="container cmpnt_accordion"
+[ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''"
+*ngIf="isLoaded && ingredientComponents.length">
+
+  <!-- Accordion header -->
+  <mlcl-accordion-header
+  [id]="accordion.id"
+  [heading]="accordion.heading"
+  [icon]="accordion.chevron"
+  (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+  <!-- Accordion Content -->
+  <section>
+    <div
+    *ngIf="accordion.toggle"
+    class="cmpnt_paragraph-narrow cmpnt_accordion-items"
+    [ngClass]="accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+
+      <!-- ingredients -->
+      <div *ngFor="let component of ingredientComponents">
+        <!-- Headings -->
+        <atm-subheading
+        *ngIf="component.field_subheading"
+        [subheading]="component.field_subheading"></atm-subheading>
+
+        <!-- Unordered/ordered Lists -->
+        <p
+        *ngIf="component.listField"
+        [innerHTML]="component.listField"></p>
+
+        <!-- Images -->
+        <p
+        class="mlcl_related-image"
+        *ngIf="component.relationships?.field_inline_image">
+          <atm-inline-image
+          [apiUrl]="component.relationships?.field_inline_image.links.related"
+          [imageAlt]="component.relationships?.field_inline_image.data.meta.alt"></atm-inline-image>
+        </p>
+
+        <!-- Videos -->
+        <div
+        class="mlcl_related-video"
+        *ngIf="component.field_inline_video">
+          <atm-video-item [videoUrl]="component.field_inline_video"></atm-video-item>
+        </div>
+      </div>
+
+      <!-- Ingredient tags -->
+      <mlcl-tag-item
+      [label]="'All ingredients'"
+      [tags]="ingredientTags"
+      *ngIf="ingredientTags && ingredientTags.length"></mlcl-tag-item>
+
+    </div>
+  </section>
+</section>

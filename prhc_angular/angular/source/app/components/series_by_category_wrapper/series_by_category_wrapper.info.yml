@@ -1,0 +1,8 @@
+name: Series By Category Wrapper Component
+description: 'Series by Category Wrapper Component.'
+selector: series-by-category-wrapper
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

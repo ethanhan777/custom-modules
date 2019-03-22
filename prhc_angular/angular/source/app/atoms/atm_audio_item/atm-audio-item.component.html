@@ -1,0 +1,12 @@
+<!-- create iframe here if possible instead of innerHTML -->
+<div *ngIf="audioFormatCover || audioFormatName" class="atm_sc-format-details">
+  <img *ngIf="audioFormatCover" src="{{audioFormatCover}}" alt="{{title}}">
+  <small *ngIf="audioFormatName">{{audioFormatName}}</small>
+</div>
+<iframe
+class="atm_soundcloud-widget"
+width="100%"
+height="auto"
+allow="autoplay"
+[src]="audioSrc"
+frameborder="0"></iframe>

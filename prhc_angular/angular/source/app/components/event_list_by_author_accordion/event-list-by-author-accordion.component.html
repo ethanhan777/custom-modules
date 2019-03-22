@@ -1,0 +1,40 @@
+  <section
+  [attr.aria-label]="'Accordion: ' + accordion.heading"
+  [attr.aria-expanded]="accordion.toggle"
+  class="container cmpnt_accordion"
+  [ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''"
+  *ngIf="events.length">
+
+    <!-- Accordion header -->
+    <mlcl-accordion-header
+    [id]="accordion.id"
+    [heading]="accordion.heading"
+    [onTourFlag]="data.onTourFlag"
+    [icon]="accordion.chevron"
+    (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+    <!-- Accordion content -->
+    <div
+    *ngIf="accordion.toggle"
+    class="cmpnt_paragraph-narrow cmpnt_accordion-items"
+    [ngClass]="accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+
+      <div class="cmpnt_event">
+        <mlcl-event-list-item
+        class="mlcl_award-event"
+        [type]="'event'"
+        [content]="event"
+        *ngFor="let event of events"></mlcl-event-list-item>
+      </div>
+
+      <!-- view all link -->
+      <div class="atm_load-more">
+        <atm-button
+        *ngIf="data.viewAllFlag"
+        [label]="'View All Events'"
+        [seoFriendlyUrl]="data.viewAllUrl"
+        [classes]="'atm_alt-btn'"></atm-button>
+      </div>
+
+    </div>
+  </section>

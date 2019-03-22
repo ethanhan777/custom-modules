@@ -1,0 +1,35 @@
+<section *ngIf="isLoaded"
+[ngClass]="ctaImage || ctaVideo ? '' : 'mlcl_cta-button'">
+
+  <!-- image that links to something -->
+  <a
+  [attr.aria-label]="ctaImageAlt"
+  *ngIf="ctaLink && ctaImage"
+  href="{{ctaLink}}"
+  class="mlcl_cta-item-image"
+  (click)="onClick()">
+    <img src="{{ctaImage}}" alt="{{ctaImageAlt}}">
+  </a>
+
+  <!-- image with no link -->
+  <div *ngIf="!ctaLink && ctaImage" class="mlcl_cta-item-image">
+    <img src="{{ctaImage}}" alt="{{ctaImageAlt}}">
+  </div>
+
+  <!-- Video instead of image -->
+  <atm-video-item
+  *ngIf="!ctaImage && ctaVideo"
+  [videoUrl]="ctaVideo"></atm-video-item>
+
+  <!-- show just heading -->
+  <h4 *ngIf="subheading && ctaImage || ctaVideo">{{subheading}}</h4>
+
+  <!-- Show as button if there is no image or video -->
+  <a
+  *ngIf="subheading && ctaLink && !ctaImage && !ctaVideo"
+  href="{{ctaLink}}"
+  (click)="onClick()">
+    <button>{{subheading}}</button>
+  </a>
+
+</section>

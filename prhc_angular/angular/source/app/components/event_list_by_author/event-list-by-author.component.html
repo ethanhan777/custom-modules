@@ -1,0 +1,7 @@
+<section class="container" *ngIf="isLoaded">
+  <mlcl-event-list-load-more
+  [events]="events"
+  [loading]="loading"
+  [loadMoreFlag]="loadMoreFlag"
+  (loadMore)="loadMoreEvents()"></mlcl-event-list-load-more>
+</section>

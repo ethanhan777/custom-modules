@@ -1,0 +1,12 @@
+<section class="container mlcl_header" *ngIf="pageTitle">
+  <!-- categories hierarchy breadcrumb -->
+  <div class="mlcl_breadcrumb-wrapper">
+    <mlcl-breadcrumb
+    *ngIf="breadcrumbItems.length"
+    [breadcrumbItems]="breadcrumbItems"></mlcl-breadcrumb>
+  </div>
+
+  <h1 id="page-title" [innerHtml]="pageTitle"></h1>
+
+  <mlcl-social></mlcl-social>
+</section>

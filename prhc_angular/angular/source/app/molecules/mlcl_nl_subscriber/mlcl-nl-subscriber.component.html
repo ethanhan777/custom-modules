@@ -1,0 +1,46 @@
+<ng-container *ngIf="subscriber">
+  <fieldset>
+    <!-- Profile Info -->
+    <label>Email<span class="atm_form-required">*</span></label>
+    <input
+    aria-label="Enter your email"
+    type="email"
+    placeholder="example@email.com"
+    autofocus=""
+    [disabled]="mcguid.length ? true : null"
+    [(ngModel)]="subscriber.Email"
+    (keyup)="updateUserProfile()">
+  </fieldset>
+
+  <div class="mlcl_subscriber-profile-form">
+    <fieldset>
+      <label>First Name</label>
+      <input
+      aria-label="Enter your first name"
+      type="text"
+      placeholder="Your Name"
+      [(ngModel)]="subscriber.FirstName"
+      (keyup)="updateUserProfile()">
+    </fieldset>
+
+    <fieldset>
+      <label>Last Name</label>
+      <input
+      aria-label="Enter your last name"
+      type="text"
+      placeholder="Last Name"
+      [(ngModel)]="subscriber.LastName"
+      (keyup)="updateUserProfile()">
+    </fieldset>
+  </div>
+
+  <fieldset class="atm_postal-code">
+    <label>Postal Code</label>
+    <input
+    aria-label="Enter your postal code"
+    type="text"
+    placeholder="A1A 1A1"
+    [(ngModel)]="subscriber.Pc"
+    (keyup)="updateUserProfile()">
+  </fieldset>
+</ng-container>

@@ -1,0 +1,39 @@
+  <section
+  [attr.aria-label]="'Accordion: ' + accordion.heading"
+  [attr.aria-expanded]="accordion.toggle"
+  class="container cmpnt_accordion accordion-section-{{accordion.id}}"
+  [ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''"
+  *ngIf="author">
+
+    <mlcl-accordion-header
+    [id]="accordion.id"
+    [heading]="accordion.heading"
+    [icon]="accordion.chevron"
+    (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+    <!--  Accordion Content -->
+    <div
+    [ngClass]="accordion.toggle ? 'atm_accordion-open' : 'atm_accordion-close'"
+    class="cmpnt_books-by-author cmpnt_accordion-items">
+
+      <mlcl-books-by-author
+      *ngIf="authorWorks.length"
+      [works]="authorWorks"></mlcl-books-by-author>
+
+      <mlcl-series-by-author
+      *ngIf="authorSeries.length"
+      [heading]="author.display"
+      [series]="authorSeries"></mlcl-series-by-author>
+
+      <mlcl-contributed-by-author
+      *ngIf="contribWorks.length"
+      [works]="contribWorks"></mlcl-contributed-by-author>
+
+      <div *ngIf="clientAuthors.length">
+        <mlcl-books-by-author-other-publisher
+        [clientAuthor]="clientAuthor"
+        *ngFor="let clientAuthor of clientAuthors"></mlcl-books-by-author-other-publisher>
+      </div>
+
+    </div>
+  </section>

@@ -1,0 +1,54 @@
+@import 'form-input';
+//the real checkbox
+input[type=checkbox] {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  outline: none;
+  opacity: 0;
+  z-index: $z-levelOne;
+  cursor: pointer;
+
+  + label {
+    display: block;
+    margin-left: $largeSpace;
+  }
+}
+// the styled checkbox
+input[type=checkbox] + label::before {
+  font-family: 'FontAwesome', Times, serif;
+  font-size: 1.25em;
+  content: '';
+  text-align: center;
+  position: absolute;
+  display: block;
+  width: 1.4em;
+  height: 1.182em;
+  background: $white;
+  padding-top: $extraSmallSpace / 2;
+  border: 2px solid $mediumGrey;
+  @include borderRadius;
+  margin-left: -$smallSpace * 2.5;
+  cursor: pointer;
+  @include breakpoint($largeScreen) {
+    width: 1em;
+    height: 1em;
+    font-size: 1em;
+    padding: 0.12em 0.25em 0.45em 0.25em;
+    margin-top: -$extraSmallSpace / 2;
+  }
+}
+// on focus
+input[type=checkbox]:focus + label::before {
+  border: 2px solid $extraDarkGrey;
+}
+//after it's checked
+input[type=checkbox]:checked + label::before {
+  content: '\f00c';
+  border: 2px solid $extraDarkGrey;
+}
+
+input[type=checkbox]:disabled + label::before {
+  color: $mediumGrey;
+  border: 2px solid $mediumGrey;
+}

@@ -1,0 +1,50 @@
+//Columns
+$gutter: 1%; //13px
+@mixin col1 {
+  width: 6%; //81px
+  padding: 0 $gutter;
+}
+@mixin col2 {
+  width: 14%; //188px
+  padding: 0 $gutter;
+}
+@mixin col3 {
+  width: 23%; //295px
+  padding: 0 $gutter;
+}
+@mixin col4 {
+  width: 31%; //402px
+  padding: 0 $gutter;
+}
+@mixin col5 {
+  width: 39%; //509px
+  padding: 0 $gutter;
+}
+@mixin col6 {
+  width: 47.5%; //616px
+  padding: 0 $gutter;
+}
+@mixin col7 {
+  width: 56%; //723px
+  padding: 0 $gutter;
+}
+@mixin col8 {
+  width: 64%; //830px
+  padding: 0 $gutter;
+}
+@mixin col9 {
+  width: 72%; //937px
+  padding: 0 $gutter;
+}
+@mixin col10 {
+  width: 81%; //1044px
+  padding: 0 $gutter;
+}
+@mixin col11 {
+  width: 89%; //1151px
+  padding: 0 $gutter;
+}
+@mixin col12 {
+  width: 98%; //1258px
+  padding: 0 $gutter;
+}

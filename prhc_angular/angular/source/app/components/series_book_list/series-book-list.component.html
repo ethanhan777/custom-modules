@@ -1,0 +1,20 @@
+<!-- series numbered -->
+<mlcl-grid-book
+*ngIf="worksForNumbered.length"
+[data]="worksForNumbered"
+[loadMoreFlag]="loadMoreFlagForNumbered"
+[loading]="loading"
+[type]="'series'"
+[heading]="headingForNumbered"
+(sortChange)="sort($event, true)"
+(loadMore)="loadMore(true)"></mlcl-grid-book>
+
+<!-- series non-numbered -->
+<mlcl-grid-book
+*ngIf="works.length"
+[data]="works"
+[loadMoreFlag]="loadMoreFlag"
+[loading]="loading"
+[heading]="heading"
+(sortChange)="sort($event, false)"
+(loadMore)="loadMore(false)"></mlcl-grid-book>

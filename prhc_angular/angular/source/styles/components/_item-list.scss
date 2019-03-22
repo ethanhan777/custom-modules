@@ -1,0 +1,10 @@
+/*
+written by acressall
+
+includes:
+- styling for a list of items such as articles, campaigns, author websites, and other related content
+*/
+.cmpnt_item-list {
+  display: flex;
+  flex-direction: column;
+}

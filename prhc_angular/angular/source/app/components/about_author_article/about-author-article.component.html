@@ -1,0 +1,20 @@
+<section *ngIf="isLoaded">
+  <mlcl-about-author
+  [heading]="'More about ' + author.display"
+  [author]="author"
+  *ngFor="let author of authors"></mlcl-about-author>
+  <!-- <template [ngIf]="currentType == 'article'">
+    <about-author
+    [type]="currentType"
+    [headingFlag]="true"
+    [contentId]="id"
+    *ngFor="let id of ids"></about-author>
+  </template> -->
+
+  <!-- <template [ngIf]="currentType == 'recipe'">
+    <about-author-accordion
+    [isbn]="id"
+    [type]="'books'"
+    *ngFor="let id of ids"></about-author-accordion>
+  </template> -->
+</section>

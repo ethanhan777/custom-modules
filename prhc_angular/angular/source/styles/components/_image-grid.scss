@@ -1,0 +1,29 @@
+/*
+written by acressall
+
+incldues:
+- image grid
+*/
+//image Grid
+.cmpnt_image-grid {
+  padding-top: $extraSmallSpace;
+  margin-top: $extraSmallSpace;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  @include breakpoint($smallScreen) {
+    flex-direction: row;
+  }
+}
+
+.cmpnt_image-grid div:nth-child(even) {
+  margin-right: 0;
+}
+
+.mlcl_related-image {
+  @include col12;
+  margin-bottom: $extraSmallSpace;
+  @include breakpoint($mediumScreen) {
+    @include col6;
+  }
+}

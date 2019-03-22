@@ -1,0 +1,8 @@
+<div class="container mlcl_header" *ngIf="message">
+  <p class="atm_nl-confirm-message" [innerHTML]="message"></p>
+  <mlcl-social-footer></mlcl-social-footer>
+  <a
+  (click)="onClick()"
+  *ngIf="linkFlag">Review saved preferences</a>
+
+</div>

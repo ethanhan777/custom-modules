@@ -1,0 +1,138 @@
+// atoms to include
+@import '../atoms/h4';
+@import '../atoms/h6';
+@import '../atoms/small';
+@import '../atoms/paragraphs';
+@import '../atoms/buttons';
+@import '../atoms/button-alt';
+@import '../atoms/flag-staff-pick';
+
+//molecules to include
+@import '../molecules/featured-heading';
+@import '../molecules/featured-image';
+@import '../molecules/grid-book-detail';
+
+/*
+written by acressall
+
+includes:
+- featured book component
+- featured book component on book-list campaigns
+*/
+.cmpnt_featured {
+  background-color: $extraLightGrey;
+  padding: $smallSpace;
+  @include borderRadius;
+  margin: $mediumSpace auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  @include breakpoint ($mediumScreen) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.mlcl_featured-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  @include breakpoint ($mediumScreen) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+.cmpnt_book-list-item {
+  .cmpnt_featured {
+    background-color: transparent;
+    border-bottom: 2px solid $mediumGrey;
+  }
+
+  .cmpnt_staff-pick {
+    background-color: $extraLightGrey;
+    border: 2px solid $mediumGrey;
+    @include borderRadius;
+  }
+}
+
+.quiz-page {
+  .cmpnt_staff-pick {
+    background-color: $white;
+  }
+}
+
+// featured book on recommendation results page
+.quiz-page .cmpnt_featured {
+  .atm_featured-heading {
+    order: 1;
+
+    h2 {
+      display: none;
+    }
+  }
+
+  .atm_grid-book-detail p {
+    border-top: 1px solid $white;
+    margin-top: $extraSmallSpace;
+    padding-top: $extraSmallSpace;
+    font-size: 1rem;
+    // line-height: 21px;
+  }
+
+  @include breakpoint($mediumScreen) {
+    .atm_featured-heading {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      order: 0;
+      text-align: left;
+      width: 100%;
+
+      .atm_save-button {
+        display: block;
+        @include col3;
+      }
+
+      h2 {
+        display: inherit;
+        order: 1;
+        @include col9;
+      }
+    }
+
+    .atm_grid-book-detail {
+      @include col9;
+
+      p {
+        border-top: none;
+        margin-top: 0;
+        padding-top: 0;
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  @include breakpoint($largeScreen) {
+    .atm_featured-heading {
+      display: block;
+      text-align: right;
+      @include col3;
+
+      h2 {
+        width: auto;
+      }
+
+      .atm_save-button {
+        width: auto;
+      }
+    }
+
+    .atm_grid-book-detail {
+      @include col6;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+name: Recipe Ingredients Component
+description: 'Ingredients lists, headings, images, and videos'
+selector: recipe-ingredients
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

@@ -1,0 +1,26 @@
+.mlcl_status {
+  background-color: $extraLightGrey;
+  padding: $smallSpace;
+  @include borderRadius;
+  margin-top: $smallSpace;
+  margin-bottom: $smallSpace;
+
+  i {
+    font-size: 1.25rem;
+    margin-right: $smallSpace;
+  }
+}
+
+.mlcl_status-success {
+  border: 1px solid $extraDarkGrey;
+}
+
+.mlcl_status-warning {
+  border: 1px solid $extraLightGrey;
+}
+
+.mlcl_status-error {
+  background-color: $extraDarkGrey;
+  color: $extraLightGrey;
+  border: 1px solid $extraDarkGrey;
+}

@@ -1,0 +1,6 @@
+services:
+  prhc_angular.component_discovery:
+    class: '\Drupal\prhc_angular\ComponentDiscovery'
+    arguments:
+      - '@app.root'
+      - '@info_parser'

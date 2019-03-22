@@ -1,0 +1,13 @@
+<div class="mlcl_social">
+    <label class="atm_share-label">Share</label>
+
+    <atm-social-link
+    [icon]="socialLink.icon"
+    [seoFriendlyUrl]="socialLink.seoFriendlyUrl"
+    [windowWidth]="socialLink.windowWidth"
+    [windowHeight]="socialLink.windowHeight"
+    (click)="onClick(socialLink.icon)"
+    *ngFor="let socialLink of socialLinks"></atm-social-link>
+
+    <label class="atm_share-label">Save</label>
+</div>

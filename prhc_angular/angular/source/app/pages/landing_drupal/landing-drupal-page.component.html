@@ -1,0 +1,29 @@
+<ng-container *ngIf="pageType === 'features'">
+
+  <hero-article-landing></hero-article-landing>
+
+  <article-list></article-list>
+
+</ng-container>
+
+<ng-container *ngIf="pageType === 'recipes'">
+
+  <hero-article-landing></hero-article-landing>
+
+  <recipe-list></recipe-list>
+
+</ng-container>
+
+<ng-container *ngIf="pageType === 'about'">
+
+  <hero></hero>
+
+  <about-prhc></about-prhc>
+
+  <connect-with-author></connect-with-author>
+
+  <company-divisions></company-divisions>
+
+  <company-resources></company-resources>
+
+</ng-container>

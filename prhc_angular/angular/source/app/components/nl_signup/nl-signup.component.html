@@ -1,0 +1,26 @@
+<mlcl-loader *ngIf="!isLoaded" class="mlcl_loader"></mlcl-loader>
+
+<section
+*ngIf="isLoaded && !alreadyMember"
+(window:scroll)="footerFormScroll()"
+id="cmpntFooter"
+class="cmpnt_footer-sign-up {{relativePos}}">
+
+  <!-- newsletter signup header -->
+  <mlcl-nl-signup-header
+  *ngIf="!mcguid"
+  class="mlcl_global-signup-header"
+  [headerLabel]="headerLabel"
+  (footerForm)="footerFormOn($event)"></mlcl-nl-signup-header>
+
+  <!-- newsletter signup form -->
+  <mlcl-nl-global-form
+  *ngIf="!mcguid"
+  (onSignup)="setMcguid($event)"></mlcl-nl-global-form>
+
+  <!-- thank you message -->
+  <mlcl-nl-ty-message
+  *ngIf="mcguid"
+  [mcguid]="mcguid"></mlcl-nl-ty-message>
+
+</section>

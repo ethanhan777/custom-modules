@@ -1,0 +1,8 @@
+name: Related content Component
+description: 'Related content of a book.'
+selector: related-content
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

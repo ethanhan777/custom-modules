@@ -1,0 +1,48 @@
+<section class="container" *ngIf="isLoaded">
+
+  <div
+  [attr.aria-label]="'Accordion: ' + worldwide.accordion.heading"
+  [attr.aria-expanded]="worldwide.accordion.toggle"
+  class="container cmpnt_accordion"
+  [ngClass]="worldwide.accordion.id ? 'accordion-section-' + worldwide.accordion.id : ''">
+
+    <mlcl-accordion-header
+    [id]="worldwide.accordion.id"
+    [heading]="worldwide.accordion.heading"
+    [icon]="worldwide.accordion.chevron"
+    (accordionOpen)="accordionOpen(worldwide.accordion)"></mlcl-accordion-header>
+
+    <!--  Accordion Content -->
+    <div
+    *ngIf="worldwide.accordion.toggle"
+    class="cmpnt_accordion-items"
+    [ngClass]="worldwide.accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+
+      <category-grid [data]="worldwide.links"></category-grid>
+    </div>
+  </div>
+
+
+  <div
+  [attr.aria-label]="'Accordion: ' + resources.accordion.heading"
+  [attr.aria-expanded]="resources.accordion.toggle"
+  class="container cmpnt_accordion"
+  [ngClass]="resources.accordion.id ? 'accordion-section-' + resources.accordion.id : ''">
+
+    <mlcl-accordion-header
+    [id]="resources.accordion.id"
+    [heading]="resources.accordion.heading"
+    [icon]="resources.accordion.chevron"
+    (accordionOpen)="accordionOpen(resources.accordion)"></mlcl-accordion-header>
+
+    <!--  Accordion Content -->
+    <div
+    *ngIf="resources.accordion.toggle"
+    class="cmpnt_accordion-items"
+    [ngClass]="resources.accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+
+      <category-grid [data]="resources.links"></category-grid>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,10 @@
+//Heart pulsing for like icon on book pages
+@mixin animationArrowPulse {
+  animation: arrowPulse 3s ease infinite;
+}
+@keyframes arrowPulse {
+  50% {
+    transform: translateY(-$extraSmallSpace);
+    @include boxShadowHover;
+  }
+}

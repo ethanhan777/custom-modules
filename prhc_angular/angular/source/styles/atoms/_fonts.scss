@@ -1,0 +1,229 @@
+// font families
+$bodyFont: FortLight, Arial, sans-serif;
+$headerFont: FortBlack, Arial, sans-serif;
+$secondaryFont: ShiftBook, Times, serif;
+// font weights
+// primary font
+$fontLight: FortLight, Arial, sans-serif;
+$fontLightItalic: FortLightItalic, Arial, sans-serif;
+$fontBook: FortBook, Arial, sans-serif;
+$fontBookItalic: FortBookItalic, Arial, sans-serif;
+$fontMedium: FortMedium, Arial, sans-serif;
+$fontMediumItalic: FortMediumItalic, Arial, sans-serif;
+$fontBold: FortBold, Arial, sans-serif;
+$fontBoldItalic: FortBoldItalic, Arial, sans-serif;
+$fontExtraBold: FortExtraBold, Arial, sans-serif;
+$fontExtraBoldItalic: FortExtraBoldItalic, Arial, sans-serif;
+$fontBlack: FortBlack, Arial,sans-serif;
+$fontBlackItalic: FortBlackItalic, Arial, sans-serif;
+// alternate font
+$altFontLight: ShiftLight, Times, serif;
+$altFontLightItalic: ShiftLightItalic, Times, serif;
+$altFontBook: ShiftBook, Times, serif;
+$altFontBookItalic: ShiftBookItalic, Times, serif;
+$altFontMedium: ShiftMedium, Times, serif;
+
+//Fonts
+@font-face {
+  font-family: ShiftLight;
+  font-weight: normal;
+  font-style: normal;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/shift/ShiftLight.eot');
+  src:
+    url('/themes/custom/penguin/fonts/shift/ShiftLight.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/shift/ShiftLight.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/shift/ShiftLight.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/shift/ShiftLight.svg#ShiftLight') format('svg');
+}
+@font-face {
+  font-family: ShiftLightItalic;
+  font-weight: normal;
+  font-style: italic;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/shift/ShiftLightItalic.eot');
+  src:
+    url('/themes/custom/penguin/fonts/shift/ShiftLightItalic.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/shift/ShiftLightItalic.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/shift/ShiftLightItalic.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/shift/ShiftLightItalic.svg#ShiftLightItalic') format('svg');
+}
+@font-face {
+  font-family: ShiftBook;
+  font-weight: normal;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/shift/ShiftBook.eot');
+  src:
+    url('/themes/custom/penguin/fonts/shift/ShiftBook.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/shift/ShiftBook.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/shift/ShiftBook.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/shift/ShiftBook.svg#ShiftBook') format('svg');
+}
+@font-face {
+  font-family: ShiftBookItalic;
+  font-weight: normal;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/shift/ShiftBookItalic.eot');
+  src:
+    url('/themes/custom/penguin/fonts/shift/ShiftBookItalic.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/shift/ShiftBookItalic.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/shift/ShiftBookItalic.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/shift/ShiftBookItalic.svg#ShiftBook') format('svg');
+}
+@font-face {
+  font-family: ShiftMedium;
+  font-weight: normal;
+  font-style: normal;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/shift/ShiftMedium.eot');
+  src:
+    url('/themes/custom/penguin/fonts/shift/ShiftMedium.eot?#iefix') format('embedded-opentype')
+    url('/themes/custom/penguin/fonts/shift/ShiftMedium.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/shift/ShiftMedium.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/shift/ShiftMedium.svg#ShiftBook') format('svg');
+}
+
+@font-face {
+  font-family: FortLight;
+  font-weight: normal;
+  font-style: normal;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortLight.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortLight.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortLight.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortLight.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortLight.svg#FortLight') format('svg');
+}
+@font-face {
+  font-family: FortLightItalic;
+  font-weight: normal;
+  font-style: italic;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortLightItalic.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortLightItalic.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortLightItalic.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortLightItalic.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortLightItalic.svg#FortLightItalic') format('svg');
+}
+@font-face {
+  font-family: FortBook;
+  font-weight: normal;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortBook.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortBook.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBook.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortBook.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBook.svg#FortBook') format('svg');
+}
+@font-face {
+  font-family: FortBookItalic;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortBookItalic.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortBookItalic.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBookItalic.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortBookItalic.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBookItalic.svg#FortBook') format('svg');
+}
+@font-face {
+  font-family: FortMedium;
+  font-weight: normal;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortMedium.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortMedium.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortMedium.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortMedium.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortMedium.svg#FortBook') format('svg');
+}
+@font-face {
+  font-family: FortMediumItalic;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortMediumItalic.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortMediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortMediumItalic.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortMediumItalic.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortMediumItalic.svg#FortBook') format('svg');
+}
+@font-face {
+  font-family: FortBold;
+  font-weight: bold;
+  font-style: normal;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortBold.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortBold.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBold.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortBold.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBold.svg#FortBold') format('svg');
+}
+@font-face {
+  font-family: FortBoldItalic;
+  font-weight: bold;
+  font-style: italic;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortBoldItalic.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortBoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBoldItalic.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortBoldItalic.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBoldItalic.svg#FortBoldItalic') format('svg');
+}
+@font-face {
+  font-family: FortExtraBold;
+  font-weight: bold;
+  font-style: normal;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortExtrabold.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortExtrabold.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortExtrabold.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortExtrabold.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortExtrabold.svg#FortBold') format('svg');
+}
+@font-face {
+  font-family: FortExtraBoldItalic;
+  font-weight: bold;
+  font-style: italic;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortExtraboldItalic.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortExtraboldItalic.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortExtraboldItalic.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortExtraboldItalic.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortExtraboldItalic.svg#FortBoldItalic') format('svg');
+}
+@font-face {
+  font-family: FortBlack;
+  font-weight: bold;
+  font-style: normal;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortBlack.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortBlack.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBlack.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortBlack.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBlack.svg#FortBold') format('svg');
+}
+@font-face {
+  font-family: FortBlackItalic;
+  font-weight: bold;
+  font-style: italic;
+  font-display: auto;
+  src: url('/themes/custom/penguin/fonts/fort/FortBlackItalic.eot');
+  src:
+    url('/themes/custom/penguin/fonts/fort/FortBlackItalic.eot?#iefix') format('embedded-opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBlackItalic.woff') format('woff'),
+    url('/themes/custom/penguin/fonts/fort/FortBlackItalic.otf')  format('opentype'),
+    url('/themes/custom/penguin/fonts/fort/FortBlackItalic.svg#FortBoldItalic') format('svg');
+}
+
+html {
+  font-family: $bodyFont;
+  font-size: 16px;
+  color: $extraDarkGrey;
+}

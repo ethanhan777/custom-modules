@@ -1,0 +1,156 @@
+enhanced_api.books:
+  path: '/books/{work_id}/{title}'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books'
+    _title: 'Book Detail'
+    title: NULL
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-paperback:
+  path: '/books/{work_id}/{title}/paperback'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books_paperback'
+    _title: 'Book Paperback Format'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-hardcover:
+  path: '/books/{work_id}/{title}/hardcover'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books_hardcover'
+    _title: 'Book Hardcover Format'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-ebook:
+  path: '/books/{work_id}/{title}/ebook'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books_ebook'
+    _title: 'Book Ebook Format'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-audio:
+  path: '/books/{work_id}/{title}/audio'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books_audio'
+    _title: 'Book Audio Format'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-merchandise:
+  path: '/books/{work_id}/{title}/merchandise'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books_merchandise'
+    _title: 'Book merchandise Format'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-boxedset:
+  path: '/books/{work_id}/{title}/boxedset'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books_boxedset'
+    _title: 'Book boxedset Format'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-boardbook:
+  path: '/books/{work_id}/{title}/boardbook'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books_boardbook'
+    _title: 'Book boardbook Format'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-excerpt:
+  path: '/books/{work_id}/{title}/excerpt'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books_ex'
+    _title: 'Book Excerpt'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-reading_guide:
+  path: '/books/{work_id}/{title}/reading-guide'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books_rg'
+    _title: 'Book Reading Guide'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-insight:
+  path: '/books/isbn/{isbn}'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books_insight'
+    _title: 'Book Detail'
+    title: NULL
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.books-events:
+  path: '/books/{work_id}/{title}/events'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::books'
+    _title: 'Book Reading Guide'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.events:
+  path: '/events/{event_id}'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::events'
+    _title: 'Event Detail'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.authors:
+  path: '/authors/{author_id}'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::authors'
+    _title: 'Author Detail'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.series:
+  path: '/series/{series_code}'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::series'
+    _title: 'Series'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.categories:
+  path: '/categories/{cat_id}'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::categories'
+    _title: 'Category'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.imprints:
+  path: '/imprints/{imprint_code}'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::imprints'
+    _title: 'Imprints'
+  requirements:
+    _permission: 'access content'
+
+enhanced_api.settings:
+  path: '/admin/config/services/enhanced-api'
+  defaults:
+    _form: '\Drupal\enhanced_api\Form\enhancedApiSettingsForm'
+    _title: 'PRH Enhanced API settings'
+  requirements:
+    _permission: 'administer enhanced api'
+
+# enhanced api RESTful
+enhanced_api.get:
+  path: 'api/enhanced/{type}/{content_id}/{method}'
+  defaults:
+    _controller: '\Drupal\enhanced_api\Controller\EnhancedApiController::get'
+    content_id: NULL
+    method: NULL
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'

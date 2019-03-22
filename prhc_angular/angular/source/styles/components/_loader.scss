@@ -1,0 +1,46 @@
+@import '../atoms/animation-loading';
+
+.mlcl_loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: $smallSpace;
+}
+
+.mlcl_loader-penguin {
+  @include col4;
+  @include breakpoint($mediumScreen) {
+    @include col2;
+  }
+}
+
+.atm_animated-oval {
+  transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  animation: upwards 5s infinite linear;
+  animation-fill-mode: forwards;
+  -moz-animation: upwards 5s infinite linear;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation: upwards 5s infinite linear;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.atm_orange-oval {
+  clip-path: url(#black-outline);
+  fill: $penguinOrange;
+  animation: fill 5s infinite linear;
+  animation-fill-mode: forwards;
+  -moz-animation: fill 5s infinite linear;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation: fill 5s infinite linear;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.atm_white-oval {
+  fill: $white;
+}
+
+.atm_grey {
+  fill: $extraDarkGrey;
+}

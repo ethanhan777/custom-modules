@@ -1,0 +1,8 @@
+name: Pop Up Exit Intend
+description: 'Pop Up from top of page when user intended to exit.'
+selector: pop-up-exit
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

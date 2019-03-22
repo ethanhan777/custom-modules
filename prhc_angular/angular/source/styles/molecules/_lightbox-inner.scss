@@ -1,0 +1,48 @@
+//atoms to include
+@import '../atoms/h4';
+@import '../atoms/close';
+@import '../atoms/animation-zoom-up';
+//molecules to include
+@import '../molecules/hero-img';
+
+/*
+written by acressall
+
+includes:
+- inner container of a lightbox/modal
+- close icon
+- heading for the lightbox/modal
+*/
+.mlcl_lb-inner {
+  background-color: $white;
+  padding: $mediumSpace;
+  margin: $largeSpace $mediumSpace $giantSpace $mediumSpace;
+  z-index: $z-skyscraper + 5;
+  @include animationFadeIn;
+  @include borderRadius;
+  @include boxShadowNormal;
+  @include breakpoint($mediumScreen) {
+    margin: $giantSpace 5rem;
+  }
+
+  @include breakpoint($giantScreen) {
+    margin: $giantSpace auto;
+    max-width: $extraLargeWidth;
+  }
+
+  .mlcl_lb-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .atm_lightbox-header {
+    margin: $smallSpace auto $mediumSpace auto;
+  }
+}

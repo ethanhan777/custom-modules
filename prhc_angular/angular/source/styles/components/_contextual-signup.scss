@@ -1,0 +1,20 @@
+/*
+written by acressall
+
+includes:
+- styling for contextual signup
+*/
+
+@import '~breakpoint-sass';
+@import '../atoms/base';
+
+@import '../atoms/anchors';
+
+.cmpnt_context-sign-up,
+.cmpnt_connect {
+  background-color: $extraLightGrey;
+  padding: $smallSpace 0 $mediumSpace 0;
+  @include borderRadius;
+  margin-top: $mediumSpace;
+  margin-bottom: $mediumSpace;
+}

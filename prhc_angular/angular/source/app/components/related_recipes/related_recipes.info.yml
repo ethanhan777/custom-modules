@@ -1,0 +1,8 @@
+name: Related Recipes Component
+description: 'Related recipes of a book.'
+selector: related-recipes
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

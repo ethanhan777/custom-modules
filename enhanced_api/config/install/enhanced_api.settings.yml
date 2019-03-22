@@ -1,0 +1,6 @@
+enhanced_api_key: ebmftcqryd7umzuch262euse
+enhanced_api_url: 'https://api.penguinrandomhouse.com/resources/v2/title/domains/'
+enhanced_api_domain: PRH.CA
+enhanced_api_cache_time: '60'
+enhanced_api_cover_image_url: 'https://images.randomhouse.com/cover/'
+enhanced_api_author_photo_url: 'https://images.randomhouse.com/author/'

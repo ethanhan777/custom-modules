@@ -1,0 +1,24 @@
+<section class="container" *ngIf="title">
+  <h2 *ngIf="heading">{{heading}}</h2>
+
+  <div class="mlcl_2col-hero-wrapper">
+    <div class="mlcl_hero-img">
+      <mlcl-cover
+      [coverImage]="title.cover"
+      [title]="title.title"
+      [coverLink]="title.seoFriendlyUrl"></mlcl-cover>
+    </div>
+
+    <div class="mlcl_hero-desc">
+      <atm-content-paragraph
+      [paragraph]="flapcopy"
+      [trunc]="700"
+      *ngIf="flapcopy"></atm-content-paragraph>
+
+      <atm-button
+      [label]="link.label"
+      [seoFriendlyUrl]="link.seoFriendlyUrl"
+      *ngFor="let link of links"></atm-button>
+    </div>
+  </div>
+</section>

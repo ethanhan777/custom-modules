@@ -1,0 +1,20 @@
+<section
+class="container cmpnt_accordion"
+[ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''">
+  <mlcl-accordion-header
+  [id]="accordion.id"
+  [heading]="accordion.heading"
+  [icon]="accordion.chevron"
+  (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+  <!-- Accordion Content -->
+  <div
+  class="cmpnt_award cmpnt_paragraph-narrow cmpnt_accordion-items"
+  [ngClass]="accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+    <mlcl-event-list-item
+    class="mlcl_award-event"
+    [type]="'award'"
+    [content]="award"
+    *ngFor="let award of parsedAwards"></mlcl-event-list-item>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+// molecules to include
+@import '../molecules/cover-list-item';
+
+.cmpnt_search-results {
+  margin: 0 auto;
+  @include breakpoint($largeScreen) {
+    @include col9;
+  }
+}
+
+.cmpnt_search-bar {
+  margin: $smallSpace auto;
+  @include breakpoint($largeScreen) {
+    margin: $mediumSpace auto;
+  }
+}

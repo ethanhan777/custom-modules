@@ -1,0 +1,19 @@
+// authors & contributors
+.mlcl_contributor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: $extraSmallSpace;
+  margin-top: $extraSmallSpace;
+
+  .atm_tag {
+    margin-left: $extraSmallSpace;
+    margin-right: 0;
+
+    &:nth-last-of-type(2) {
+      margin-right: $extraSmallSpace;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import '../atoms/h3';
+@import '../atoms/flag-on-tour';
+
+/*
+written by acressall
+
+- styling for the clickable title of an accordion and the chevron icon
+ */
+.mlcl_accordion-header {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  width: 100%;
+  cursor: pointer;
+
+  i {
+    margin-right: $extraSmallSpace;
+  }
+
+  span {
+    display: inline-block;
+    line-height: 1.25em;
+    font-family: $secondaryFont;
+    font-size: 1.5rem;
+    margin: 0;
+
+    i {
+      font-family: $altFontBookItalic;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+}

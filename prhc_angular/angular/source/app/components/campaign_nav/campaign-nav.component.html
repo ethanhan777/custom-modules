@@ -1,0 +1,16 @@
+<section
+[attr.aria-role]="'navigation'"
+class="container cmpnt_campaign-nav" *ngIf="isLoaded">
+  <mlcl-nav-slider
+  [type]="currentType"
+  [data]="nav"
+  (buttonClicked)="redirect($event)"></mlcl-nav-slider>
+</section>
+
+<!--
+[type]="'recipe_nav'"
+@Input() type: string;
+@Input() active: string;
+@Input() data: any;
+@Output() onSliderInit = new EventEmitter<any>();
+@Output() buttonClicked = new EventEmitter<any>(); -->

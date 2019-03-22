@@ -1,0 +1,8 @@
+name: Quiz Fic-NonFic Component
+description: 'Selecting fiction or nonfiction for recommendation quiz'
+selector: quiz-fic
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

@@ -1,0 +1,8 @@
+name: About Author (Drupal content) Component
+description: 'About Author (Drupal content) Component'
+selector: about-author-article
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

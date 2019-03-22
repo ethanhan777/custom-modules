@@ -1,0 +1,15 @@
+fieldset {
+  padding: 0;
+  border: 0;
+  margin-bottom: $mediumSpace;
+  @include col12;
+  @include breakpoint($largeScreen) {
+    margin-bottom: $smallSpace;
+  }
+
+  small,
+  label {
+    display: block;
+    margin-bottom: $extraSmallSpace;
+  }
+}

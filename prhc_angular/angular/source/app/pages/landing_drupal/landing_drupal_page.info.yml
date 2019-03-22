@@ -1,0 +1,8 @@
+name: Landing (Drupal) Page Component
+description: 'Landing (Drupal) Page Component'
+selector: landing-drupal-page
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

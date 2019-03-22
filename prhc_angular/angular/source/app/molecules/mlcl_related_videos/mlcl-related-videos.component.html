@@ -1,0 +1,7 @@
+<ng-container *ngIf="videos.length">
+  <div class="mlcl_related-video" *ngFor="let video of videos">
+    <atm-video-item
+    [videoUrl]="video.url"
+    [videoText]="video.linktext"></atm-video-item>
+  </div>
+</ng-container>

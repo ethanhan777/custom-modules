@@ -1,0 +1,28 @@
+@import '../atoms/paragraph-narrow';
+@import '../atoms/wysiwyg';
+@import '../atoms/hr';
+@import '../atoms/label';
+@import '../atoms/tags';
+@import '../atoms/keep-reading-flag';
+
+/*
+written by acressall
+
+includes:
+- styling for the content of excerpts and reading guides
+*/
+.mlcl_excerpt,
+.mlcl_reading-guide {
+  max-width: $largeWidth;
+  margin: 0 auto;
+  padding-bottom: $smallSpace;
+}
+
+.mlcl_print {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.atm_dotted-line {
+  margin: $mediumSpace auto;
+}

@@ -1,0 +1,8 @@
+name: Available Next Week Component
+description: 'Available Next Week Component'
+selector: coming-soon-next-week
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

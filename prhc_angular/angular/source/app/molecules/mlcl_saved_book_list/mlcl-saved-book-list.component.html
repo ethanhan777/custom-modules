@@ -1,0 +1,22 @@
+<section class="cmpnt_search-results" *ngIf="group">
+
+  <div class="mlcl_grid-header">
+    <h2>Saved for
+      <span *ngFor="let profile of group.profiles; let index = index; let last = last;">
+        {{profile}}
+        <ng-container *ngIf="!last && group.profiles.length > 2">,</ng-container>
+        <ng-container *ngIf="!last && index === group.profiles.length - 2">and</ng-container>
+      </span>
+    </h2>
+  </div>
+
+  <div class="mlcl-saved-books-items">
+    <!-- <div class="mlcl-saved-books-item" *ngFor="let book of group.books"> -->
+      <mlcl-saved-book-item
+      *ngFor="let book of group.books"
+      [title]="book"
+      (removeIsbn)="removeBook($event)"></mlcl-saved-book-item>
+    <!-- </div> -->
+  </div>
+
+</section>

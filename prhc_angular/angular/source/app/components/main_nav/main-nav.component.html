@@ -1,0 +1,64 @@
+<nav class="cmpnt_main-nav">
+
+  <!-- All the actual nav items, split into primary and secondary -->
+  <nav
+  class="mlcl_nav-items"
+  [ngClass]="navOpen?'mlcl_nav-items-open':''">
+    <section class="mlcl_main-nav-primary">
+
+      <a
+      *ngFor="let primaryNavItem of primaryNavItems"
+      href="{{primaryNavItem.url}}"
+      (click)="mainNavToggle(primaryNavItem.name, true)">{{primaryNavItem.name}}</a>
+      <a *ngIf="savedData" href="/saved-books">Saved Books</a>
+
+    </section>
+
+    <!-- This section only shows in the hamburger on desktop -->
+    <section
+    *ngIf="navOpen"
+    id="mlcl_main-nav-secondary"
+    class="mlcl_main-nav-secondary">
+
+      <!-- <h4>Other Links</h4> -->
+      <ng-container *ngFor="let group of secondaryNavItems">
+        <a
+        tabindex="-1"
+        *ngFor="let secondaryNavItem of group"
+        href="{{secondaryNavItem.url}}"
+        (click)="mainNavToggle(secondaryNavItem.name, true)">{{secondaryNavItem.name}}</a>
+        <hr class="atm_hr-dark">
+      </ng-container>
+
+    </section>
+  </nav>
+
+  <section class="mlcl_main-nav-top" (click)="keepNavOpen($event)">
+    <!-- navicon -->
+    <button
+    id="atm_navicon"
+    class="fa"
+    aria-label="Navigation Links"
+    (click)="mainNavToggle()"
+    [ngClass]="{'fa-bars': !navOpen, 'fa-close': navOpen}"></button>
+
+    <!-- logo -->
+    <a
+    href="/"
+    class="atm_prhc-logo"
+    [ngClass]="searchOpen?'atm_prhc-logo-open':'atm_prhc-logo'">
+      <atm-inline-image
+      class="atm_inline-image"
+      [imagePath]="logo.path"
+      [imageAlt]="logo.alt"></atm-inline-image>
+    </a>
+
+    <!-- search icon -->
+    <button class="fa fa-search" aria-label="Search" (click)="searchOn()"></button>
+    <search-bar-global
+    (typing)="searchInput($event)"
+    *ngIf="searchOpen"
+    [ngClass]="searchOpen?'mlcl_nav-search-bar-open':'mlcl_nav-search-bar'">
+    </search-bar-global>
+  </section>
+</nav>

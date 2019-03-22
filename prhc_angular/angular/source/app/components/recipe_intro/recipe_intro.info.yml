@@ -1,0 +1,8 @@
+name: Recipe Intro Component
+description: 'Yield, prep time, cook time, recipe categories, and introduction paragraph'
+selector: recipe-intro
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

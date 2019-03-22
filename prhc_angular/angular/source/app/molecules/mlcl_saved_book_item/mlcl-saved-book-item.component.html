@@ -1,0 +1,50 @@
+<section class="mlcl_cover-list-item">
+  <div class="mlcl_list-item-cover">
+    <mlcl-cover-small
+    [cover]="title.cover"
+    [title]="title.title"
+    [seoFriendlyUrl]="title.seoFriendlyUrl"></mlcl-cover-small>
+
+    <atm-tag
+    [name]="'Remove'"
+    [icon]="'times'"
+    [iconBefore]="true"
+    (click)="removeBook(title.isbn, title.title)"></atm-tag>
+  </div>
+
+  <div class="atm_grid-book-detail">
+    <h4>
+      <a href="{{title.seoFriendlyUrl}}">{{title.title}}</a>
+      <small
+      class="atm_author"
+      *ngIf="title.author">by {{title.author}}</small>
+    </h4>
+
+    <!-- <small *ngIf="title.author">{{title.author}}</small> -->
+
+    <p *ngIf="title.aboutTheBook" [innerHtml]="title.aboutTheBook"></p>
+
+    <!-- buttons -->
+    <div class="mlcl_featured-buttons">
+      <atm-buy-button
+      [title]="title"
+      [onSaleDate]="title.onsale"
+      (clickedBuy)="lightboxEvent($event)">
+      </atm-buy-button>
+
+      <atm-button
+      [label]="button.label"
+      [seoFriendlyUrl]="button.seoFriendlyUrl"
+      (clicked)="buttonOnClick($event)"
+      *ngFor="let button of buttons"></atm-button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- where to buy lightbox -->
+<mlcl-buy-workflow
+*ngIf="title.isbn && lightboxOn"
+(closed)="lightboxOff($event)"
+[isbn]="title.isbn"></mlcl-buy-workflow>

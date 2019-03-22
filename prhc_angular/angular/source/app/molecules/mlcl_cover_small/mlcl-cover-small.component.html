@@ -1,0 +1,13 @@
+<img
+*ngIf="sealFlag"
+class="atm_seal atm_seal-book-club"
+src="/themes/custom/penguin/images/book-club-logo-small.png"
+alt="Penguin Book Club Seal">
+
+<a
+[attr.aria-label]="title"
+href="{{seoFriendlyUrl}}"
+class="mlcl_thumbnail-cover {{gridImageFallback}}">
+  <span *ngIf="!cover" [ngStyle]="{'background-image': 'url(' + fallbackImage + ')'}"></span>
+  <img *ngIf="cover" src="{{cover}}" alt="{{title}}">
+</a>

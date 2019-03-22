@@ -1,0 +1,38 @@
+<section id="cmpnt_footer" class="cmpnt_footer">
+    <!-- Connect section -->
+    <section class="mlcl_footer-connect">
+      <h4>Connect</h4>
+      <mlcl-social-footer></mlcl-social-footer>
+    </section>
+
+    <!-- Links -->
+    <ng-container *ngFor="let group of footerLinks">
+      <section class="mlcl_footer-links">
+        <small *ngFor="let footerNavItem of group.links">
+          <a
+          href="{{footerNavItem.url}}"
+          target="_blank"
+          rel="noopener"
+          (click)="onClick(footerNavItem.name)">{{footerNavItem.name}}</a>
+        </small>
+      </section>
+    </ng-container>
+
+    <!-- Global Branding section -->
+    <section class="mlcl_footer-branding">
+      <a
+      href="http://global.penguinrandomhouse.com"
+      target="_blank"
+      rel="noopener"
+      (click)="onClick('Logo')">
+        <atm-inline-image
+        [imagePath]="logoImage.path"
+        [imageAlt]="logoImage.alt"></atm-inline-image>
+      </a>
+      <p>
+        <small>
+        A Penguin Random House Company<br>
+        ©{{copyrightYear}} Penguin Random House Canada</small>
+      </p>
+    </section>
+</section>

@@ -1,0 +1,24 @@
+<small
+*ngIf="icon !== 'pinterest-p'"
+class="atm_social-label atm_small-medium">
+    <a
+    (click)="buttonClicked()"
+    [href]="seoFriendlyUrl"
+    target="_blank"
+    rel="noopener">
+      <fa [name]="icon"></fa>
+      {{label}}
+    </a>
+</small>
+
+<small *ngIf="icon === 'pinterest-p'"
+class="atm_social-label atm_small-medium">
+  <a
+  data-pin-do="buttonBookmark"
+  data-pin-custom="true"
+  data-pin-log="button_pinit_bookmarklet"
+  data-pin-href="https://www.pinterest.com/pin/create/button/">
+    <fa [name]="icon"></fa>
+    {{label}}
+  </a>
+</small>

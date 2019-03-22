@@ -1,0 +1,8 @@
+name: Imprint Content Component
+description: 'Imprint Coming Soon and New Releases Sliders, Book grid if neither exist'
+selector: imprint-content
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

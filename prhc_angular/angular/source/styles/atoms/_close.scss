@@ -1,0 +1,30 @@
+.atm_close {
+  text-decoration: none;
+  display: flex;
+  width: fit-content;
+  float: right;
+  background-color: $white;
+  text-align: center;
+  font-size: 1.25rem;
+  padding: $extraSmallSpace / 1.5 $extraSmallSpace;
+  border: 1px solid $mediumGrey;
+  border-radius: 100px;
+  @include boxShadowNormal;
+  margin-top: -$mediumSpace;
+  margin-right: -$mediumSpace;
+  z-index: $z-skyscraper + 10;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.atm_close-bottom {
+  display: flex;
+  margin-top: -$mediumSpace;
+  margin-bottom: $mediumSpace;
+  justify-content: center;
+  @include breakpoint($smallScreen) {
+    display: none;
+  }
+}

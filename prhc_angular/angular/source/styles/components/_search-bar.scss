@@ -1,0 +1,11 @@
+/*
+written by acressall
+
+includes:
+- margin for search bar component on search results page
+*/
+.cmpnt_search-bar {
+  display: block;
+  margin-top: $smallSpace;
+  margin-bottom: $smallSpace;
+}

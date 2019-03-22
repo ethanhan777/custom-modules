@@ -1,0 +1,12 @@
+.mlcl_grid-no-image {
+  span {
+    display: initial;
+    // background-image: url('../images/no-image-fallback/no-image-pattern-1.png');
+    width: 90%;
+    height: 90%;
+  }
+
+  img {
+    display: none;
+  }
+}

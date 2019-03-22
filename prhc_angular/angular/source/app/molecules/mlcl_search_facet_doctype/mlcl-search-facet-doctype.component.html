@@ -1,0 +1,19 @@
+<section>
+  <h3>Filter by</h3>
+  <div>
+    <a
+    class="atm_tag"
+    (click)="removeFacet('docType')">All</a>
+    <a
+    class="atm_tag"
+    *ngFor="let key of facet.values | ObjNgFor"
+    (click)="filter(facet.name, key)">
+      <span *ngIf="key === 'work' || key === 'isbn'">
+        Book
+      </span>
+      <span *ngIf="key !== 'work' && key !== 'isbn'">
+        {{key}}
+      </span>
+    </a>
+  </div>
+</section>

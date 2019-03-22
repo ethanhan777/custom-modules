@@ -1,0 +1,19 @@
+<mlcl-hero-title
+class="cmpnt_paragraph-narrow mlcl_quiz-title"
+[title]="title"></mlcl-hero-title>
+
+<fieldset class="mlcl_quiz-range {{selectedClass}}">
+  <input
+  type="{{type}}"
+  min="{{min}}"
+  max="{{max}}"
+  name="fiction"
+  [(ngModel)]="selectedValue"
+  (ngModelChange)="selectedRange()">
+
+  <div class="atm_quiz-slider-labels">
+    <label>Never</label>
+    <label>Sometimes</label>
+    <label>Always</label>
+  </div>
+</fieldset>

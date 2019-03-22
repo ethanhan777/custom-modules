@@ -1,0 +1,19 @@
+<section
+[attr.aria-label]="'Accordion: ' + accordion.heading"
+[attr.aria-expanded]="accordion.toggle"
+class="container cmpnt_accordion"
+[ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''">
+  <mlcl-accordion-header
+  [id]="accordion.id"
+  [heading]="accordion.heading"
+  [icon]="accordion.chevron"
+  (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+  <!-- Accordion Content -->
+  <div
+  *ngIf="accordion.toggle"
+  class="cmpnt_praise cmpnt_paragraph-narrow cmpnt_accordion-items"
+  [ngClass]="accordion.toggle?'atm_accordion-open':'atm_accordion-close'">
+    <atm-content-paragraph [paragraph]="praise"></atm-content-paragraph>
+  </div>
+</section>

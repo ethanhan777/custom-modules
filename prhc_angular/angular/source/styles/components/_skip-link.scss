@@ -1,0 +1,11 @@
+#skip-link {
+  position: absolute;
+  margin-top: -100%;
+  margin-left: -100%;
+
+  &:focus {
+    position: relative;
+    margin-top: 0;
+    margin-left: 0;
+  }
+}

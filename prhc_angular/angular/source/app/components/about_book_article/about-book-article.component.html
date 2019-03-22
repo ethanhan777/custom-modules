@@ -1,0 +1,6 @@
+<section *ngIf="isLoaded">
+  <mlcl-about-book
+  [heading]="'More about' + title.title"
+  [title]="title"
+  *ngFor="let title of titles"></mlcl-about-book>
+</section>

@@ -1,0 +1,25 @@
+  <section class="container mlcl_event-details" *ngIf="isLoaded">
+    <div >
+      <h2>
+        {{currentEvent.date}}
+        <span *ngIf="currentEvent.time"> – {{currentEvent.time}}</span>
+      </h2>
+
+      <p
+      *ngIf="currentEvent.description"
+      [innerHtml]="currentEvent.description"></p>
+      <p>
+        {{currentEvent.location}}<br>
+        {{currentEvent.city}}, {{currentEvent.state}}
+      </p>
+
+      <atm-button *ngFor="let link of currentEvent.links"
+      [label]="link.label"
+      [icon]="link.icon"
+      [seoFriendlyUrl]="link.seoFriendlyUrl"
+      [externalFlag]="link.externalFlag"
+      [windowFlag]="link.openWindowFlag"
+      [windowWidth]="width"
+      (clicked)="buttonOnClick($event)"></atm-button>
+    </div>
+  </section>

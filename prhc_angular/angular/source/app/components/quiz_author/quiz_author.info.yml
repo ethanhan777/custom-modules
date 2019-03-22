@@ -1,0 +1,8 @@
+name: Quiz Author Component
+description: 'Selecting if they read all books by author for recommendation quiz'
+selector: quiz-author
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

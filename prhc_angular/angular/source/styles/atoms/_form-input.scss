@@ -1,0 +1,28 @@
+//inputs
+input {
+  width: 95%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: FortLight, Arial, sans-serif;
+  font-size: 1rem;
+  color: $extraDarkGrey;
+  height: 2em;
+  padding-left: $extraSmallSpace;
+  border: 2px solid $mediumGrey;
+  @include borderRadius;
+
+  &:focus {
+    border: 2px solid $extraDarkGrey;
+    outline: none;
+  }
+}
+
+input::placeholder {
+  font-family: FortLight, Arial, sans-serif;
+  font-size: 1rem;
+  color: $darkGrey;
+}
+// if there's a submit button
+input[type=submit] {
+  height: auto;
+}

@@ -1,0 +1,5 @@
+enhanced_api.menu:
+  title: 'PRH Enhanced API settings'
+  description: 'Global settings for the PRH Enhanced API Views backend.'
+  parent: system.admin_config_services
+  route_name: enhanced_api.settings

@@ -1,0 +1,8 @@
+name: Page Not Found Component
+description: 'Content for the 404 page'
+selector: page-not-found
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

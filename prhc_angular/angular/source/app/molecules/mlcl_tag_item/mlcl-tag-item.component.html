@@ -1,0 +1,11 @@
+<p class="mlcl_tag-wrapper">
+  <label *ngIf="label">{{label}}</label>
+
+  <atm-tag
+  *ngFor="let tag of tags"
+  [name]="tag.name"
+  [currentIsbn]="tag.isbn"
+  [active]="tag.active"
+  (clicked)="isClicked($event)"
+  [seoFriendlyUrl]="tag.seoFriendlyUrl"></atm-tag>
+</p>

@@ -1,0 +1,289 @@
+/*
+Included in:
+- style guide angular component
+  modules/custome/ng2_components/documentation/style-guide
+*/
+@import 'breakpoint';
+@import 'atoms/base';
+@import 'atoms/grid';
+@import 'atoms/fonts';
+
+.style-guide {
+  display: flex;
+  flex-direction: row;
+
+  section {
+    padding-bottom: $smallSpace;
+    border-bottom: 2px solid $extraLightGrey;
+    margin-top: $giantSpace;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  code {
+    font-size: 1rem;
+    background-color: $extraLightGrey;
+    padding: $extraSmallSpace / 2 $extraSmallSpace;
+    @include borderRadius;
+    margin: $extraSmallSpace;
+  }
+
+  .sg_frame {
+    padding: $smallSpace;
+    border: 10px solid $extraLightGrey;
+  }
+}
+
+.sg_nav {
+  width: 100%;
+  background-color: $white;
+  margin-top: $smallSpace;
+  z-index: $z-levelTwo;
+  text-align: center;
+  padding: $extraSmallSpace 0;
+  border-top: 1px solid $mediumGrey;
+  border-bottom: 1px solid $mediumGrey;
+
+  a {
+    font-size: 1rem;
+    font-weight: $bodyFont;
+    text-decoration: none;
+    width: 100%;
+    margin: $smallSpace;
+  }
+}
+
+.sg_subnav {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  text-align: left;
+  border: none;
+  border-right: 1px solid $mediumGrey;
+}
+
+//Grids of elements
+.sg_grid,
+.sg_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    @include col2;
+    margin: $extraSmallSpace $smallSpace;
+  }
+
+  span {
+    background-color: $extraLightGrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    @include borderRadius;
+    margin-bottom: $extraSmallSpace;
+  }
+}
+//Lists of elements
+.sg_list {
+  flex-direction: column;
+  align-items: stretch;
+
+  div {
+    text-align: left;
+    justify-content: flex-start;
+    width: auto;
+    margin: $extraSmallSpace 0;
+  }
+}
+
+.sg_column-wrapper {
+  div {
+    width: auto;
+    margin: $extraSmallSpace 0;
+  }
+
+  .sg_col1 {
+    @include col1;
+  }
+
+  .sg_col2 {
+    @include col2;
+  }
+
+  .sg_col3 {
+    @include col3;
+  }
+
+  .sg_col4 {
+    @include col4;
+  }
+
+  .sg_col5 {
+    @include col5;
+  }
+
+  .sg_col6 {
+    @include col6;
+  }
+
+  .sg_col7 {
+    @include col7;
+  }
+
+  .sg_col8 {
+    @include col8;
+  }
+
+  .sg_col9 {
+    @include col9;
+  }
+
+  .sg_col10 {
+    @include col10;
+  }
+
+  .sg_col11 {
+    @include col11;
+  }
+
+  .sg_col12 {
+    @include col12;
+  }
+}
+
+// Colours
+.sg_black span {
+  background-color: $black;
+}
+
+.sg_extra-dark-grey span {
+  background-color: $extraDarkGrey;
+}
+
+.sg_dark-grey span {
+  background-color: $darkGrey;
+}
+
+.sg_medium-grey span {
+  background-color: $mediumGrey;
+}
+
+.sg_light-grey span {
+  background-color: $lightGrey;
+}
+
+.sg_extra-light-grey span {
+  background-color: $extraLightGrey;
+}
+
+.sg_white span {
+  background-color: $white;
+  border: 1px solid $mediumGrey;
+}
+
+.sg_penguin-orange span {
+  background-color: $penguinOrange;
+}
+
+//Icons
+.sg_icon-wrapper {
+  div {
+    margin: $smallSpace $smallSpace;
+  }
+}
+
+//Fonts
+.sg_font-wrapper {
+  span {
+    font-size: 1.5em;
+  }
+
+  .sg_fortlight {
+    font-family: $fontLight;
+  }
+
+  .sg_fortlightitalic {
+    font-family: $fontLightItalic;
+  }
+
+  .sg_fortbook {
+    font-family: $fontBook;
+  }
+
+  .sg_fortbookitalic {
+    font-family: $fontBookItalic;
+  }
+
+  .sg_fortmedium {
+    font-family: $fontMedium;
+  }
+
+  .sg_fortmediumitalic {
+    font-family: $fontMediumItalic;
+  }
+
+  .sg_fortbold {
+    font-family: $fontBold;
+  }
+
+  .sg_fortbolditalic {
+    font-family: $fontBoldItalic;
+  }
+
+  .sg_fortextrabold {
+    font-family: $fontExtraBold;
+  }
+
+  .sg_fortextrabolditalic {
+    font-family: $fontExtraBoldItalic;
+  }
+
+  .sg_fortblack {
+    font-family: $fontBlack;
+  }
+
+  .sg_fortblackitalic {
+    font-family: $fontBlackItalic;
+  }
+
+  .sg_shiftlight {
+    font-family: $altFontLight;
+  }
+
+  .sg_shiftlightitalic {
+    font-family: $altFontLightItalic;
+  }
+
+  .sg_shiftbook {
+    font-family: $altFontBook;
+  }
+
+  .sg_shiftmedium {
+    font-family: $altFontMedium;
+  }
+}
+
+//Typography
+.sg_heading-wrapper {
+  div {
+    text-align: left;
+  }
+}
+
+//Box Model
+.sg_shadow-normal {
+  @include boxShadowNormal;
+}
+
+.sg_shadow-hover {
+  @include boxShadowHover;
+}

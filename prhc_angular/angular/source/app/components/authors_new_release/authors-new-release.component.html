@@ -1,0 +1,11 @@
+<section class="container" *ngIf="isLoaded">
+  <h2 class="mlcl_grid-header">Authors with New Releases</h2>
+
+  <!-- <mlcl-loader *ngIf="!isLoaded" class="mlcl_loader"></mlcl-loader> -->
+
+  <div class="cmpnt_grid-layout">
+    <mlcl-slider-item class="mlcl_grid-item"
+      *ngFor="let author of data"
+      [content]="author"></mlcl-slider-item>
+  </div>
+</section>

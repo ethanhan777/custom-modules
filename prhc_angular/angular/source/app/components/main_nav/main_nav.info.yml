@@ -1,0 +1,8 @@
+name: Main Navigation
+description: 'Navigation that is at the top of every page'
+selector: main-nav
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

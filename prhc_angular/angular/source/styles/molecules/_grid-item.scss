@@ -1,0 +1,27 @@
+//molecules to include
+@import '../molecules/cover-small';
+@import '../molecules/cover-series';
+@import '../molecules/grid-book-detail';
+
+/*
+written by acressall
+
+includes:
+- any item that is displayed in a grid layout
+ */
+.mlcl_grid-item {
+  display: inline-block;
+  margin-bottom: $smallSpace;
+  @include col6; //these are percentages because they need to resize with device widths, unlike sliders
+
+  .mlcl_cover-wrapper {
+    width: 100%;
+  }
+  @include breakpoint($smallScreen) {
+    @include col6;
+  }
+  @include breakpoint ($mediumScreen) {
+    @include col3;
+    margin-bottom: $mediumSpace;
+  }
+}

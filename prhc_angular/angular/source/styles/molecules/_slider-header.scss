@@ -1,0 +1,25 @@
+//atoms to include
+@import '../atoms/h2';
+@import '../atoms/tags';
+@import '../atoms/slider-arrows';
+
+.mlcl_slider-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-top: $mediumSpace;
+
+  h2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.mlcl_slider-header-no-heading {
+  justify-content: flex-end;
+}
+
+.mlcl_slider-header .swiper-button-disabled {
+  display: none;
+}

@@ -1,0 +1,49 @@
+<section *ngIf="articles.length || links.length || videos.length">
+  <div
+  [attr.aria-label]="'Accordion: ' + accordion.heading"
+  [attr.aria-expanded]="accordion.toggle"
+  class="container cmpnt_accordion"
+  [ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''">
+    <mlcl-accordion-header
+    [id]="accordion.id"
+    [heading]="accordion.heading"
+    [icon]="accordion.chevron"
+    (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+    <!-- Accordion Content -->
+    <div
+    *ngIf="accordion.toggle"
+    [ngClass]="accordion.toggle?'atm_accordion-open':'atm_accordion-close'"
+    class="cmpnt_related-list cmpnt_accordion-items">
+
+      <!-- related articles -->
+      <div
+      class="mlcl_related-item cmpnt_paragraph-narrow"
+      *ngFor="let article of articles">
+        <mlcl-list-item
+        [category]="article.category"
+        [label]="article.label"
+        [title]="article.title"
+        [seoFriendlyUrl]="article.seoFriendlyUrl"
+        [body]="article.body"></mlcl-list-item>
+      </div>
+
+      <!-- related links -->
+      <div
+      class="mlcl_related-item cmpnt_paragraph-narrow"
+      *ngFor="let link of links">
+        <mlcl-list-item
+        [label]="link.label"
+        [title]="link.title"
+        [seoFriendlyUrl]="link.seoFriendlyUrl"
+        [urlTarget]="'_blank'"
+        [externalFlag]="link.externalFlag"></mlcl-list-item>
+      </div>
+
+      <!-- related videos -->
+      <mlcl-related-videos
+      class="cmpnt_related-video-grid"
+      [videos]="videos"></mlcl-related-videos>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+<section class="mlcl_cta-wrapper">
+
+  <ng-container *ngFor="let ctaItem of items">
+
+    <mlcl-cta-item
+    *ngIf="ctaItem.type === 'paragraph--cta'"
+    [ngClass]="items.length == 3 || items.length >= 5 ? '' : 'mlcl_cta-item-large'"
+    class="mlcl_cta-item"
+    [url]="ctaItem.links.self"></mlcl-cta-item>
+
+    <mlcl-campaign-retailer-links
+    *ngIf="ctaItem.type === 'paragraph--retailer_links'"
+    [ngClass]="items.length == 3 || items.length >= 5 ? '' : 'mlcl_cta-item-large'"
+    class="mlcl_cta-item"
+    [heading]="ctaItem.attributes.field_subheading"
+    [isbn]="ctaItem.attributes.field_isbn"></mlcl-campaign-retailer-links>
+
+  </ng-container>
+
+</section>

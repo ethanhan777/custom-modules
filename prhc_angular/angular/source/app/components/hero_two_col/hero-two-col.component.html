@@ -1,0 +1,56 @@
+<section class="container cmpnt_2-col-hero" *ngIf="isLoaded">
+  <div class="mlcl_header">
+    <!-- page title -->
+    <mlcl-hero-title
+    *ngIf="hero"
+    [title]="hero.title"
+    [subtitle]="hero.subtitle"
+    [series]="hero.series"
+    [contributors]="hero.contributors"></mlcl-hero-title>
+
+    <!-- Social -->
+    <mlcl-social
+    [tealiumData]="hero"></mlcl-social>
+  </div>
+
+  <div class="mlcl_2col-hero-wrapper">
+    <!-- cover image -->
+    <mlcl-cover
+    class="mlcl_hero-img"
+    *ngIf="hero && hero.hasCover"
+    [coverImage]="hero.image"
+    [title]="hero.title"
+    [isbn]="currentContentInfo.isbn"
+    [hasInsight]="hero.hasInsight"
+    [content]="hero"
+    [author]="hero.author"
+    [photoCredit]="hero.photoCredit"></mlcl-cover>
+
+    <!-- Description -->
+    <mlcl-hero-desc
+    class="mlcl_hero-desc"
+    *ngIf="hero && hero.desc"
+    [type]="currentContentInfo.type"
+    [desc]="hero.desc"
+    [content]="hero"
+    [onSaleDate]="hero.onSaleDate"
+    [accordionId]="accordionId"
+    (clickedBuy)="buttonOnClick($event)"
+    (clickedListen)="audioButtonClick($event)"></mlcl-hero-desc>
+  </div>
+</section>
+
+<mlcl-buy-workflow
+*ngIf="hero && hero.isbn && lightboxOn"
+[currentWork]="content"
+[isbn]="hero.isbn"
+(closed)="lightboxOff($event)"></mlcl-buy-workflow>
+
+<atm-audio-item
+class="container atm_soundcloud-embed"
+*ngIf="audioUrl && audioClipOn"
+[title]="hero.title"
+[audioUrl]="audioUrl"
+[audioFormatName]="hero.audioExcerptFormat"
+[audioFormatCover]="hero.audioExcerptCover">
+</atm-audio-item>

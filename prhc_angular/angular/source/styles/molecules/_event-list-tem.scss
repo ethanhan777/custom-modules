@@ -1,0 +1,25 @@
+/*
+written by acressall
+
+includes:
+- styling for award and event items
+*/
+
+//sub-molecules
+@import 'event-list-item-details';
+@import 'event-list-item-title';
+
+.mlcl_award-event {
+  padding-top: $smallSpace;
+  border-bottom: 1px solid $lightGrey;
+  display: flex;
+  flex-direction: column;
+  @include breakpoint($smallScreen) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

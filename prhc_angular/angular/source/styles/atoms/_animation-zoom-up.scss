@@ -1,0 +1,10 @@
+//Zoom Up hover state for books covers
+@mixin animationZoomUp {
+  animation: zoom 0.5s ease-in-out forwards;
+}
+@keyframes zoom {
+  100% {
+    @include boxShadowHover;
+    transform: translate(0, -$extraSmallSpace / 2);
+  }
+}

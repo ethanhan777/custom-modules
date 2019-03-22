@@ -1,0 +1,8 @@
+name: Quiz Characters Component
+description: 'Selecting if they like to read books with the same characters recommendation quiz'
+selector: quiz-characters
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

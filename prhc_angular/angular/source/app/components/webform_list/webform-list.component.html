@@ -1,0 +1,29 @@
+<section class="container">
+  <h1>Webforms</h1>
+  <mlcl-loader *ngIf="!isLoaded" class="mlcl_loader"></mlcl-loader>
+
+  <div class="cmpnt_paragraph-narrow">
+    <div class="mlcl_buy-independent-results" *ngFor="let webform of articles">
+      <mlcl-list-item
+      *ngIf="isLoaded && !noContent"
+      [title]="webform.title"
+      [label]="webform.status"
+      [seoFriendlyUrl]="webform.seoFriendlyUrl"
+      [urlTarget]="'_blank'"
+      [body]="webform.description"></mlcl-list-item>
+
+      <mlcl-tag-item
+      *ngIf="webform.actions"
+      (clicked)="isClicked($event)"
+      [tags]="webform.actions"></mlcl-tag-item>
+    </div>
+
+    <a class="atm_load-more" href="/admin/structure/webform"><button class="atm_alt-btn">See All Webforms</button></a>
+  </div>
+</section>
+
+<!-- no content -->
+<section *ngIf="isLoaded && noContent" class="container">
+  <p class="cmpnt_paragraph-narrow">
+  Sorry, there is nothing available at this time. Please check back soon!</p>
+</section>

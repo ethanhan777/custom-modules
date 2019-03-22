@@ -1,0 +1,36 @@
+<!-- <section class="mlcl_grid-item-wrapper" *ngIf="content"> -->
+  <mlcl-cover-small
+  class="mlcl_cover-wrapper"
+  *ngIf="!type || type !== 'series'"
+  [cover]="content.cover"
+  [height]="coverHeight"
+  [title]="content.title"
+  [seoFriendlyUrl]="content.seoFriendlyUrl"
+  (click)="onClick($event, outputData)"></mlcl-cover-small>
+
+  <mlcl-cover-series
+  *ngIf="type === 'series'"
+  [seriesCode]="content.seriesCode"
+  [seriesName]="content.title"
+  [seriesUrl]="content.seoFriendlyUrl"></mlcl-cover-series>
+
+  <div class="atm_grid-book-detail">
+    <small *ngIf="type ==='book' || content.label">{{content.label}}</small>
+    <h4 [ngClass]="saveButtonFlag ? 'atm_heading-with-icon' : ''">
+      <a
+      href="{{content.seoFriendlyUrl}}"
+      (click)="onClick($event, outputData)">{{content.title}}</a>
+
+      <atm-save-button
+      *ngIf="saveButtonFlag"
+      class="atm_save-button"
+      [isSimple]="true"
+      [data]="content"
+      (savedBook)="saveOnClick($event)"></atm-save-button>
+    </h4>
+    <small *ngIf="type =='format' && content.subtitle">${{content.subtitle | number: '.2'}}</small>
+    <small *ngIf="type =='event'">{{content.subtitle| date:'mediumDate'}}</small>
+    <small *ngIf="type !='format' && type !='event' && content.subtitle" [innerHtml]="content.subtitle"></small>
+
+  </div>
+<!-- </section> -->

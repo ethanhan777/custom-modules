@@ -1,0 +1,12 @@
+<section *ngIf="isLoaded" class="container">
+
+  <mlcl-grid-book
+  [data]="data"
+  [loadMoreFlag]="loadMoreFlag"
+  [loading]="loading"
+  [type]="currentContentInfo.type"
+  [heading]="heading"
+  (sortChange)="sort($event)"
+  (loadMore)="loadMore()"></mlcl-grid-book>
+
+</section>

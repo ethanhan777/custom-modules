@@ -1,0 +1,122 @@
+/*
+written by acressall
+
+includes:
+- colours
+- padding/margin spacing variables
+- border-radius
+- box-shadow
+- z-index
+- aspect ratio mixin
+- media queries
+- common widths
+*/
+
+// Colours
+$white: #fff;
+$extraLightGrey: #f4f4f4;
+$lightGrey: #f1f1f1;
+$mediumGrey: #eaeaea;
+$darkGrey: #636466;
+$extraDarkGrey: #424243;
+$black: #000;
+$penguinOrange: #f60;
+$formValid: #008040;
+$formInvalid: #df3028;
+
+// Box Model: padding, borders
+$extraSmallSpace: 0.438em;
+$smallSpace: 0.813em;
+$mediumSpace: 1.625em;
+$largeSpace: 2.438em;
+$giantSpace: 3.125em;
+@mixin borderRadius {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+@mixin pillRadius {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+@mixin boxShadowNormal {
+  -webkit-box-shadow: 0 3px 7px -2px rgba(99, 100, 102, 0.4);
+  -moz-box-shadow: 0 3px 7px -2px rgba(99, 100, 102, 0.4);
+  box-shadow: 0 3px 7px -2px rgba(99, 100, 102, 0.4);
+}
+@mixin boxShadowHover {
+  -webkit-box-shadow: 0 5px 20px -2px rgba(99, 100, 102, 0.6);
+  -moz-box-shadow: 0 5px 20px -2px rgba(99, 100, 102, 0.6);
+  box-shadow: 0 5px 20px -2px rgba(99, 100, 102, 0.6);
+}
+
+// z-index
+// ground is the normal level. skyscraper is the top, dungeon is the bottom
+$z-skyscraper: 15;
+$z-levelTwo: 10;
+$z-levelOne: 5;
+$z-ground: 0;
+$z-basement: -5;
+$z-subBasement: -10;
+$z-dungeon: -15;
+
+// Aspect Ratio
+@mixin aspectWrapper($width, $height) {
+  position: relative;
+
+  &::before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+}
+@mixin aspectInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Media Queries
+// Base size is assumed that 320px is the smallest screen size
+$smallScreen: 25.875em; // 414px
+$mediumScreen: 48em; // 768px
+$largeScreen: 64em; // 1024px
+$giantScreen: 90em; // 1440px
+
+// Common widths for consistency
+$extraSmallWidth: 18.438rem; //295px;
+$smallWidth: 25.125rem; //402px
+$mediumWidth: 38.5rem; //616px
+$largeWidth: 51.875rem; //830px
+$extraLargeWidth: 65rem; //1040px
+$giantWidth: 80rem; //1280px
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}

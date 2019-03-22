@@ -1,0 +1,76 @@
+<div class="cmpnt_paragraph-narrow">
+  <form
+  class="mlcl_global-signup-content"
+  [ngClass]="contentType === 'book-finder' && noSignupButton ? 'alt' : ''">
+    <!-- Version without postal code -->
+    <fieldset *ngIf="contentType !== 'events'">
+      <input
+      aria-label="Enter your email"
+      type="email"
+      pattern="[^ @]*@[^ @]*"
+      placeholder="example@email.com"
+      (focus)="onFocus()"
+      [(ngModel)]="email"
+      [ngModelOptions]="{standalone: true}"
+      (keyup.enter)="signup()">
+
+      <mlcl-nl-legal *ngIf="showLeagl" (isAgreed)="isValidForm($event)"></mlcl-nl-legal>
+    </fieldset>
+
+    <!-- Version with postal code -->
+    <fieldset *ngIf="contentType === 'events'">
+      <div class="mlcl_location-signup-inputs">
+        <input
+        aria-label="Enter your Postal Code"
+        type="text"
+        pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
+        placeholder="Postal Code"
+        (focus)="onFocus()"
+        [(ngModel)]="postalCode"
+        [ngModelOptions]="{standalone: true}">
+
+        <input
+        aria-label="Enter your email"
+        type="email"
+        pattern="[^ @]*@[^ @]*"
+        placeholder="example@email.com"
+        (focus)="onFocus()"
+        [(ngModel)]="email"
+        [ngModelOptions]="{standalone: true}"
+        (keyup.enter)="signup()">
+      </div>
+
+      <mlcl-nl-legal *ngIf="showLeagl" (isAgreed)="isValidForm($event)"></mlcl-nl-legal>
+    </fieldset>
+
+    <!-- Submit buttons -->
+    <button
+    type="submit"
+    *ngIf="showLeagl && !noSignupButton"
+    [disabled]="!isValidForm()"
+    (click)="signup()">Sign Up</button>
+
+    <!-- Submit buttons on quiz -->
+    <div
+    class="mlcl-quiz-buttons"
+    *ngIf="contentType === 'book-finder' && noSignupButton">
+      <atm-button
+      [label]="'Go Back'"
+      (clicked)="step('back')"></atm-button>
+
+      <atm-button
+      [label]="stepForwardLabel"
+      [classes]="'atm_alt-btn'"
+      (clicked)="step('forward', stepForwardLabel)"></atm-button>
+
+      <button
+      type="submit"
+      *ngIf="showLeagl"
+      class="atm_alt-btn"
+      [disabled]="!isValidForm()"
+      (click)="signup()">Sign Up</button>
+    </div>
+
+
+  </form>
+</div>

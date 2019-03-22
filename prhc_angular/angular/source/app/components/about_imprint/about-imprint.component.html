@@ -1,0 +1,22 @@
+<section class="container" *ngIf="isLoaded">
+
+  <div class="mlcl_2col-hero-wrapper">
+    <div *ngIf="imprint.cover" class="mlcl_hero-img">
+      <mlcl-cover
+      [coverImage]="imprint.cover"
+      [title]="imprint.title"
+      [coverLink]="readMoreLink"></mlcl-cover>
+    </div>
+
+    <div *ngIf="imprint.bio" class="mlcl_hero-desc">
+      <atm-content-paragraph
+      [paragraph]="imprint.bio.value"
+      [trunc]="715"></atm-content-paragraph>
+
+      <atm-button
+      *ngIf="imprint.about_section_title && imprint.bio"
+      [label]="'Read More'"
+      [seoFriendlyUrl]="readMoreLink"></atm-button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+  <section
+  [attr.aria-label]="'Accordion: ' + accordion.heading"
+  [attr.aria-expanded]="accordion.toggle"
+  class="container cmpnt_accordion cmpnt_book-details"
+  [ngClass]="accordion.id ? 'accordion-section-' + accordion.id : ''"
+  *ngIf="relatedBookIds">
+    <!-- Accordion header -->
+    <mlcl-accordion-header
+    [id]="accordion.id"
+    [heading]="accordion.heading"
+    [icon]="accordion.chevron"
+    (accordionOpen)="accordionOpen(accordion)"></mlcl-accordion-header>
+
+    <!-- Accordion Content -->
+    <section
+    *ngIf="accordion.toggle"
+    [ngClass]="accordion.toggle ? 'atm_accordion-open' : 'atm_accordion-close'">
+      <!-- <book-reference
+      [isbn]="accordion.id"
+      (bookTitle)="setBookTitle($event)"></book-reference> -->
+      <featured-book
+      [isbn]="relatedBookIds"></featured-book>
+
+      <related-recipes
+      [isbn]="relatedBookIds"
+      [title]="relatedRechipeHeading"
+      [excludeNid]="currentContentId"></related-recipes>
+
+      <p class="cmpnt_paragraph-narrow" [innerHtml]="copyright"></p>
+
+      <more-in-category
+      [isbn]="relatedBookIds"
+      [numberOfSlide]="1"></more-in-category>
+    </section>
+  </section>
+

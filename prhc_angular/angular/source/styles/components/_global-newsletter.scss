@@ -1,0 +1,81 @@
+@import '../molecules/global-signup-header';
+@import '../molecules/global-signup-content';
+
+/*
+written by acressall
+
+includes:
+- styling for the newsletter signup component/sticky footer
+ */
+
+// Styles that exist no matter what the positioning/ where the user is on the page
+.cmpnt_footer-sign-up {
+  width: 100%;
+  border-top: 5px solid $penguinOrange;
+  margin-top: $mediumSpace;
+  z-index: $z-levelOne;
+  // mail icon
+  .mlcl_social i {
+    margin: 0 $extraSmallSpace 0 0;
+  }
+}
+
+// show the whole sign up with fixed positioning
+.cmpnt_footer-sign-up-fixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: $white;
+
+  .mlcl_global-signup-header {
+    position: relative;
+    border: none;
+  }
+}
+
+// Positioning as the user is scrolling. Header is visible; form is hidden
+.atm_form-hidden {
+  @include breakpoint ($largeScreen) {
+    border: none;
+
+    .mlcl_global-signup-header {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      background-color: $white;
+      border-top: 5px solid $penguinOrange;
+      margin: 0;
+      z-index: $z-levelOne;
+    }
+
+    .mlcl_global-signup-content {
+      opacity: 0;
+    }
+  }
+}
+
+// change position when user scrolls to bottom
+.atm_form-relative {
+  .mlcl_global-signup-header {
+    position: relative;
+    border-top: none;
+  }
+}
+
+// scrolling event doesn't work on IE, so make it always relative position at bottom for IE only
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+  .atm_form-hidden {
+    border-top: 5px solid $penguinOrange;
+
+    .mlcl_global-signup-header {
+      position: relative;
+      border: none;
+    }
+
+    .mlcl_global-signup-content {
+      opacity: 1;
+    }
+  }
+}

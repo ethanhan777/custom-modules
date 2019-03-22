@@ -1,0 +1,49 @@
+<section class="container">
+  <div class="mlcl_grid-header">
+    <h2 *ngIf="heading">{{heading}}</h2>
+
+    <!-- sorting -->
+    <div *ngIf="sortFlag">
+      <select
+      class="mlcl_sort"
+      [(ngModel)]="selectedOption"
+      (ngModelChange)="sort($event)">
+        <option
+        *ngFor="let option of sortOptions"
+        [ngValue]="option">{{option.desc}}</option>
+      </select>
+      <span class="fa fa-angle-down mlcl_select-arrow" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <div class="cmpnt_grid-layout">
+    <!-- <nl-signup-by-context *ngIf="loadMoreCounter > 0"></nl-signup-by-context> -->
+    <!-- grid items -->
+    <ng-container *ngFor="let item of data; let index = index">
+      <mlcl-slider-item
+      class="mlcl_grid-item"
+      *ngIf="index <= 7"
+      [type]="'book'"
+      [content]="item"></mlcl-slider-item>
+    </ng-container>
+
+    <nl-signup-by-context class="cmpnt_grid-signup" *ngIf="showSignUp"></nl-signup-by-context>
+
+    <ng-container *ngFor="let item of data; let index = index">
+      <mlcl-slider-item
+      class="mlcl_grid-item"
+      *ngIf="index > 7"
+      [type]="'book'"
+      [content]="item"></mlcl-slider-item>
+    </ng-container>
+
+    <!-- loading icon -->
+    <mlcl-loader *ngIf="loading" class="mlcl_loader"></mlcl-loader>
+
+    <!-- load more -->
+    <div class="atm_load-more" *ngIf="data && data.length && loadMoreFlag">
+      <button class="atm_alt-btn" (click)="loadMoreBooks()">Load More</button>
+    </div>
+
+  </div>
+</section>

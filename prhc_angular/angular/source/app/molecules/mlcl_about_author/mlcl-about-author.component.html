@@ -1,0 +1,26 @@
+<section class="container">
+  <h2 *ngIf="heading">{{heading}}</h2>
+
+  <div class="mlcl_2col-hero-wrapper">
+    <mlcl-cover
+    *ngIf="author.authorPhoto"
+    class="mlcl_hero-img"
+    [coverImage]="author.authorPhoto"
+    [photoCredit]="author.photoCredit"
+    [coverLink]="author.seoFriendlyUrl"
+    [title]="author.display"></mlcl-cover>
+
+    <div class="mlcl_hero-desc">
+      <atm-content-paragraph
+      [paragraph]="author.spotlight"
+      [trunc]="700"
+      *ngIf="author.spotlight"></atm-content-paragraph>
+
+      <atm-button
+      [label]="readMoreLink.label"
+      [seoFriendlyUrl]="readMoreLink.seoFriendlyUrl"
+      *ngIf="readMoreLink"></atm-button>
+
+    </div>
+  </div>
+</section>

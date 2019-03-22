@@ -1,0 +1,35 @@
+<!-- for events by location page -->
+<section *ngIf="currentContentInfo.last" class="container">
+
+  <div class="cmpnt_event cmpnt_paragraph-narrow" *ngIf="events.length">
+    <mlcl-event-list-item
+    class="mlcl_award-event"
+    [type]="'event'"
+    [content]="event"
+    *ngFor="let event of events"></mlcl-event-list-item>
+  </div>
+
+  <!-- loading icon -->
+  <mlcl-loader *ngIf="loading" class="mlcl_loader"></mlcl-loader>
+
+    <!-- view all link -->
+  <div class="atm_load-more">
+    <atm-button
+    *ngIf="loadMoreFlag"
+    [label]="'Load More'"
+    [classes]="'atm_alt-btn'"
+    (clicked)="loadEvents()"></atm-button>
+  </div>
+
+  <!-- no result message -->
+  <p *ngIf="!loading && events.length <= 0">No events at this time</p>
+</section>
+
+
+<!-- for event pages -->
+<mlcl-event-list-accordion
+  *ngIf="!currentContentInfo.last && events.length"
+  [location]="currentLocation"
+  [events]="events"
+  [viewAllFlag]="viewAllFlag"
+  [loading]="loading"></mlcl-event-list-accordion>

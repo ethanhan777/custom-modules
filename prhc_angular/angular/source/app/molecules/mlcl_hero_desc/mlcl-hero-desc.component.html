@@ -1,0 +1,52 @@
+<section
+class="mlcl_hero-details"
+[ngClass]="desc.length <= 5 ? 'mlcl_no-desc' : ''">
+  <atm-content-paragraph
+  *ngIf="desc"
+  [paragraph]="desc"
+  [trunc]="700"
+  [keepReadingFlag]="keepReadingFlag"
+  [accordionId]="accordionId"
+  (clicked)="keepReading($event)"></atm-content-paragraph>
+
+  <atm-buy-button
+  *ngIf="type==='books'"
+  [onSaleDate]="onSaleDate.date"
+  (clickedBuy)="buyButtonClick($event)"></atm-buy-button>
+
+  <!-- excerpt and reading guide buttons -->
+  <atm-button
+  [label]="link.label"
+  [seoFriendlyUrl]="link.seoFriendlyUrl"
+  [windowFlag]="link.windowFlag"
+  (clicked)="buttonOnClick($event)"
+  *ngFor="let link of links"></atm-button>
+
+  <!-- audio clip button -->
+  <atm-button
+  *ngIf="content.audioExcerptUrl"
+  [label]="'Listen to a Clip'"
+  (clicked)="audioButtonClick($event)"></atm-button>
+</section>
+
+
+<section
+aria-label="Overlay with full book description"
+(click)="lightboxOff()"
+*ngIf="lightboxOn"
+tabindex="-1"
+[ngClass]="lightboxOn ? 'cmpnt_lightbox' : 'cmpnt_lightbox-inactive'">
+
+  <div (click)="keepLightboxOn($event)" class="mlcl_lb-inner">
+    <button (click)="lightboxOff()" class="atm_close">
+      <span class="fa fa-times" aria-label="Close overlay"></span>
+    </button>
+    <atm-content-paragraph
+    *ngIf="fullDescription"
+    [paragraph]="fullDescription"
+    class="cmpnt_paragraph-narrow"></atm-content-paragraph>
+  </div>
+
+  <p class="atm_close-bottom"><button (click)="lightboxOff()">close</button></p>
+
+</section>

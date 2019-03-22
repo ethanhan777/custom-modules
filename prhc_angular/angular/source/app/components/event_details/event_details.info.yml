@@ -1,0 +1,8 @@
+name: Event Details Component
+description: 'Event information.'
+selector: event-details
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

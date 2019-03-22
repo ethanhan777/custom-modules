@@ -1,0 +1,120 @@
+.cmpnt_pop-up {
+  display: flex;
+  align-items: flex-end;
+  background: transparent;
+  height: auto;
+  overflow-y: auto;
+  @include breakpoint($largeScreen) {
+    align-items: center;
+    background-color: rgba(66, 66, 67, 0.4); //$extraDarkGrey with 40% opacity
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .mlcl_lb-inner {
+    width: 100%;
+    border-radius: 0;
+    border-top: 5px solid $penguinOrange;
+    margin: 0;
+    box-shadow: none;
+
+    .atm_close {
+      margin: -45px 0 0 0;
+    }
+
+    @include breakpoint($mediumScreen) {
+      @include borderRadius;
+      @include boxShadowNormal;
+    }
+    @include breakpoint($largeScreen) {
+      max-width: $extraLargeWidth;
+      height: fit-content;
+      @include borderRadius;
+      border: 1px solid $mediumGrey;
+      margin: $giantSpace 5rem;
+
+      .atm_close {
+        margin: -35px -35px 0 0;
+      }
+    }
+    @include breakpoint($giantScreen) {
+      margin: $giantSpace auto;
+    }
+  }
+
+  .mlcl_lightbox-content {
+    @include breakpoint($largeScreen) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .mlcl_popup-details {
+    text-align: center;
+    padding: $extraSmallSpace;
+    min-width: 50%;
+    @include breakpoint($largeScreen) {
+      text-align: left;
+      max-width: 50%;
+      padding: $smallSpace $smallSpace 0 $smallSpace;
+    }
+  }
+
+  .mlcl_popup-image {
+    display: none;
+    @include breakpoint ($largeScreen) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      @include col7;
+      padding: 0;
+
+      .atm_video-item {
+        display: block;
+        width: 100%;
+      }
+
+      .atm_video {
+        margin-bottom: 0;
+      }
+
+      a {
+        display: block;
+        position: relative;
+        line-height: 0;
+        @include borderRadius;
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.cmpnt_pop-up-exit {
+  text-align: center;
+  background: $penguinOrange;
+  padding: $mediumSpace $smallSpace;
+  transition: all 0.25s ease;
+  position: fixed;
+  width: 100%;
+  top: -999px;
+  color: $black;
+
+  &.active {
+    position: relative;
+    top: 0;
+  }
+
+  small {
+    text-transform: uppercase;
+  }
+}
+
+body.cmpnt_popup-open {
+  @include breakpoint($largeScreen) {
+    overflow: hidden;
+  }
+}

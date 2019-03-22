@@ -1,0 +1,36 @@
+@import '../molecules/lightbox-inner';
+
+/*
+written by acressall
+
+includes:
+- styling for a lightbox/modal wrapper
+*/
+// Add a class to the body when open to remove page scroll
+body.cmpnt_lightbox-open {
+  overflow: hidden;
+}
+
+.cmpnt_lightbox {
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  z-index: $z-skyscraper;
+  padding-top: $smallSpace;
+  background-color: rgba(66, 66, 67, 0.4); //$extraDarkGrey with 40% opacity
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.cmpnt_lightbox-inactive {
+  display: none;
+  @include animationFadeOut;
+}
+
+.cmpnt_lightbox-active {
+  display: block;
+  @include animationFadeIn;
+}

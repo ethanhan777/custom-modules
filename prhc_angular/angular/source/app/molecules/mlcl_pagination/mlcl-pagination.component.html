@@ -1,0 +1,31 @@
+<section
+[attr.aria-role]="'navigation'"
+class="mlcl_pagination">
+  <div class="atm_left-arrow">
+    <a
+    class="atm_tag"
+    *ngIf="activePage != 1"
+    (click)="prevPage()"><fa [name]="'arrow-left'"></fa></a>
+  </div>
+  <!-- Numbers -->
+  <div>
+    <div class="atm_pagination-numbers">
+      <a
+      [attr.aria-label]="'Page Number ' + page"
+      class="atm_tag"
+      [ngClass]="activePage && activePage == page ? 'atm_tag-active' : ''"
+      *ngFor="let page of pagination; let index = index;"
+      (click)="newPage(page)">{{page}}</a>
+    </div>
+    <div class="atm_page-count">
+      <small>Page {{activePage}} of {{lastPageNumber}}</small>
+    </div>
+  </div>
+
+  <div class="atm_right-arrow">
+    <a
+    class="atm_tag"
+    *ngIf="activePage != lastPageNumber"
+    (click)="nextPage()"><fa [name]="'arrow-right'"></fa></a>
+  </div>
+</section>

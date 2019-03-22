@@ -1,0 +1,85 @@
+<!-- loading icon -->
+<mlcl-loader
+*ngIf="!mcguid"
+class="mlcl_loader"></mlcl-loader>
+
+<section *ngIf="mcguid">
+  <div class="mlcl_header">
+    <h1>{{pageTitle}}</h1>
+    <h2 *ngIf="pageSubtitle">{{pageSubtitle}}</h2>
+  </div>
+
+  <!-- <form class="mlcl_unsubscribe-content"> -->
+  <section *ngIf="userStatus && confirmMessage.length == 0" class="container cmpnt_form-preferences">
+    <div class="cmpnt_paragraph-narrow">
+      <fieldset>
+        <input
+        type="radio"
+        [id]="'unsubscribe-option-0'"
+        [value]="true"
+        [(ngModel)]="subscribtionStatus"
+        (change)="checkSubscribe()">
+        <label [for]="'unsubscribe-option-0'">
+          <h2>{{keepLabel}}</h2>
+        </label>
+      </fieldset>
+
+      <p *ngIf="programs.length">Uncheck to remove from your preferences</p>
+      <div class="cmpnt_pref-list">
+        <fieldset *ngFor="let program of programs">
+          <ng-container *ngIf="!program.parentId">
+            <input
+            [disabled]="unsubscribeAll"
+            type="checkbox"
+            [id]="program.PreferenceId"
+            [value]="program.PreferenceId"
+            [(ngModel)]="programStatus[program.PreferenceId]"
+            [disabled]="!subscribtionStatus">
+          </ng-container>
+          <ng-container *ngIf="program.parentId">
+            <input
+            [disabled]="unsubscribeAll"
+            type="checkbox"
+            [id]="program.PreferenceId"
+            [value]="program.PreferenceId"
+            [(ngModel)]="programStatus[program.parentId][program.PreferenceId]"
+            [disabled]="!subscribtionStatus">
+          </ng-container>
+
+          <label [for]="program.PreferenceId">
+            <small class="atm_small-medium">{{program.name}}</small>
+          </label>
+        </fieldset>
+      </div>
+
+      <fieldset class="atm_unsubscribe-all">
+        <input
+        type="radio"
+        [id]="'unsubscribe-option-1'"
+        [value]="false"
+        [(ngModel)]="subscribtionStatus"
+        (change)="checkSubscribe()">
+        <label [for]="'unsubscribe-option-1'">
+          <h2>Yes, unsubscribe from all emails</h2>
+        </label>
+      </fieldset>
+
+      <button
+      type="submit"
+      (click)="updateStatus()">Submit</button>
+    </div>
+  </section>
+  <!-- </form> -->
+
+  <mlcl-nl-confirm-message
+  *ngIf="confirmMessage.length"
+  [linkFlag]="subscribtionStatus"
+  [message]="confirmMessage"
+  (clicked)="redirectToPrefCentre()"></mlcl-nl-confirm-message>
+
+  <div class="container mlcl_header" *ngIf="errorMessage">
+    <p>{{errorMessage}}</p>
+  </div>
+
+</section>
+

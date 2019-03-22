@@ -1,0 +1,12 @@
+h1,
+h1 a {
+  font-family: $headerFont;
+  font-size: 1.875rem;
+  line-height: 1.2em;
+  text-align: center;
+  margin: 0;
+  @include breakpoint ($mediumScreen) {
+    font-size: 2.5rem;
+    line-height: 1.125em;
+  }
+}

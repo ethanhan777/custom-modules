@@ -1,0 +1,10 @@
+@import '../molecules/search-bar';
+@import '../molecules/single-book';
+
+.cmpnt_facets-results {
+  display: flex;
+  flex-direction: column;
+  @include breakpoint($largeScreen) {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,14 @@
+<section
+class="container cmpnt_connect"
+*ngIf="isLoaded && showOnImprint">
+  <!-- author social links -->
+  <mlcl-author-social-links
+  [author]="author"></mlcl-author-social-links>
+
+  <!-- newsletter signup form -->
+  <nl-signup-by-context
+  *ngIf="showSignUp"
+  [content]="author"
+  [contentType]="contentType"></nl-signup-by-context>
+
+</section>

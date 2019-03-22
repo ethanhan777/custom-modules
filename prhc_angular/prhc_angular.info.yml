@@ -1,0 +1,8 @@
+name: PRHC Angular
+description: Custom module to enable use of Angular components as Drupal blocks
+package: Penguin Custom
+configure: prhc_angular.settings
+
+type: module
+core: 8.x
+

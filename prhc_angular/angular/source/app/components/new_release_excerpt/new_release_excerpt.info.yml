@@ -1,0 +1,8 @@
+name: New release - Excerpt & Book Club Component
+description: 'New release - Excerpt & Book Club Component'
+selector: new-release-excerpt
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

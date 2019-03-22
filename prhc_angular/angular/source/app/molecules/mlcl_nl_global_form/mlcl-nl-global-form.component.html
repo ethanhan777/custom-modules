@@ -1,0 +1,23 @@
+<section class="container">
+  <form class="mlcl_global-signup-content">
+    <fieldset>
+      <input
+      aria-label="Enter your email"
+      type="email"
+      pattern="[^ @]*@[^ @]*"
+      placeholder="example@email.com"
+      [(ngModel)]="email"
+      [ngModelOptions]="{standalone: true}"
+      (keyup)="isValidForm()"
+      (keyup.enter)="signup()">
+
+      <mlcl-nl-legal (isAgreed)="isValidForm($event)"></mlcl-nl-legal>
+    </fieldset>
+
+    <button
+    type="submit"
+    [disabled]="!isValidForm()"
+    (click)="signup()">Sign Up</button>
+
+  </form>
+</section>

@@ -1,0 +1,20 @@
+// molecules to include
+@import '../molecules/slider-header';
+@import '../molecules/slider-content';
+
+.mlcl_slider-content {
+  width: 100%;
+}
+
+.mlcl_slider-content .mlcl_thumbnail-cover {
+  height: 180px;
+  width: 100%;
+
+  img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+  @include breakpoint($largeScreen) {
+    height: 250px;
+  }
+}

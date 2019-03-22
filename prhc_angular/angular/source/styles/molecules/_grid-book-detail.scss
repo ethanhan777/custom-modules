@@ -1,0 +1,78 @@
+//atoms to include
+@import '../atoms/h4';
+@import '../atoms/h6';
+@import '../atoms/small';
+@import '../atoms/hr';
+@import '../atoms/tags';
+
+/*
+written by acressall
+
+description:
+Refers to a place where an item is referenced: grid, slider, list, book reference
+
+includes:
+- styling for categories, titles, authors, and subtitles for books in sliders and grids
+- grid book detail for book reference component
+- grid book detail for featured books
+*/
+.atm_grid-book-detail,
+.atm_grid-book-detail-no-heading {
+  a {
+    text-decoration: none;
+  }
+}
+// book reference component
+.cmpnt_book-reference .atm_grid-book-detail {
+  text-align: center;
+  @include breakpoint($mediumScreen) {
+    text-align: left;
+  }
+}
+// featured book component
+.cmpnt_featured .atm_grid-book-detail,
+.cmpnt_featured .atm_grid-book-detail-no-heading {
+  display: flex;
+  flex-direction: column;
+  @include col12;
+  text-align: center;
+
+  p,
+  small {
+    margin: 0;
+  }
+
+  .mlcl_featured-buttons {
+    display: flex;
+    flex-direction: row;
+  }
+  @include breakpoint ($mediumScreen) {
+    @include col6;
+    text-align: left;
+  }
+}
+
+.cmpnt_featured {
+  // featured book component without a heading
+  .atm_grid-book-detail-no-heading {
+    @include breakpoint ($mediumScreen) {
+      @include col9;
+    }
+  }
+
+  // Make it wider when there is no custom subheading
+  .atm_grid-book-detail-wide {
+    @include breakpoint ($mediumScreen) {
+      @include col9;
+    }
+  }
+
+  .atm_grid-book-detail-with-seal {
+    margin-left: 3%;
+  }
+}
+
+.atm_author {
+  font-family: $fontLight;
+  margin-left: $extraSmallSpace;
+}

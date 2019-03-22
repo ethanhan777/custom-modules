@@ -1,0 +1,11 @@
+<button
+class="atm_btn"
+*ngIf="!isSimple"
+(click)="saveData()">
+<fa [name]="icon"></fa> {{label}}
+</button>
+
+<fa
+*ngIf="isSimple"
+[name]="icon"
+(click)="saveData()"></fa>

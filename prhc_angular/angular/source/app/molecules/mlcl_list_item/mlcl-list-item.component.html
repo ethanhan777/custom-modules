@@ -1,0 +1,12 @@
+<small *ngIf="category.name">
+  <a *ngIf="category.path" href="{{category.path}}" target="{{category.target}}">{{category.name}}</a>
+  <fa *ngIf="externalFlag" [name]="'globe'"></fa>
+</small>
+
+<small *ngIf="label">
+  {{label}}
+  <fa *ngIf="externalFlag" [name]="'globe'"></fa>
+</small>
+
+<h4><a href="{{seoFriendlyUrl}}" [innerHtml]="title" target="{{urlTarget}}" rel="noopener"></a></h4>
+<p *ngIf="body" [innerHtml]="body"></p>

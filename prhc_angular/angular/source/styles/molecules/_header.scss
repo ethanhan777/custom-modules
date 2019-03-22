@@ -1,0 +1,27 @@
+//atoms to include
+@import '../atoms/h1';
+//molecules to include
+@import '../molecules/contributors';
+@import '../molecules/social';
+
+/*
+written by acressall
+
+includes:
+- styling for headers - usually within a hero component
+*/
+.mlcl_header {
+  text-align: center;
+  max-width: $largeWidth;
+  margin: 0 1.125em;
+  @include breakpoint($mediumScreen) {
+    margin: 0 5em;
+  }
+  @include breakpoint($largeScreen) {
+    margin: 0 auto;
+  }
+
+  .mlcl_social {
+    margin: $mediumSpace 0;
+  }
+}

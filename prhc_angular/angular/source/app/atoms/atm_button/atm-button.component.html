@@ -1,0 +1,16 @@
+<button
+[ngClass]="classes"
+[disabled]="isDisabled"
+(click)="buttonClicked()">
+  <fa
+  *ngIf="iconInFront"
+  [name]="icon"></fa>
+  {{label}}
+  <fa
+  *ngIf="externalFlag"
+  [name]="icon"></fa>
+</button>
+
+<!-- <button
+class="atm_alt-btn"
+(click)="isClicked()">{{label}}</button> -->

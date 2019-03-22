@@ -1,0 +1,17 @@
+<mlcl-hero-title
+class="cmpnt_paragraph-narrow mlcl_quiz-title"
+[title]="title"></mlcl-hero-title>
+
+<div class="quiz-options">
+  <fieldset
+  class="mlcl_quiz-select mlcl_who-option"
+  *ngFor="let option of options">
+    <input
+    type="{{type}}"
+    value="{{option}}"
+    name="'age'"
+    (click)="humanType(option)">
+
+    <label>{{option}}</label>
+  </fieldset>
+</div>

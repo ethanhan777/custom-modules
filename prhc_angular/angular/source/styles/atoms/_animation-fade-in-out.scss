@@ -1,0 +1,32 @@
+//Accordion & Lightbox Fade in
+@mixin animationFadeIn {
+  animation: FadeIn 0.45s normal ease-in-out both 1;
+}
+@mixin animationFadeOut {
+  animation: FadeOut 0.45s alternate ease-in-out both 1;
+}
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) rotateX(-60deg);
+    transform-origin: 50% 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes FadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    padding: 0;
+    height: 0;
+    opacity: 0;
+    transform: scale(0) rotateX(-60deg);
+    transform-origin: 50% 0;
+  }
+}

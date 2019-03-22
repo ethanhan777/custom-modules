@@ -1,0 +1,43 @@
+// the real radio button
+input[type=radio] {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  outline: none;
+  opacity: 0;
+  z-index: $z-levelOne;
+  cursor: pointer;
+
+  + label {
+    margin-left: $largeSpace;
+  }
+}
+
+// the styled radio button
+input[type=radio] + label::before {
+  font-family: 'FontAwesome', Times, serif;
+  font-size: 0.75rem;
+  content: '';
+  text-align: center;
+  position: absolute;
+  display: block;
+  width: 1.4em;
+  height: 1.182em;
+  background: $white;
+  padding: 0.25em 0.5em 0.75em 0.5em;
+  border: 2px solid $mediumGrey;
+  border-radius: 100%;
+  margin-top: - $extraSmallSpace;
+  margin-left: -40px;
+  cursor: pointer;
+  @include breakpoint($largeScreen) {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+// after it's checked
+input[type=radio]:checked + label::before {
+  content: '\f111';
+  border: 2px solid $extraDarkGrey;
+}

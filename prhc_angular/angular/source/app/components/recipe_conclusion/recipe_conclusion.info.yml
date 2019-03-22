@@ -1,0 +1,8 @@
+name: Recipe Conclusion Component
+description: 'Conclusion and Copyright for recipes'
+selector: recipe-conclusion
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active

@@ -1,0 +1,21 @@
+<section class="container">
+
+  <mlcl-grid-book
+  *ngIf="!hasChildren && works.length"
+  [heading]="heading"
+  [data]="works"
+  [loading]="loading"
+  [loadMoreFlag]="loadMoreFlag"
+  [type]="currentContentInfo.type"
+  (sortChange)="sort($event)"
+  [sortFlag]="true"
+  (loadMore)="loadMore()"></mlcl-grid-book>
+
+  <div *ngIf="hasChildren">
+    <mlcl-category-slider
+    [heading]="sliderHeading"
+    [category]="category"
+    *ngFor="let category of childrenCategories"></mlcl-category-slider>
+  </div>
+
+</section>

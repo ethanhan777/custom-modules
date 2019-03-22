@@ -1,0 +1,22 @@
+p {
+  font-family: $bodyFont;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  margin: 0 0 $smallSpace 0;
+
+  strong,
+  b {
+    font-family: $fontMedium;
+    font-style: bold;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  label {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+}

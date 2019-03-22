@@ -1,0 +1,44 @@
+@import '../atoms/form-checkbox-pref';
+@import '../molecules/subscriber-profile';
+
+.atm_nl-confirm-message {
+  margin-top: $mediumSpace;
+}
+
+.cmpnt_pref-list {
+  @include breakpoint($smallScreen) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  fieldset {
+    @include breakpoint($smallScreen) {
+      @include col5;
+    }
+    @include breakpoint($mediumScreen) {
+      @include col4;
+      padding-left: 0;
+    }
+  }
+}
+
+.cmpnt_form {
+  margin-top: $mediumSpace;
+  margin-bottom: $mediumSpace;
+}
+
+.cmpnt_nl-programs {
+  display: block;
+  margin-bottom: $mediumSpace;
+}
+
+.cmpnt_nl-profile {
+  margin-bottom: $mediumSpace;
+}
+
+.atm_unsubscribe-all {
+  padding-top: $mediumSpace;
+  border-top: 1px solid $mediumGrey;
+  margin-top: $mediumSpace;
+}

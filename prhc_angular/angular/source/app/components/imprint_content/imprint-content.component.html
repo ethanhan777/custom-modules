@@ -1,0 +1,21 @@
+<new-release (hasNewRelease)="checkStatus($event)"></new-release>
+<coming-soon (hasComingSoon)="checkStatus($event)"></coming-soon>
+
+
+<section *ngIf="isLoaded && !hasComingSoonorNew" class="container cmpnt_grid-layout">
+
+  <mlcl-grid-book
+  [data]="data"
+  [sortFlag]="false"
+  [loading]="loading"
+  [type]="currentContentInfo.type"></mlcl-grid-book>
+
+  <div class="atm_load-more">
+    <atm-button
+    [label]="'View All Books'"
+    [seoFriendlyUrl]="allBooksLink"
+    [classes]="'atm_alt-btn'"></atm-button>
+  </div>
+
+</section>
+

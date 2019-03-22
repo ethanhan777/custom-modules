@@ -1,0 +1,11 @@
+// atoms to include
+@import '../atoms/h3';
+@import '../atoms/tags';
+//molecules to include
+@import '../molecules/filter-nav-link';
+
+.cmpnt_facet-nav {
+  @include breakpoint($largeScreen) {
+    @include col3;
+  }
+}

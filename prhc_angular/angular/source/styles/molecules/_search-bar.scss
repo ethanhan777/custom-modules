@@ -1,0 +1,23 @@
+//atoms to include
+@import '../atoms/form-input';
+@import '../atoms/small';
+
+/*
+written by acressall
+
+includes:
+- search text field and close icon
+*/
+
+.mlcl_search-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: $extraSmallSpace;
+
+  input {
+    display: block;
+    width: 100%;
+    margin-right: $extraSmallSpace;
+  }
+}

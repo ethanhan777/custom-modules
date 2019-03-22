@@ -1,0 +1,12 @@
+<h1 id="page-title">{{title}}</h1>
+<h2 *ngIf="subtitle" [innerHTML]="subtitle"></h2>
+
+<!-- contributors -->
+<mlcl-contributors
+*ngIf="contributors && contributors.length"
+[contributors]="contributors"></mlcl-contributors>
+
+<!-- series -->
+<mlcl-hero-series
+*ngIf="series"
+[series]="series"></mlcl-hero-series>

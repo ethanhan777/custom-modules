@@ -1,0 +1,11 @@
+<section>
+  <h2 *ngIf="heading">{{heading}}</h2>
+
+  <div class="cmpnt_grid-layout">
+    <mlcl-slider-item
+    class="mlcl_grid-item"
+    [type]="'book'"
+    [content]="campaign"
+    *ngFor="let campaign of campaigns"></mlcl-slider-item>
+  </div>
+</section>

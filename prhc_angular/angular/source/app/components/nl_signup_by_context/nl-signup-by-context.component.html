@@ -1,0 +1,22 @@
+<section
+*ngIf="isLoaded"
+class="container cmpnt_context-sign-up">
+  <!-- newsletter signup header -->
+  <mlcl-nl-signup-header
+  *ngIf="!mcguid && headerLabel"
+  [headerLabel]="headerLabel"></mlcl-nl-signup-header>
+
+  <!-- newsletter signup form -->
+  <mlcl-nl-context-form
+  *ngIf="!mcguid"
+  [contentType]="contentType"
+  [noSignupButton]="!signupButtonFlag"
+  (onSignup)="setMcguid($event)"
+  (stepAction)="step($event)"></mlcl-nl-context-form>
+
+  <!-- thank you message -->
+  <mlcl-nl-ty-message
+  *ngIf="mcguid"
+  [mcguid]="mcguid"
+  [prefNames]="prefNames"></mlcl-nl-ty-message>
+</section>

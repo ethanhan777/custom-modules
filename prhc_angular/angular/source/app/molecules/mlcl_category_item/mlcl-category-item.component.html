@@ -1,0 +1,5 @@
+<section class="mlcl_category-item mlcl_grid-item-wrapper" *ngIf="content">
+  <a [attr.aria-label]="content.title" href="{{content.seoFriendlyUrl}}" class="mlcl_thumbnail-cover {{gridImageFallback}}">
+    <h4><a href="{{content.seoFriendlyUrl}}">{{content.title}}</a></h4>
+  </a>
+</section>

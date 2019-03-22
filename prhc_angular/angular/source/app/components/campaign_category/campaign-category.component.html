@@ -1,0 +1,77 @@
+
+<section  *ngIf="campaignComponents.length">
+  <div
+  class="container cmpnt_campaign-section"
+  *ngFor="let component of campaignComponents">
+    <!-- category heading -->
+    <mlcl-campaign-category-heading
+    *ngIf="component.type == 'paragraph--category_heading'"
+    [detail]="component"></mlcl-campaign-category-heading>
+
+    <!-- fetured books -->
+    <mlcl-campaign-featured-book
+    [ngClass]="campaignType ==='List' ? 'cmpnt_book-list-item' : ''"
+    *ngIf="component.type == 'paragraph--book'"
+    [featuredBook]="component"
+    [isSaveButton]="isListGuide"
+    (savedBook)="saveOnClick($event)"></mlcl-campaign-featured-book>
+
+    <!-- featured authors -->
+    <mlcl-campaign-featured-author
+    *ngIf="component.type == 'paragraph--author'"
+    [featuredAuthor]="component"></mlcl-campaign-featured-author>
+
+    <!-- slide books/ authors/ nodes -->
+    <mlcl-campaign-slider
+    *ngIf="component.type == 'paragraph--slider'"
+    [type]="'slider'"
+    [slider]="component"
+    [isSaveButton]="isListGuide"
+    (savedBook)="saveOnClick($event)"></mlcl-campaign-slider>
+
+    <!-- grid books/ authors/ nodes -->
+    <mlcl-campaign-slider
+    *ngIf="component.type == 'paragraph--grid'"
+    [type]="'grid'"
+    [slider]="component"
+    [isSaveButton]="isListGuide"
+    (savedBook)="saveOnClick($event)"></mlcl-campaign-slider>
+
+    <!-- grid category term -->
+    <mlcl-campaign-category
+    *ngIf="component.type == 'paragraph--content_category'"
+    [data]="component"></mlcl-campaign-category>
+
+    <!-- cta -->
+    <mlcl-campaign-cta
+    *ngIf="component.type == 'paragraph--cta_warpper'"
+    [cta]="component"></mlcl-campaign-cta>
+
+    <!-- webform -->
+    <mlcl-form
+    *ngIf="component.type == 'paragraph--webform' && formElements.length"
+    [campaignTitle]="campaignTitle"
+    [webformConsent]="webformConsent"
+    [webformAttr]="webformAttr"
+    [officialRule]="officialRule"
+    [acquisitionCode]="acquisitionCode"
+    [preferences]="preferences"
+    [formElements]="formElements"></mlcl-form>
+
+  </div>
+
+  <more-in-category-article
+  *ngIf="campaignType !=='home'"></more-in-category-article>
+
+  <saved-books
+  *ngIf="campaignType ==='List' || campaignType ==='Guide'"
+  [status]="savedBookDisplayFlag"></saved-books>
+
+  <mlcl-reco-cta
+  [heading]="'Not sure where to start?'"
+  [paragraph]="'Take our quiz to receive personalized picks!'"
+  [url]="'/book-finder'"
+  class="container"
+  *ngIf="campaignType ==='List' || campaignType ==='Guide'"></mlcl-reco-cta>
+
+</section>

@@ -1,0 +1,60 @@
+//sub-molecules to include
+@import 'cover-small';
+@import 'cover-series';
+@import 'grid-book-detail';
+
+/*
+written by acressall
+
+includes:
+- styling for a list of items
+- positioning of the details - title, subtitle, author, description
+*/
+.mlcl_cover-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $mediumSpace;
+  @include breakpoint($smallScreen) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  // custom detail style for this  molecule
+  .atm_grid-book-detail {
+    @include col12;
+
+    h4 a {
+      text-decoration: none;
+    }
+    @include breakpoint($smallScreen) {
+      @include col8;
+    }
+  }
+  // the actual description for the item - only used for articles, job postings, press releases, recipes
+  .atm_small-desc {
+    display: none;
+    @include breakpoint($smallScreen) {
+      display: initial;
+    }
+  }
+
+  // for the buy workflow so eBook does not become EBook
+  .atm_tag {
+    text-transform: inherit;
+  }
+}
+
+//custom cover style for this molecule
+.mlcl_list-item-cover {
+  @include col12;
+  display: flex;
+  @include breakpoint($smallScreen) {
+    @include col4;
+  }
+
+  .mlcl_thumbnail-cover {
+    width: 100%;
+    height: 11em;
+    display: flex;
+  }
+}

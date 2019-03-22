@@ -1,0 +1,18 @@
+.atm_seal {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 88px;
+  height: 86px;
+  -webkit-border-radius: 42px !important;
+  -moz-border-radius: 42px !important;
+  border-radius: 42px !important;
+  box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.atm_seal-book-club {
+  background: url(/themes/custom/penguin/images/book-club-logo-small.png) center/cover;
+}

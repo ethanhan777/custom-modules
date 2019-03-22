@@ -1,0 +1,38 @@
+<section>
+  <div
+  [attr.aria-role]="'search'"
+   class="mlcl_search-bar">
+    <!-- search input box -->
+    <input
+    #searchBar
+    type="search"
+    class="search-bar"
+    placeholder="Search"
+    [(ngModel)]="searchTerm"
+    (keyup)="predictiveSearch($event)"
+    (keyup.enter)="search()">
+    <!-- (blur)="disablePridiction()" -->
+
+    <!-- search button -->
+    <fa
+    [name]="'search'"
+    (click)="search()"></fa>
+  </div>
+
+  <!-- predictive search -->
+  <div
+  #predictivePane
+  class="cmpnt_predictive-suggestions cmpnt_accordion-narrow"
+  *ngIf="hasSuggestions && !isLoaded && isLoaded == false"
+  (keyup)="predictiveSelect($event)">
+    <ng-container
+    *ngFor="let key of predictiveResults | ObjNgFor">
+      <a
+      href="{{result.seoFriendlyUrl}}"
+      *ngFor="let result of predictiveResults[key]">
+        <small>{{result.name}}</small>
+        <caption class="atm_caption">{{key == 'work' ? 'book' : key}}</caption>
+      </a>
+    </ng-container>
+  </div>
+</section>

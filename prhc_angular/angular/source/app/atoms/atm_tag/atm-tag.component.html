@@ -1,0 +1,12 @@
+<a
+class="atm_tag"
+[ngClass]="active ? 'atm_tag-active' : ''"
+(click)="isClicked()">
+  <ng-container *ngIf="icon && iconBefore">
+    <i class="fa fa-{{icon}}" aria-hidden="true"></i>&nbsp;
+  </ng-container>
+  {{name}}
+  <ng-container *ngIf="icon && iconAfter">
+      &nbsp;<i class="fa fa-{{icon}}" aria-hidden="true"></i>
+  </ng-container>
+</a>

@@ -1,0 +1,11 @@
+@import 'buttons';
+
+.atm_btn-center,
+.atm_load-more {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $smallSpace;
+}

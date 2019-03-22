@@ -1,0 +1,8 @@
+name: Quiz Learn Something or have fun Component
+description: 'Selecting preference for learning or fun for kids for recommendation quiz'
+selector: quiz-learn-fun
+type: prhc_angular
+package: PRHC Angular
+version: '1.0.0'
+core: '8.x'
+module_status: active
